@@ -6,7 +6,7 @@ const DATA_FILE = join(process.cwd(), 'solar-data.json')
 
 import type { EnergyData } from '../../src/types'
 
-export function loadCrowdfundingData(): EnergyData[] {
+export function loadEnergyData(): EnergyData[] {
   if (existsSync(DATA_FILE)) {
     try {
       const data = readFileSync(DATA_FILE, 'utf-8')
@@ -23,5 +23,5 @@ export function loadCrowdfundingData(): EnergyData[] {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
-  res.status(200).json(loadCrowdfundingData() )
+  res.status(200).json(loadEnergyData() )
 }

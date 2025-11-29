@@ -3,6 +3,7 @@ import { wallet } from '../../src/wallet'
 import { Utils, Script} from '@bsv/sdk'
 import { join } from 'path'
 import { writeFileSync } from 'fs'
+import { EnergyData } from '@/src/types'
 
 const DATA_FILE = join(process.cwd(), 'solar-data.json')
 
@@ -24,11 +25,11 @@ export function saveEnergyData(state: EnergyData): void {
 function createOpReturnScript(data: number[]): string {
   // OP_RETURN = 0x6a
   const opReturn = [0x6a]
-  
+
   // Determinar el opcode de push según el tamaño de los datos
   let pushOpcode: number
   let lengthBytes: number[] = []
-  
+
   if (data.length < 76) {
     // OP_PUSHDATA1 no es necesario, usar el opcode directo (el tamaño mismo es el opcode)
     pushOpcode = data.length
@@ -53,19 +54,14 @@ function createOpReturnScript(data: number[]): string {
       (data.length >> 24) & 0xff
     ]
   }
-  
+
   // Construir el script completo: OP_RETURN + push opcode + length (si aplica) + data
   const scriptBytes = [...opReturn, pushOpcode, ...lengthBytes, ...data]
-  
+
   // Convertir a hex string
   return Utils.toHex(scriptBytes)
 }
 
-interface EnergyData {
-  device_id: string
-  energy: number // kWh
-  timestamp: number | string
-}
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -78,27 +74,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Validar que sea un objeto
     if (!jsonData || typeof jsonData !== 'object') {
-      return res.status(400).json({ 
-        error: 'Invalid JSON data. Expected a JSON object with device_id, energy, and timestamp fields.' 
+      return res.status(400).json({
+        error: 'Invalid JSON data. Expected a JSON object with device_id, energy, and timestamp fields.'
       })
     }
 
     // Validar campos requeridos
     if (!jsonData.device_id || typeof jsonData.device_id !== 'string' || jsonData.device_id.trim() === '') {
-      return res.status(400).json({ 
-        error: 'Missing or invalid device_id. Must be a non-empty string.' 
+      return res.status(400).json({
+        error: 'Missing or invalid device_id. Must be a non-empty string.'
       })
     }
 
     if (typeof jsonData.energy !== 'number' || isNaN(jsonData.energy)) {
-      return res.status(400).json({ 
-        error: 'Missing or invalid energy. Must be a number (kWh).' 
+      return res.status(400).json({
+        error: 'Missing or invalid energy. Must be a number (kWh).'
       })
     }
 
     if (jsonData.timestamp === undefined || jsonData.timestamp === null) {
-      return res.status(400).json({ 
-        error: 'Missing timestamp. Must be a number (Unix timestamp) or ISO string.' 
+      return res.status(400).json({
+        error: 'Missing timestamp. Must be a number (Unix timestamp) or ISO string.'
       })
     }
 
@@ -107,8 +103,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (typeof jsonData.timestamp === 'string') {
       const date = new Date(jsonData.timestamp)
       if (isNaN(date.getTime())) {
-        return res.status(400).json({ 
-          error: 'Invalid timestamp format. Must be a valid Unix timestamp (number) or ISO date string.' 
+        return res.status(400).json({
+          error: 'Invalid timestamp format. Must be a valid Unix timestamp (number) or ISO date string.'
         })
       }
       normalizedTimestamp = Math.floor(date.getTime() / 1000) // Convertir a Unix timestamp
@@ -159,7 +155,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       explorerUrl: `https://whatsonchain.com/tx/${result.txid}`
     })
 
-    saveCrowdfundingData(normalizedData)
+    saveEnergyData(normalizedData)
 
     // Devolver el TXID de la transacción
     res.status(200).json({
@@ -172,10 +168,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     })
   } catch (error: any) {
     console.error('Store JSON error:', error)
-    res.status(500).json({ 
+    res.status(500).json({
       error: error.message || 'Failed to store JSON on blockchain',
       details: error.toString()
     })
   }
 }
-
