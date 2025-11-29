@@ -4,13 +4,13 @@ import { join } from 'path'
 
 const DATA_FILE = join(process.cwd(), 'solar-data.json')
 
-import type { EnergyData } from '../../src/types'
+import type { EnergyDataStored } from '../../src/types'
 
-export function loadEnergyData(): EnergyData[] {
+export function loadEnergyData(): EnergyDataStored[] {
   if (existsSync(DATA_FILE)) {
     try {
       const data = readFileSync(DATA_FILE, 'utf-8')
-      const stored: EnergyData[] = JSON.parse(data)
+      const stored: EnergyDataStored[] = JSON.parse(data)
       return stored
 
     } catch (error) {
