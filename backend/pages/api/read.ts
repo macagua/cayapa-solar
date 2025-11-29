@@ -1,16 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { wallet } from '../../src/wallet'
-import { setCrowdfundingState } from '../../lib/crowdfunding'
 import { existsSync, readFileSync } from 'fs'
 import { join } from 'path'
 
 const DATA_FILE = join(process.cwd(), 'solar-data.json')
 
-interface EnergyData {
-  device_id: string
-  energy: number // kWh
-  timestamp: number | string
-}
+import type { EnergyData } from '../../src/types'
 
 export function loadCrowdfundingData(): EnergyData[] {
   if (existsSync(DATA_FILE)) {
