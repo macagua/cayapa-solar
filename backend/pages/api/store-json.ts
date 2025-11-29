@@ -1,6 +1,21 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { wallet } from '../../src/wallet'
 import { Utils, Script} from '@bsv/sdk'
+import { join } from 'path'
+import { existsSync, readFileSync, writeFileSync } from 'fs'
+
+const DATA_FILE = join(process.cwd(), 'solar-data.json')
+
+let global_state : EnergyData[] = []
+
+export function saveCrowdfundingData(state: EnergyData): void {
+  global_state.push(state)
+  try {
+    writeFileSync(DATA_FILE, JSON.stringify(global_state, null, 2), 'utf-8')
+  } catch (error) {
+    console.error('Error saving crowdfunding data:', error)
+  }
+}
 
 /**
  * Crea un script OP_RETURN con los datos proporcionados
@@ -143,6 +158,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       dataSize: jsonBytes.length,
       explorerUrl: `https://whatsonchain.com/tx/${result.txid}`
     })
+
+    saveCrowdfundingData(normalizedData)
 
     // Devolver el TXID de la transacción
     res.status(200).json({
