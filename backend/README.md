@@ -437,6 +437,16 @@ npm start
 npm run type-check
 ```
 
+### Send value
+```bash
+curl -X POST http://localhost:3001/api/store-json \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"device_id\": \"sensor-001\",
+    \"energy\": 25.453,
+    \"timestamp\": $(date +%s)
+  }"
+```
 ## Resources
 
 ### Documentation
