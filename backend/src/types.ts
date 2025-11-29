@@ -1,3 +1,9 @@
+export interface EnergyData {
+  device_id: string
+  energy: number // kWh
+  timestamp: number | string
+}
+
 export interface Investor {
   identityKey: string
   amount: number
