@@ -3,13 +3,13 @@ import { wallet } from '../../src/wallet'
 import { Utils, Script} from '@bsv/sdk'
 import { join } from 'path'
 import { writeFileSync } from 'fs'
-import { EnergyData } from '@/src/types'
+import { EnergyData, EnergyDataStored } from '@/src/types'
 
 const DATA_FILE = join(process.cwd(), 'solar-data.json')
 
 let global_state : EnergyData[] = []
 
-export function saveEnergyData(state: EnergyData): void {
+export function saveEnergyData(state: EnergyDataStored): void {
   global_state.push(state)
   try {
     writeFileSync(DATA_FILE, JSON.stringify(global_state, null, 2), 'utf-8')
@@ -116,7 +116,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const normalizedData: EnergyData = {
       device_id: jsonData.device_id.trim(),
       energy: Number(jsonData.energy.toFixed(3)), // Redondear a 3 decimales para kWh
-      timestamp: normalizedTimestamp
+      timestamp: normalizedTimestamp,
     }
 
     // Convertir el JSON a string y luego a bytes
@@ -155,7 +155,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       explorerUrl: `https://whatsonchain.com/tx/${result.txid}`
     })
 
-    saveEnergyData(normalizedData)
+    saveEnergyData({...normalizedData, tx_link: `https://whatsonchain.com/tx/${result.txid}`})
 
     // Devolver el TXID de la transacción
     res.status(200).json({
