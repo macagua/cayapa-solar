@@ -120,7 +120,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       description: `Store energy data on BSV blockchain - Device: ${normalizedData.device_id}`,
       outputs: [
         {
-          lockingScript: Script.fromASM('OP_RETURN 414141').toHex(),
+          lockingScript: opReturnScriptHex,
           satoshis: 1, // OP_RETURN outputs no requieren satoshis
           outputDescription: `Energy data: ${normalizedData.device_id} - ${normalizedData.energy} kWh`
         }
