@@ -29,7 +29,7 @@ export default function Header() {
       {/* Right navbar links */}
       <ul className="navbar-nav ml-auto">
         {/* Dark mode toggle */}
-        {/* <li className="nav-item">
+        <li className="nav-item">
           <button
             className="nav-link"
             onClick={toggleDarkMode}
@@ -37,7 +37,7 @@ export default function Header() {
           >
             <i className={`fas fa-${darkMode ? 'sun' : 'moon'}`}></i>
           </button>
-        </li> */}
+        </li>
 
         {/* Notifications */}
         <li className="nav-item dropdown">
