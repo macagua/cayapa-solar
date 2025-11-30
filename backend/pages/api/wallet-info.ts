@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { wallet } from '../../src/wallet'
 import { loadCrowdfundingData } from '../../lib/storage'
 import { setCrowdfundingState } from '../../lib/crowdfunding'
+import { setCorsHeaders } from '../../lib/cors'
 
 /**
  * @swagger
@@ -25,6 +26,11 @@ import { setCrowdfundingState } from '../../lib/crowdfunding'
  *         description: Error del servidor
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Configurar CORS
+  if (setCorsHeaders(req, res)) {
+    return // Respuesta preflight ya enviada
+  }
+
   const identityKey = await wallet.getPublicKey({ identityKey: true })
 
   // Load crowdfunding state for this wallet

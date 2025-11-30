@@ -4,6 +4,7 @@ import { Utils, Script} from '@bsv/sdk'
 import { join } from 'path'
 import { writeFileSync } from 'fs'
 import { EnergyData, EnergyDataStored } from '@/src/types'
+import { setCorsHeaders } from '../../lib/cors'
 
 const DATA_FILE = join(process.cwd(), 'solar-data.json')
 const real_work = false // Si es false, evita llamadas a blockchain y genera txid fake para pruebas
@@ -155,6 +156,11 @@ function createOpReturnScript(data: number[]): string {
  *                   type: string
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Configurar CORS
+  if (setCorsHeaders(req, res)) {
+    return // Respuesta preflight ya enviada
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
