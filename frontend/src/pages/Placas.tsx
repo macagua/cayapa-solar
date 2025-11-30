@@ -83,12 +83,14 @@ export default function Placas() {
       INACTIVE: 'badge-danger',
       MAINTENANCE: 'badge-warning',
       ERROR: 'badge-danger',
+      BENEFIT: 'badge-warning',
     }
     const labels = {
       ACTIVE: 'Activa',
       INACTIVE: 'Inactiva',
       MAINTENANCE: 'Mantenimiento',
       ERROR: 'Error',
+      BENEFIT: '3 horas de aparcamiento gratuito en zona verde',
     }
     return (
       <span className={`badge ${badges[status as keyof typeof badges]}`}>
@@ -142,6 +144,16 @@ export default function Placas() {
                   <div className="col-md-3">
                     <p>
                       <strong>Ubicación:</strong> {selectedPanel.location}
+                    </p>
+                  </div>
+                  <div className="col-md-3">
+                    <p>
+                      <strong>Token ganados:</strong> 33 🎖️🎖️🎖️
+                    </p>
+                  </div>
+                  <div className="col-md-9">
+                    <p>
+                      <strong>Beneficio:</strong> {getStatusBadge('BENEFIT')}
                     </p>
                   </div>
                 </div>
