@@ -1,173 +1,240 @@
-# [AdminLTE - Bootstrap 5 Admin Dashboard](https://adminlte.io)
+# Cayapa Solar - Panel de Administración
 
-[![npm version](https://img.shields.io/npm/v/admin-lte/latest.svg)](https://www.npmjs.com/package/admin-lte)
-[![Packagist](https://img.shields.io/packagist/v/almasaeed2010/adminlte.svg)](https://packagist.org/packages/almasaeed2010/adminlte)
-[![cdn version](https://data.jsdelivr.com/v1/package/npm/admin-lte/badge)](https://www.jsdelivr.com/package/npm/admin-lte)
-[![Discord Invite](https://img.shields.io/badge/discord-join%20now-green)](https://discord.gg/jfdvjwFqfz)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1277b36b-08f3-43fa-826a-4b4d24614b3c/deploy-status)](https://app.netlify.com/sites/adminlte-v4/deploys)
+Panel de administración moderno construido con React, TypeScript, Vite y AdminLTE siguiendo las mejores prácticas de desarrollo frontend 2025.
 
-**AdminLTE** is a fully responsive administration template. Based on **[Bootstrap 5](https://getbootstrap.com/)** framework and also the JavaScript plugins.
-Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops.
+## 🚀 Características
 
-## What's New in v4.0.0-rc5
+- ⚡️ **Vite** - Build tool ultrarrápido para desarrollo moderno
+- ⚛️ **React 18** - Última versión con mejoras de rendimiento
+- 🔷 **TypeScript** - Type safety y mejor experiencia de desarrollo
+- 🎨 **AdminLTE 3** - Framework UI profesional para paneles admin
+- 🔄 **React Router v6** - Routing con lazy loading y code splitting
+- 📦 **Zustand** - State management ligero y moderno (alternativa a Redux)
+- 🔍 **React Query** - Gestión de estado del servidor y caché
+- 🎯 **ESLint + Prettier** - Linting y formateo automático
+- 📱 **Responsive** - Diseño adaptable a todos los dispositivos
+- ♿️ **Accesibilidad** - Cumplimiento de estándares WCAG
+- 🌙 **Dark Mode** - Soporte para modo oscuro
 
-**Latest Release with Major Dependency Updates & Security Fixes** - Fresh improvements for better development experience:
+## 📁 Estructura del Proyecto
 
-- **Major Dependency Updates** - 17+ npm packages updated to latest versions
-- **Security Enhancements** - Fixed 2 critical vulnerabilities (axios DoS, form-data random function)
-- **Latest Tooling** - Updated to TypeScript 5.9.3, ESLint 9.37.0, Astro 5.14.4, and more
-- **Bootstrap 5.3.8** - Updated to the latest stable Bootstrap release
-- **ESLint 9.x Compatibility** - Removed deprecated `.eslintignore` file
-- **Zero Vulnerabilities** - All security issues resolved
-
-**Key Improvements:**
-- ✅ All dependencies updated to their absolute latest versions
-- ✅ Two major version bumps: cross-env 10.x and eslint-config-xo-typescript 9.x
-- ✅ Enhanced security with vulnerability fixes
-- ✅ Cleaner linting without deprecation warnings
-- ✅ Production-ready with enhanced stability
-- ✅ Faster builds with latest Rollup, Sass, and Terser
-
-**Install the latest:**
-```bash
-npm install admin-lte@4.0.0-rc5
+```
+frontend/
+├── src/
+│   ├── assets/          # Recursos estáticos (imágenes, fuentes)
+│   ├── components/      # Componentes reutilizables
+│   │   └── LoadingSpinner.tsx
+│   ├── hooks/           # Custom hooks
+│   │   └── useResponsive.ts
+│   ├── layouts/         # Componentes de layout
+│   │   ├── MainLayout.tsx
+│   │   ├── Header.tsx
+│   │   ├── Sidebar.tsx
+│   │   └── Footer.tsx
+│   ├── pages/           # Páginas de la aplicación
+│   │   ├── Dashboard.tsx
+│   │   ├── Login.tsx
+│   │   └── NotFound.tsx
+│   ├── router/          # Configuración de rutas
+│   │   └── index.tsx
+│   ├── services/        # Servicios API
+│   │   └── api.ts
+│   ├── store/           # Estado global con Zustand
+│   │   ├── authStore.ts
+│   │   └── uiStore.ts
+│   ├── styles/          # Estilos globales
+│   │   └── main.scss
+│   ├── types/           # Definiciones de TypeScript
+│   │   └── index.ts
+│   ├── utils/           # Utilidades y helpers
+│   │   └── helpers.ts
+│   ├── App.tsx          # Componente principal
+│   ├── main.tsx         # Punto de entrada
+│   └── vite-env.d.ts    # Tipos de Vite
+├── .eslintrc.cjs        # Configuración ESLint
+├── .prettierrc          # Configuración Prettier
+├── index.html           # HTML principal
+├── package.json         # Dependencias y scripts
+├── tsconfig.json        # Configuración TypeScript
+├── tsconfig.node.json   # Configuración TypeScript para Node
+└── vite.config.ts       # Configuración Vite
 ```
 
-See the [CHANGELOG.md](CHANGELOG.md) for complete details.
+## 🛠️ Instalación
 
-## Looking for Premium Templates?
+### Prerrequisitos
 
-AdminLTE.io just opened a new premium templates page. Hand picked to ensure the best quality and the most affordable
-prices. Visit <https://adminlte.io/premium> for more information.
+- Node.js >= 18.0.0
+- npm >= 9.0.0
+- **Backend de Cayapa Solar** ejecutándose en `http://localhost:3001`
 
-!["AdminLTE Presentation"](https://adminlte.io/AdminLTE3.png "AdminLTE Presentation")
+### Pasos
 
-**AdminLTE** has been carefully coded with clear comments in all of its JS, SCSS and HTML files.
-SCSS has been used to increase code customizability.
+1. **Instalar dependencias:**
 
-## Quick start
-
-### Development
-
-To start developing with AdminLTE:
-
-1. **Install dependencies:** `npm install`
-2. **Start development server:** `npm start` *(opens browser at http://localhost:3000)*
-3. **Start coding!** Files auto-compile and refresh on changes
-
-### Production Build
-
-To build for production:
-
-1. **Full production build:** `npm run production` *(includes linting and optimization)*
-2. **Quick build:** `npm run build` *(faster for development/testing)*
-
-### Available Scripts
-
-- `npm start` - Start development server with file watching
-- `npm run build` - Build all assets for development
-- `npm run production` - Full production build with linting and bundlewatch
-- `npm run lint` - Run all linters (JS, CSS, docs, lockfile)
-- `npm run css` - Build CSS only
-- `npm run js` - Build JavaScript only
-
-## Browser Support
-
-AdminLTE supports all modern browsers with the latest Bootstrap 5.3.7:
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Platform Support
-
-AdminLTE v4 build scripts work cross-platform:
-- **Windows** - Command Prompt, PowerShell, Git Bash
-- **macOS** - Terminal, iTerm2
-- **Linux** - Bash, Zsh, and other Unix shells
-
-All npm scripts use cross-platform utilities to ensure consistent behavior across different operating systems.
-
-## Security & Production Deployment
-
-### Important Security Notice
-
-AdminLTE is a **UI template** - when deploying to production, follow these critical guidelines:
-
-**What to Deploy:**
-- Only compiled production assets: `dist/js/adminlte.min.js` and `dist/css/adminlte.min.css`
-- Your application-specific files
-
-**What NOT to Deploy:**
-- `node_modules/` directory
-- Demo/example HTML files (index.html, index2.html, index3.html, etc.)
-- Source files (`src/` directory)
-- Development configuration files
-
-**CVE-2021-36471 Notice:**
-This CVE is **disputed** and does not represent a vulnerability in AdminLTE. It refers to demo pages being accessible when developers incorrectly deploy example files to production. AdminLTE v4 has a clear separation between development demos and production assets. See [SECURITY.md](SECURITY.md) for complete details.
-
-**Production Build:**
 ```bash
-npm run production  # Builds optimized assets in dist/
+cd frontend
+npm install
 ```
 
-For detailed security guidelines, authentication requirements, and best practices, see [SECURITY.md](SECURITY.md).
+2. **Configurar variables de entorno:**
 
-## Sponsorship
+Crea un archivo `.env` en la raíz del proyecto:
 
-Support AdminLTE development by becoming a sponsor or donor.
+```env
+VITE_API_BASE_URL=http://localhost:3001/api
+VITE_APP_TITLE=Cayapa Solar Admin
+VITE_BACKEND_URL=http://localhost:3001
+```
 
-<p align="center">
-  <a href="https://github.com/sponsors/danny007in">
-    <img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor on GitHub" />
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://www.paypal.me/daniel007in">
-    <img src="https://img.shields.io/static/v1?label=Donate&message=%E2%9D%A4&logo=PayPal&color=%2300457C" alt="Donate via PayPal" />
-  </a>
-</p>
+O copia el ejemplo:
 
-## Our Sponsors
+```bash
+cp .env.example .env
+```
 
-<p align="center">
-  <a href="https://github.com/spizzo14"><img src="https://unavatar.io/github/spizzo14?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: spizzo14" loading="lazy" /></a>&nbsp;&nbsp;
-  <a href="https://github.com/tomhappyblock"><img src="https://unavatar.io/github/tomhappyblock?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: tomhappyblock" loading="lazy" /></a>&nbsp;&nbsp;
-  <a href="https://github.com/stefanmorderca"><img src="https://unavatar.io/github/stefanmorderca?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: stefanmorderca" loading="lazy" /></a>&nbsp;&nbsp;
-  <a href="https://github.com/tito10047"><img src="https://unavatar.io/github/tito10047?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: tito10047" loading="lazy" /></a>&nbsp;&nbsp;
-  <a href="https://github.com/sitchi"><img src="https://unavatar.io/github/sitchi?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: sitchi" loading="lazy" /></a>&nbsp;&nbsp;
-  <a href="https://github.com/npreee"><img src="https://unavatar.io/github/npreee?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: npreee" loading="lazy" /></a>&nbsp;&nbsp;
-  <a href="https://github.com/isaacmorais"><img src="https://unavatar.io/github/isaacmorais?fallback=https%3A%2F%2Fraw.githubusercontent.com%2FJamesIves%2Fgithub-sponsors-readme-action%2Fdev%2F.github%2Fassets%2Fplaceholder.png" width="50" height="50" alt="User avatar: isaacmorais" loading="lazy" /></a>&nbsp;&nbsp;
-</p>
+3. **Iniciar el backend (en otra terminal):**
 
-<p align="center">
-  <a href="https://github.com/sponsors/danny007in">Your avatar here? Become a sponsor</a>
-</p>
+```bash
+cd ../backend
+npm run dev
+# El backend debe estar corriendo en http://localhost:3001
+```
 
-## Contributing
+4. **Iniciar servidor de desarrollo:**
 
-- Highly welcome.
-- For your extra reference check [AdminLTE v4 Contribution Guide](https://github.com/ColorlibHQ/AdminLTE#contributing)
-- First thing first, you should have bit knowledge about NodeJS.
-- Github Knowledge.
-- Install NodeJS LTS version.
-- Clone this Repository to your machine and change to `master` branch.
-- Go to Cloned Folder.
-- In cli/bash run `npm install` it will install dependency from `package.json`.
-- After installation completes, run `npm start`
-- Cool, Send your changes in PR to `master` branch.
+```bash
+npm run dev
+```
 
+La aplicación estará disponible en `http://localhost:3000`
 
-## License
+## 📜 Scripts Disponibles
 
-AdminLTE is an open source project by [AdminLTE.io](https://adminlte.io) that is licensed under [MIT](https://opensource.org/licenses/MIT).
-AdminLTE.io reserves the right to change the license of future releases.
+```bash
+npm run dev          # Inicia el servidor de desarrollo
+npm run build        # Compila para producción
+npm run preview      # Preview de la build de producción
+npm run lint         # Ejecuta ESLint
+npm run lint:fix     # Corrige errores de ESLint automáticamente
+npm run format       # Formatea código con Prettier
+npm run type-check   # Verifica tipos TypeScript sin compilar
+```
 
-## Image Credits
+## 🏗️ Build para Producción
 
-- [Pixeden](http://www.pixeden.com/psd-web-elements/flat-responsive-showcase-psd)
-- [Graphicsfuel](https://www.graphicsfuel.com/2013/02/13-high-resolution-blur-backgrounds/)
-- [Pickaface](https://pickaface.net/)
-- [Unsplash](https://unsplash.com/)
-- [Uifaces](http://uifaces.com/)
-- [Unavatar](https://unavatar.io/)
+```bash
+npm run build
+```
+
+Los archivos optimizados se generarán en la carpeta `dist/`.
+
+## 🎯 Mejores Prácticas Implementadas (2025)
+
+### 1. **Arquitectura Moderna**
+- Separación clara de responsabilidades (componentes, hooks, servicios)
+- Lazy loading para optimización de bundle size
+- Code splitting automático con Vite
+
+### 2. **TypeScript Strict Mode**
+- Type safety completo en toda la aplicación
+- Interfaces bien definidas para datos
+- No uso de `any` sin justificación
+
+### 3. **State Management Moderno**
+- Zustand en lugar de Redux (más ligero y simple)
+- React Query para estado del servidor
+- Persistencia automática de estado de autenticación
+
+### 4. **Optimización de Rendimiento**
+- Lazy loading de rutas
+- Memoización cuando es necesario
+- Code splitting por chunks
+- Build optimizado con Vite
+
+### 5. **Accesibilidad (a11y)**
+- Semantic HTML
+- ARIA labels apropiados
+- Navegación por teclado
+- Contraste de colores adecuado
+
+### 6. **SEO y PWA Ready**
+- Meta tags apropiados
+- Estructura semántica
+- Preparado para convertir a PWA
+
+### 7. **Developer Experience**
+- Hot Module Replacement (HMR) ultrarrápido
+- ESLint + Prettier configurados
+- Path aliases (@components, @pages, etc.)
+- TypeScript con autocompletado completo
+
+### 8. **Testing Ready**
+- Estructura preparada para tests unitarios
+- Componentes aislados y testeables
+- Hooks personalizados reutilizables
+
+## 🔐 Autenticación
+
+El sistema incluye:
+- Login con persistencia de sesión
+- Rutas protegidas
+- Logout automático al expirar token
+- Interceptores de Axios para manejo de tokens
+
+## 🎨 Personalización
+
+### Cambiar colores
+
+Edita las variables en `src/styles/main.scss`:
+
+```scss
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  // ... más colores
+}
+```
+
+### Agregar nuevas rutas
+
+1. Crea el componente de página en `src/pages/`
+2. Agrega la ruta en `src/router/index.tsx`
+3. Actualiza el menú en `src/layouts/Sidebar.tsx`
+
+## 📚 Tecnologías y Librerías
+
+- **React 18.3** - Framework UI
+- **TypeScript 5.5** - Type safety
+- **Vite 5.4** - Build tool
+- **React Router 6.26** - Routing
+- **Zustand 4.5** - State management
+- **TanStack Query 5.56** - Server state
+- **Axios 1.7** - HTTP client
+- **AdminLTE 3.2** - UI Framework
+- **date-fns 3.6** - Utilidades de fechas
+- **clsx 2.1** - Utility classes
+
+## 🤝 Contribución
+
+1. Fork el proyecto
+2. Crea una rama feature (`git checkout -b feature/AmazingFeature`)
+3. Commit cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📝 Licencia
+
+Este proyecto está bajo la Licencia MIT.
+
+## 👥 Equipo
+
+Desarrollado por el equipo de Cayapa Solar
+
+## 🐛 Reportar Issues
+
+Si encuentras algún bug o tienes sugerencias, por favor abre un issue en el repositorio.
+
+---
+
+**Construido con ❤️ usando las mejores prácticas de desarrollo frontend 2025**

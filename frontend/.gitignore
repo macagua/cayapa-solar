@@ -1,42 +1,29 @@
-# generated types
-.astro/
-
-# unwanted types
-**/env.d.ts
-
-# System / Log files
-*.DS_Store
+# Logs
+logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Archives
-*.zip
+node_modules
+dist
+dist-ssr
+*.local
 
-# Sass Cache
-.sass-cache
-
-# Project files
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
 .idea
-nbproject
-nbproject/private
-.vscode/
-.vs/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# Node / Bower
-node_modules/
-bower_components/
-
-# Docs
-/docs/_site/
-/docs/vendor/
-/docs/.bundle/
-/docs_html/
-.jekyll-cache/
-.jekyll-metadata
-
-# ETC
-TODO
-test.html
-ad.js
-/.cache/
-CLAUDE.md
-github-issue-response.md
+# Environment variables
+.env
+.env.local
+.env.production
