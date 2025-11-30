@@ -135,8 +135,6 @@ npm run dev
 | Método | Endpoint | Descripción | Respuesta |
 |--------|----------|-------------|-----------|
 | GET | `/api/read` | Obtener registros de energía | `EnergyDataStored[]` |
-| POST | `/api/invest` | Crear inversión | Confirmación + tx_link |
-| POST | `/api/complete` | Completar transacción | Resultado |
 | POST | `/api/store-json` | Guardar datos JSON | Success |
 | GET | `/api/wallet-info` | Info de wallet BSV | Wallet details |
 
@@ -171,15 +169,44 @@ interface SolarPanel {
 ## 🎨 Capturas de Pantalla
 
 ### Dashboard
+
 - Vista principal con estadísticas
 
+![Dashboard - Vista principal con estadísticas](docs/madrisd_solaer_frontend.png "Dashboard - Vista principal con estadísticas")
+
 ### Total Placas
+
 - Mapa interactivo con marcadores
 - Tabla de datos de energía
 - Panel de información de placa seleccionada
 
+---
+
+![Dashboard - Placas](docs/madrisd_solaer_frontend_placas.png "Dashboard - Placas")
+
+---
+
 ### Login
+
 - Formulario de autenticación
+
+![Dashboard - Formulario de autenticación](docs/madrisd_solaer_frontend_login.png "Dashboard - Formulario de autenticación")
+
+---
+
+### API - Backend
+
+- API Docs
+
+![Dashboard - API Docs - Backend](docs/madrisd_solaer_backend.png "Dashboard - API Docs - Backend")
+
+---
+
+### IoT
+
+- Iot Microprocessor
+
+![Iot - Microprocessor](docs/madrisd_solaer_iot.jpg "Iot - Microprocessor")
 
 ---
 

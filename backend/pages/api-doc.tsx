@@ -17,11 +17,11 @@ export const getStaticProps: GetStaticProps = async () => {
     definition: {
       openapi: '3.0.0',
       info: {
-        title: 'Cayapa Solar API',
+        title: 'Madrid Solar API',
         version: '1.0.0',
         description: 'API para gestión de datos de energía solar con tecnología BSV Blockchain',
         contact: {
-          name: 'Cayapa Solar',
+          name: 'Madrid Solar',
           url: 'https://cayapa-solar.com',
         },
       },
