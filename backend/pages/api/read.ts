@@ -11,7 +11,7 @@ export function loadEnergyData(): EnergyDataStored[] {
     try {
       const data = readFileSync(DATA_FILE, 'utf-8')
       const stored: EnergyDataStored[] = JSON.parse(data)
-      return stored
+      return stored.splice(0, 12)
 
     } catch (error) {
       console.error('Error loading crowdfunding data:', error)
