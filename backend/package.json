@@ -4,9 +4,9 @@
   "description": "Minimal BSV crowdfunding demo with PushDrop tokens",
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3001",
     "setup": "tsx src/setupWallet.ts",
     "server": "tsx src/server.ts"
   },
@@ -28,6 +28,7 @@
     "@types/node": "^20.0.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
+    "@types/swagger-ui-react": "^5.18.0",
     "tsx": "^4.7.0",
     "typescript": "^5.2.2"
   }
