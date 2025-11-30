@@ -11,6 +11,11 @@ export interface EnergyDataStored {
   tx_link: string
 }
 
+export interface SensorBadget {
+  device_id?: string
+  madrilitos?: number
+}
+
 export interface Investor {
   identityKey: string
   amount: number
