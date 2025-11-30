@@ -10,7 +10,7 @@ export default function Footer() {
       </div>
       <strong>
         Copyright &copy; {currentYear}{' '}
-        <a href="https://cayapa-solar.com">{APP_NAME}</a>.
+        <a href="https://madridsolar.com">Madrid Solar</a>.
       </strong>{' '}
       Todos los derechos reservados.
     </footer>

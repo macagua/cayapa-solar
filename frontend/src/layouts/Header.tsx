@@ -65,7 +65,7 @@ export default function Header() {
           <li className="nav-item dropdown">
             <a className="nav-link" data-toggle="dropdown" href="#" role="button">
               <img
-                src={'/src/assets/img/user5-128x128.jpg'}
+                src={'/src/assets/img/energy.png'}
                 className="img-circle elevation-2"
                 alt="User"
                 style={{ width: '30px', height: '30px' }}
