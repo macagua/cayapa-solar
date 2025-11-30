@@ -47,7 +47,7 @@ Almacena datos de energía en la blockchain BSV.
 }
 ```
 
-### Wallet & Status
+### Wallet
 
 #### `GET /api/wallet-info`
 Obtiene la clave pública de identidad de la wallet del backend.
@@ -57,6 +57,11 @@ Obtiene la clave pública de identidad de la wallet del backend.
 {
   "identityKey": "02abc123..."
 }
+```
+
+**Uso:**
+```bash
+curl http://localhost:3001/api/wallet-info
 ```
 
 ## ✨ Features
@@ -170,10 +175,10 @@ GET http://localhost:3001/api/read
 ]
 ```
 
-### Información de la Wallet
+### Consultar Información de la Wallet
 
 ```bash
-GET http://localhost:3001/api/wallet-info
+curl http://localhost:3001/api/wallet-info
 ```
 
 **Respuesta:**
@@ -183,35 +188,51 @@ GET http://localhost:3001/api/wallet-info
 }
 ```
 
+### Visualizar Documentación Interactiva
+
+Abre en tu navegador:
+```
+http://localhost:3001/api-doc
+```
+
+Esta interfaz Swagger permite probar todos los endpoints directamente desde el navegador.
+
 ## 📂 Project Structure
 
 ```
 backend/
 ├── pages/
 │   ├── index.tsx              # Página principal (redirige a /api-doc)
-│   ├── api-doc.tsx            # Documentación Swagger UI
-│   ├── tokens.tsx             # Página de visualización de tokens (legacy)
+│   ├── api-doc.tsx            # Documentación Swagger UI interactiva
 │   ├── _app.tsx               # Next.js app wrapper
 │   └── api/
 │       ├── read.ts            # GET - Obtiene datos de energía almacenados
-│       ├── store-json.ts      # POST - Almacena datos en blockchain
-│       ├── wallet-info.ts     # GET - Información de la wallet
-│       ├── invest.ts          # POST - Endpoint de inversión (legacy, no usado)
-│       └── complete.ts        # POST - Completar campaña (legacy, no usado)
+│       ├── store-json.ts      # POST - Almacena datos en blockchain BSV
+│       └── wallet-info.ts     # GET - Información de la wallet BSV
 ├── src/
-│   ├── wallet.ts              # Inicialización de wallet BSV
-│   ├── setupWallet.ts         # Script de configuración de wallet
+│   ├── wallet.ts              # Inicialización y configuración de wallet BSV
+│   ├── setupWallet.ts         # Script de configuración inicial de wallet
 │   └── types.ts               # Definiciones de tipos TypeScript
 ├── lib/
-│   ├── storage.ts             # Almacenamiento JSON local (solar-data.json)
-│   ├── crowdfunding.ts        # Estado de crowdfunding (legacy, no usado)
-│   ├── middleware.ts          # Middleware de pagos BSV (legacy)
-│   └── wallet.ts              # Utilities de wallet (legacy)
-├── styles/                    # CSS styling
-├── solar-data.json            # Datos de energía almacenados localmente
-├── package.json               # Dependencias y scripts
-└── next.config.js             # Configuración Next.js
+│   └── storage.ts             # Almacenamiento JSON local (solar-data.json)
+├── styles/
+│   ├── Home.module.css        # Estilos CSS modulares
+│   └── globals.css            # Estilos globales
+├── solar-data.json            # Cache local de datos de energía
+├── package.json               # Dependencias y scripts npm
+├── tsconfig.json              # Configuración TypeScript
+├── next.config.js             # Configuración Next.js
+└── README.md                  # Esta documentación
 ```
+
+### Endpoints Activos
+
+| Método | Endpoint | Descripción | Uso |
+|--------|----------|-------------|-----|
+| `GET` | `/api/read` | Obtiene datos de energía | Consulta de datos históricos |
+| `POST` | `/api/store-json` | Almacena datos en blockchain | ESP32 → Backend |
+| `GET` | `/api/wallet-info` | Info de wallet BSV | Diagnóstico de sistema |
+| `GET` | `/api-doc` | Documentación Swagger | Interfaz interactiva API |
 
 ## 🔍 How it Works
 
@@ -244,24 +265,30 @@ Crea un archivo `.env` en el directorio `backend/`:
 # BSV Wallet Configuration
 PRIVATE_KEY=your_backend_wallet_private_key_hex
 BSV_NETWORK=mainnet
-
-# Optional
-STORAGE_URL=https://storage.babbage.systems
 ```
+
+**Variables requeridas:**
+- `PRIVATE_KEY`: Clave privada hexadecimal de 64 caracteres para la wallet BSV
+- `BSV_NETWORK`: Red BSV (`mainnet` para producción, `testnet` para pruebas)
 
 ### Generar Private Key
 
-Para generar una nueva clave privada:
+Para generar una nueva clave privada segura:
 
 ```bash
 node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
+**⚠️ Importante:**
+- Nunca compartas tu `PRIVATE_KEY`
+- Guarda una copia de respaldo en un lugar seguro
+- Para producción, asegura que la wallet tenga fondos suficientes (satoshis)
+
 ## 🧪 Testing
 
-### Prueba Manual con curl
+### Pruebas Manuales con curl
 
-Enviar datos de energía solar:
+#### 1. Almacenar datos de energía
 
 ```bash
 curl -X POST http://localhost:3001/api/store-json \
@@ -273,17 +300,54 @@ curl -X POST http://localhost:3001/api/store-json \
   }"
 ```
 
-Consultar datos almacenados:
+**Respuesta esperada:**
+```json
+{
+  "txid": "abc123...",
+  "tx_link": "https://whatsonchain.com/tx/abc123..."
+}
+```
+
+#### 2. Consultar datos almacenados
 
 ```bash
 curl http://localhost:3001/api/read
 ```
 
-Información de la wallet:
+**Respuesta esperada:**
+```json
+[
+  {
+    "device_id": "cayapa-001",
+    "energy": 15.75,
+    "timestamp": 1701388800,
+    "tx_link": "https://whatsonchain.com/tx/..."
+  }
+]
+```
+
+#### 3. Verificar información de la wallet
 
 ```bash
 curl http://localhost:3001/api/wallet-info
 ```
+
+**Respuesta esperada:**
+```json
+{
+  "identityKey": "02abc123def456..."
+}
+```
+
+### Pruebas con Swagger UI
+
+Accede a `http://localhost:3001/api-doc` para probar los endpoints de forma interactiva:
+
+1. Expande un endpoint (ej: `POST /api/store-json`)
+2. Click en "Try it out"
+3. Modifica el JSON de ejemplo
+4. Click en "Execute"
+5. Revisa la respuesta y el código de estado
 
 ## 🐛 Troubleshooting
 
@@ -324,20 +388,39 @@ curl http://localhost:3001/api/wallet-info
 3. Revisa la configuración de CORS si es necesario
 4. Comprueba la URL del backend en el frontend (`.env`)
 
+## 📊 API Performance
+
+### Límites y Capacidad
+
+- **Rate Limiting**: No implementado (considera añadir en producción)
+- **Tamaño máximo de payload**: 100KB por request
+- **Timeout**: 30 segundos por transacción BSV
+- **Almacenamiento**: Archivo JSON local (considera base de datos para producción)
+
+### Optimizaciones
+
+- Cache local en `solar-data.json` para consultas rápidas
+- Respuestas inmediatas después de transmitir a blockchain
+- Validación de datos antes de crear transacciones
+- Logs detallados para debugging
+
 ## 📚 Resources
 
-### Documentación
-- [BSV SDK Documentation](https://docs.bsvblockchain.org/)
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Swagger/OpenAPI Specification](https://swagger.io/specification/)
+### Documentación Oficial
+- [BSV SDK Documentation](https://docs.bsvblockchain.org/) - SDK oficial de BSV Blockchain
+- [Next.js Documentation](https://nextjs.org/docs) - Framework del backend
+- [Swagger/OpenAPI Specification](https://swagger.io/specification/) - Estándar de documentación API
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/) - Guía de TypeScript
 
-### Tools
+### Herramientas
 - [WhatsOnChain Explorer](https://whatsonchain.com/) - Explorador de blockchain BSV
-- [Postman](https://www.postman.com/) - Testing de APIs
+- [Postman](https://www.postman.com/) - Cliente de prueba de APIs REST
+- [Insomnia](https://insomnia.rest/) - Alternativa a Postman
 
-### Community
-- [BSV Discord](https://discord.gg/bsv)
-- [BSV GitHub](https://github.com/bsv-blockchain)
+### Comunidad BSV
+- [BSV Discord](https://discord.gg/bsv) - Chat de la comunidad
+- [BSV GitHub](https://github.com/bsv-blockchain) - Repositorios oficiales
+- [BSV Documentation](https://docs.bsvblockchain.org/) - Documentación técnica completa
 
 ## 📄 License
 
@@ -353,4 +436,19 @@ Construido con herramientas del ecosistema BSV blockchain. Agradecimientos espec
 
 ---
 
-**Nota:** Este proyecto está diseñado para demostración y educación. Para uso en producción, añade manejo de errores robusto, medidas de seguridad, almacenamiento en base de datos y pruebas exhaustivas.
+## 🔐 Security Considerations
+
+Para uso en producción, considera implementar:
+
+- ✅ **Rate Limiting** - Prevenir abuso de la API
+- ✅ **API Key Authentication** - Autenticación para endpoints sensibles
+- ✅ **Input Validation** - Validación estricta de todos los inputs
+- ✅ **HTTPS** - Certificado SSL/TLS obligatorio
+- ✅ **Database** - Migrar de JSON a PostgreSQL/MongoDB
+- ✅ **Error Handling** - Manejo robusto de errores y logging
+- ✅ **Backup System** - Respaldos automáticos de datos
+- ✅ **Monitoring** - Alertas y monitoreo en tiempo real
+
+---
+
+**Nota:** Este proyecto está diseñado para demostración y educación. Para uso en producción, implementa las medidas de seguridad mencionadas, añade pruebas exhaustivas y considera usar una base de datos en lugar de archivos JSON.
