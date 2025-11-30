@@ -199,8 +199,8 @@ export default function Placas() {
                           <tr>
                             {!isMobile && <th>Device ID</th>}
                             <th>Energía (kWh)</th>
-                            <th>Fecha y Hora</th>
-                            {!isMobile && <th>TX Link</th>}
+                            {!isMobile && <th>Fecha y Hora</th>}
+                            <th>Enlace TX</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -214,31 +214,27 @@ export default function Placas() {
                               <td>
                                 <strong>{record.energy}</strong> kWh
                               </td>
-                              <td className={isMobile ? 'text-sm' : ''}>
-                                <i className="far fa-clock mr-1"></i>
-                                {isMobile
-                                  ? new Date(typeof record.timestamp === 'string' ? parseInt(record.timestamp) : record.timestamp)
-                                      .toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' })
-                                  : formatDate(record.timestamp)
-                                }
-                              </td>
                               {!isMobile && (
                                 <td>
-                                  {record.tx_link ? (
-                                    <a
-                                      href={record.tx_link}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="btn btn-sm btn-outline-primary"
-                                    >
-                                      <i className="fas fa-external-link-alt mr-1"></i>
-                                      Ver TX
-                                    </a>
-                                  ) : (
-                                    <span className="text-muted">-</span>
-                                  )}
+                                  <i className="far fa-clock mr-1"></i>
+                                  {formatDate(record.timestamp)}
                                 </td>
                               )}
+                              <td>
+                                {record.tx_link ? (
+                                  <a
+                                    href={record.tx_link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn btn-sm btn-outline-primary"
+                                  >
+                                    <i className="fas fa-external-link-alt mr-1"></i>
+                                    {isMobile ? 'TX' : 'Ver TX'}
+                                  </a>
+                                ) : (
+                                  <span className="text-muted">-</span>
+                                )}
+                              </td>
                             </tr>
                           ))}
                         </tbody>
