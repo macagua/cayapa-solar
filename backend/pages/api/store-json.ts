@@ -63,6 +63,50 @@ function createOpReturnScript(data: number[]): string {
 }
 
 
+/**
+ * @swagger
+ * /api/store-json:
+ *   post:
+ *     summary: Store energy data on BSV blockchain
+ *     tags: [Energy Data]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [device_id, energy, timestamp]
+ *             properties:
+ *               device_id:
+ *                 type: string
+ *                 example: "sensor-001"
+ *               energy:
+ *                 type: number
+ *                 example: 25.453
+ *               timestamp:
+ *                 type: integer
+ *                 example: 1764460076
+ *     responses:
+ *       200:
+ *         description: Successfully stored on blockchain
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 txid:
+ *                   type: string
+ *                 message:
+ *                   type: string
+ *                 data:
+ *                   type: object
+ *                 dataSize:
+ *                   type: integer
+ *                 explorerUrl:
+ *                   type: string
+ */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
