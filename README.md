@@ -135,8 +135,6 @@ npm run dev
 | Método | Endpoint | Descripción | Respuesta |
 |--------|----------|-------------|-----------|
 | GET | `/api/read` | Obtener registros de energía | `EnergyDataStored[]` |
-| POST | `/api/invest` | Crear inversión | Confirmación + tx_link |
-| POST | `/api/complete` | Completar transacción | Resultado |
 | POST | `/api/store-json` | Guardar datos JSON | Success |
 | GET | `/api/wallet-info` | Info de wallet BSV | Wallet details |
 
