@@ -27,6 +27,16 @@ export default function Header() {
             </button>
           </li>
         )}
+
+        {/* Botón Inicio para móvil */}
+        {isMobile && (
+          <li className="nav-item">
+            <Link to={ROUTES.HOME} className="nav-link">
+              <i className="fas fa-home"></i>
+            </Link>
+          </li>
+        )}
+
         {!isMobile && (
           <li className="nav-item d-none d-sm-inline-block">
             <Link to={ROUTES.HOME} className="nav-link">
@@ -72,6 +82,7 @@ export default function Header() {
               <button
                 onClick={logout}
                 className="dropdown-item"
+                style={{ background: 'none', border: 'none', cursor: 'pointer', width: '100%', textAlign: 'left' }}
               >
                 <i className="fas fa-sign-out-alt mr-2"></i> Cerrar sesión
               </button>
