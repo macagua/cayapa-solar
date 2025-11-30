@@ -7,7 +7,7 @@ import { EnergyData, EnergyDataStored } from '@/src/types'
 import { setCorsHeaders } from '../../lib/cors'
 
 const DATA_FILE = join(process.cwd(), 'solar-data.json')
-const real_work = false // Si es false, evita llamadas a blockchain y genera txid fake para pruebas
+const real_work = true // Si es false, evita llamadas a blockchain y genera txid fake para pruebas
 
 let global_state : EnergyDataStored[] = []
 

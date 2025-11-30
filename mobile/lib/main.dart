@@ -39,7 +39,7 @@ class _GamificationDashboardState extends State<GamificationDashboard> {
   String? _errorMessage;
 
   // Modelo para los datos del endpoint
-  final String apiUrl = 'http://localhost:3001/api/read';
+  final String apiUrl = 'http://10.191.102.142:3001/api/read';
 
   @override
   void initState() {
@@ -75,17 +75,14 @@ class _GamificationDashboardState extends State<GamificationDashboard> {
       if (response.statusCode == 200) {
         final List<dynamic> data = json.decode(response.body);
         
-        // Extraer los valores de energía y convertir a valores absolutos (tokens)
+        // Extraer los valores de energía (mantener valores negativos)
         // Tomar los últimos 12 valores si hay más
         List<double> energyValues = data
             .map((item) => (item['energy'] as num?)?.toDouble() ?? 0.0)
             .toList();
 
-        // Convertir energía negativa a valores positivos para tokens
-        // y tomar los últimos 12 valores
-        List<double> tokenValues = energyValues
-            .map((energy) => energy.abs())
-            .toList();
+        // Mantener los valores originales (incluyendo negativos)
+        List<double> tokenValues = energyValues;
 
         // Si hay más de 12 valores, tomar solo los últimos 12
         if (tokenValues.length > 12) {
@@ -97,9 +94,10 @@ class _GamificationDashboardState extends State<GamificationDashboard> {
           tokenValues.insert(0, 0.0);
         }
 
-        // Crear los puntos de la gráfica
+        // Invertir el orden de los valores y crear los puntos de la gráfica
         setState(() {
-          tokenData = tokenValues.asMap().entries.map((entry) {
+          final reversedValues = tokenValues.reversed.toList();
+          tokenData = reversedValues.asMap().entries.map((entry) {
             return FlSpot(entry.key.toDouble(), entry.value);
           }).toList();
           _isLoading = false;
@@ -190,12 +188,9 @@ class _GamificationDashboardState extends State<GamificationDashboard> {
   }
 
   Widget _buildTokenChart() {
-    // Calcular el máximo valor para el eje Y dinámicamente
-    double maxY = 10;
-    if (tokenData.isNotEmpty) {
-      maxY = tokenData.map((spot) => spot.y).reduce((a, b) => a > b ? a : b);
-      maxY = maxY > 0 ? (maxY * 1.2).ceilToDouble() : 10; // Agregar 20% de margen
-    }
+    // Escala fija del eje Y de -15 a 25
+    const double minY = -15;
+    const double maxY = 25;
 
     return Container(
       height: 250,
@@ -254,7 +249,7 @@ class _GamificationDashboardState extends State<GamificationDashboard> {
                       gridData: FlGridData(
                         show: true,
                         drawVerticalLine: false,
-                        horizontalInterval: maxY > 0 ? maxY / 5 : 1,
+                        horizontalInterval: (maxY - minY) / 8,
                       ),
                       titlesData: FlTitlesData(
                         leftTitles: AxisTitles(
@@ -262,10 +257,14 @@ class _GamificationDashboardState extends State<GamificationDashboard> {
                             showTitles: true,
                             reservedSize: 40,
                             getTitlesWidget: (value, meta) {
-                              return Text(
-                                value.toStringAsFixed(1),
-                                style: const TextStyle(fontSize: 10),
-                              );
+                              // Mostrar solo valores enteros en el eje Y
+                              if (value % 5 == 0 || value == 0) {
+                                return Text(
+                                  value.toInt().toString(),
+                                  style: const TextStyle(fontSize: 10),
+                                );
+                              }
+                              return const Text('');
                             },
                           ),
                         ),
@@ -310,7 +309,7 @@ class _GamificationDashboardState extends State<GamificationDashboard> {
                       ],
                       minX: 0,
                       maxX: 11,
-                      minY: 0,
+                      minY: minY,
                       maxY: maxY,
                     ),
                   ),
