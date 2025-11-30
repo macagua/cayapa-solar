@@ -3,6 +3,8 @@ import Breadcrumb from '@components/Breadcrumb'
 import StatsCard from '@components/StatsCard'
 import { ROUTES } from '@utils/constants'
 import { useWindowSize } from '@hooks/useResponsive'
+import { useEffect, useRef } from 'react'
+import Chart from 'chart.js/auto'
 
 const statsData: DashboardStats[] = [
   {
@@ -41,6 +43,8 @@ const statsData: DashboardStats[] = [
 
 export default function Dashboard() {
   const { width } = useWindowSize()
+  const chartRef = useRef<HTMLCanvasElement>(null)
+  const chartInstanceRef = useRef<Chart | null>(null)
 
   // Calcular clases de columna dinámicamente
   const getColumnClass = () => {
@@ -49,6 +53,89 @@ export default function Dashboard() {
     if (width >= 768) return 'col-md-6 col-sm-6' // 2 columnas en MD
     return 'col-12' // 1 columna en mobile
   }
+
+  // Inicializar gráfica de producción de energía
+  useEffect(() => {
+    if (!chartRef.current) return
+
+    // Destruir instancia anterior si existe
+    if (chartInstanceRef.current) {
+      chartInstanceRef.current.destroy()
+    }
+
+    const ctx = chartRef.current.getContext('2d')
+    if (!ctx) return
+
+    // Datos de ejemplo - últimos 7 días
+    const labels = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom']
+    const energyData = [850, 920, 780, 1050, 1150, 1250, 1100]
+
+    chartInstanceRef.current = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Energía Generada (kWh)',
+            data: energyData,
+            borderColor: '#ffc107',
+            backgroundColor: 'rgba(255, 193, 7, 0.1)',
+            borderWidth: 3,
+            fill: true,
+            tension: 0.4,
+            pointRadius: 5,
+            pointBackgroundColor: '#ffc107',
+            pointBorderColor: '#fff',
+            pointBorderWidth: 2,
+            pointHoverRadius: 7,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: true,
+            position: 'top',
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false,
+            callbacks: {
+              label: function (context) {
+                return `${context.dataset.label}: ${context.parsed.y} kWh`
+              },
+            },
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              callback: function (value) {
+                return value + ' kWh'
+              },
+            },
+            grid: {
+              color: 'rgba(0, 0, 0, 0.05)',
+            },
+          },
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+        },
+      },
+    })
+
+    return () => {
+      if (chartInstanceRef.current) {
+        chartInstanceRef.current.destroy()
+      }
+    }
+  }, [])
 
   return (
     <div className="content-header">
@@ -95,8 +182,8 @@ export default function Dashboard() {
                 </div>
               </div>
               <div className="card-body">
-                <div className="position-relative mb-4">
-                  <canvas id="energy-chart" height="200"></canvas>
+                <div className="position-relative mb-4" style={{ height: '300px' }}>
+                  <canvas ref={chartRef}></canvas>
                 </div>
               </div>
             </div>

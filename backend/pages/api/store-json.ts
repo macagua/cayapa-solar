@@ -9,10 +9,10 @@ import { setCorsHeaders } from '../../lib/cors'
 const DATA_FILE = join(process.cwd(), 'solar-data.json')
 const real_work = false // Si es false, evita llamadas a blockchain y genera txid fake para pruebas
 
-let global_state : EnergyData[] = []
+let global_state : EnergyDataStored[] = []
 
 export function saveEnergyData(state: EnergyDataStored): void {
-  global_state.push(state)
+  global_state.unshift(state)
   try {
     writeFileSync(DATA_FILE, JSON.stringify(global_state, null, 2), 'utf-8')
   } catch (error) {
