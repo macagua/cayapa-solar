@@ -1,6 +1,240 @@
 [
   {
     "device_id": "cayapa-001",
+    "energy": -5.568,
+    "timestamp": 924,
+    "tx_link": "https://whatsonchain.com/tx/fake_r7lflw2dnv71k0iq83k07d"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.868,
+    "timestamp": 919,
+    "tx_link": "https://whatsonchain.com/tx/fake_stg12gamd0ijfdw6sl9j4o"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -6.081,
+    "timestamp": 914,
+    "tx_link": "https://whatsonchain.com/tx/fake_xfh23rczegt5hx7psxv8ru"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.56,
+    "timestamp": 909,
+    "tx_link": "https://whatsonchain.com/tx/fake_xepkwuaezgrhe9654sx09"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.897,
+    "timestamp": 903,
+    "tx_link": "https://whatsonchain.com/tx/fake_2v5dwqtcq5clgw5k19lfeg"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.993,
+    "timestamp": 898,
+    "tx_link": "https://whatsonchain.com/tx/fake_s9vk1s9gbtngsf4dyxyhsb"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.78,
+    "timestamp": 893,
+    "tx_link": "https://whatsonchain.com/tx/fake_yv676yv1ogsusa4qvw96i"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.861,
+    "timestamp": 888,
+    "tx_link": "https://whatsonchain.com/tx/fake_3yiee1e0k52pp97xz280q"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.516,
+    "timestamp": 883,
+    "tx_link": "https://whatsonchain.com/tx/fake_k6p3qu71i1jxuhlx4rbqdp"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.897,
+    "timestamp": 878,
+    "tx_link": "https://whatsonchain.com/tx/fake_em9imd4834teh0kl5kz94s"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.553,
+    "timestamp": 873,
+    "tx_link": "https://whatsonchain.com/tx/fake_puvc5r8odal0kqamakxdpxq"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.795,
+    "timestamp": 868,
+    "tx_link": "https://whatsonchain.com/tx/fake_ytsg1emqr65dgk0nph069"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.934,
+    "timestamp": 863,
+    "tx_link": "https://whatsonchain.com/tx/fake_qsg94rxn73yvrj56csqcj"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.56,
+    "timestamp": 858,
+    "tx_link": "https://whatsonchain.com/tx/fake_wa3y6hh0v6cjzlzl8rirn"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -6.154,
+    "timestamp": 853,
+    "tx_link": "https://whatsonchain.com/tx/fake_eox4ctfo1tiz0ssm6ad8rg"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -6.022,
+    "timestamp": 848,
+    "tx_link": "https://whatsonchain.com/tx/fake_po7mi5n7pksa96kqdwcpk"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -6.081,
+    "timestamp": 842,
+    "tx_link": "https://whatsonchain.com/tx/fake_thct8957z5lolrg0i4siui"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.919,
+    "timestamp": 837,
+    "tx_link": "https://whatsonchain.com/tx/fake_w6zobkkmac5ge1sea19dj"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -6.359,
+    "timestamp": 832,
+    "tx_link": "https://whatsonchain.com/tx/fake_aku9j6faurictm46zbivj"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -6.103,
+    "timestamp": 827,
+    "tx_link": "https://whatsonchain.com/tx/fake_c0p68f1z9e64s9wakwwpcl"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.37,
+    "timestamp": 822,
+    "tx_link": "https://whatsonchain.com/tx/fake_rkse7rojpoc5qhdelerv7l"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.663,
+    "timestamp": 817,
+    "tx_link": "https://whatsonchain.com/tx/fake_wk8anhjjhn12ufdrqoz55d"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.626,
+    "timestamp": 812,
+    "tx_link": "https://whatsonchain.com/tx/fake_vd9vvqh5mimvrlxptbcdvf"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.971,
+    "timestamp": 807,
+    "tx_link": "https://whatsonchain.com/tx/fake_aj4jiedps3we3y4c8bqrxk"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -6.095,
+    "timestamp": 801,
+    "tx_link": "https://whatsonchain.com/tx/fake_iwkc5e8gz4e7748doq3zb"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.81,
+    "timestamp": 796,
+    "tx_link": "https://whatsonchain.com/tx/fake_uoojtguj6emvsxetubfcds"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.201,
+    "timestamp": 791,
+    "tx_link": "https://whatsonchain.com/tx/fake_z7suyuatzmdhs3e7kaeh7d"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -6.051,
+    "timestamp": 786,
+    "tx_link": "https://whatsonchain.com/tx/fake_9olvzz27qgebbpxez2ilj"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.656,
+    "timestamp": 781,
+    "tx_link": "https://whatsonchain.com/tx/fake_a1vcy1i4c7g5ex36cfdvq3"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.458,
+    "timestamp": 776,
+    "tx_link": "https://whatsonchain.com/tx/fake_m8eqmjljbye5oscghv6yhk"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.421,
+    "timestamp": 771,
+    "tx_link": "https://whatsonchain.com/tx/fake_ifprat2nfzb55i4v39vb59"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.744,
+    "timestamp": 765,
+    "tx_link": "https://whatsonchain.com/tx/fake_gzbyzsiftmup3zwkvlfom"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.582,
+    "timestamp": 760,
+    "tx_link": "https://whatsonchain.com/tx/fake_onjfbf6natg4tj6qabt4xm"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -8.132,
+    "timestamp": 755,
+    "tx_link": "https://whatsonchain.com/tx/fake_majzkfvo07ptfgd0by4hz"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -8.11,
+    "timestamp": 750,
+    "tx_link": "https://whatsonchain.com/tx/fake_azx0jguxob9kc8k2f44f5h"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -6.044,
+    "timestamp": 745,
+    "tx_link": "https://whatsonchain.com/tx/fake_5zmlf1spgojg5do2m6a1l"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.538,
+    "timestamp": 740,
+    "tx_link": "https://whatsonchain.com/tx/fake_2qth7anpwbe3yqgqob7jl4"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.626,
+    "timestamp": 735,
+    "tx_link": "https://whatsonchain.com/tx/fake_bz0xoz4uxiik1n2cskkzik"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.641,
+    "timestamp": 730,
+    "tx_link": "https://whatsonchain.com/tx/fake_dge8l2p4lbampix4mtrzh"
+  },
+  {
+    "device_id": "cayapa-001",
     "energy": -5.524,
     "timestamp": 725,
     "tx_link": "https://whatsonchain.com/tx/fake_eo307lendpgkcapnovaaz"
