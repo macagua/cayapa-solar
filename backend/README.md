@@ -243,7 +243,7 @@ backend/
 3. **BSV Transaction** se crea con datos en OP_RETURN
 4. **Blockchain Storage** - Transacción se firma y transmite a BSV blockchain
 5. **Local Cache** - Datos se guardan en `solar-data.json` para consultas rápidas
-6. **TX Link** - Se retorna enlace a WhatsOnChain para verificación
+6. **Enlace TX** - Se retorna enlace a WhatsOnChain para verificación
 
 ### Data Flow Diagram
 
