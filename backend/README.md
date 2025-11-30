@@ -1,6 +1,59 @@
-# BSV Blockchain Crowdfunding Demo
+# Cayapa Solar API - Backend
 
-A proof-of-concept crowdfunding application built on the BSV blockchain, demonstrating real micropayments, BRC-29 key derivation, and PushDrop token distribution.
+Backend API para el sistema de monitoreo de energía solar con tecnología BSV Blockchain.
+
+## 🌐 Documentación de la API
+
+Al iniciar el servidor, accede a:
+- **Raíz**: `http://localhost:3001/` - Redirecciona automáticamente a la documentación
+- **Documentación Swagger**: `http://localhost:3001/api-doc` - Interfaz interactiva de la API
+
+## 📡 Endpoints Principales
+
+### Energy Data
+
+#### `GET /api/read`
+Obtiene todos los registros de energía solar almacenados.
+
+**Respuesta:**
+```json
+[
+  {
+    "device_id": "cayapa-001",
+    "energy": 5.23,
+    "timestamp": 1234567890,
+    "tx_link": "https://whatsonchain.com/tx/..."
+  }
+]
+```
+
+#### `POST /api/store-json`
+Almacena datos de energía en la blockchain BSV.
+
+**Request:**
+```json
+{
+  "device_id": "cayapa-001",
+  "energy": 5.23,
+  "timestamp": 1234567890
+}
+```
+
+**Respuesta:**
+```json
+{
+  "txid": "abc123...",
+  "tx_link": "https://whatsonchain.com/tx/abc123..."
+}
+```
+
+### Wallet & Status
+
+#### `GET /api/wallet-info`
+Obtiene la clave pública de identidad de la wallet del backend.
+
+#### `GET /api/status`
+Obtiene el estado actual de la campaña de crowdfunding.
 
 ## Features
 
