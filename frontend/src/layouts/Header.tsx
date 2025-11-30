@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
   const { toggleSidebar, darkMode, toggleDarkMode } = useUIStore()
-  const { user, logout } = useAuthStore()
+  const { logout } = useAuthStore()
 
   return (
     <nav className="main-header navbar navbar-expand navbar-white navbar-light">

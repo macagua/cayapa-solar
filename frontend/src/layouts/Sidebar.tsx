@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import type { NavigationItem } from '@types'
+import type { NavigationItem } from '../types'
 import { cn } from '@utils/helpers'
 
 const navigationItems: NavigationItem[] = [
@@ -67,7 +67,7 @@ export default function Sidebar() {
             </p>
           </a>
           <ul className="nav nav-treeview">
-            {item.children.map(child => (
+            {item.children?.map((child: NavigationItem) => (
               <li key={child.id} className="nav-item">
                 <Link
                   to={child.path || '#'}
