@@ -169,11 +169,13 @@ interface SolarPanel {
 ## 🎨 Capturas de Pantalla
 
 ### Dashboard
+
 - Vista principal con estadísticas
 
 ![Dashboard - Vista principal con estadísticas](docs/madrisd_solaer_frontend.png "Dashboard - Vista principal con estadísticas")
 
 ### Total Placas
+
 - Mapa interactivo con marcadores
 - Tabla de datos de energía
 - Panel de información de placa seleccionada
@@ -185,6 +187,7 @@ interface SolarPanel {
 ---
 
 ### Login
+
 - Formulario de autenticación
 
 ![Dashboard - Formulario de autenticación](docs/madrisd_solaer_frontend_login.png "Dashboard - Formulario de autenticación")
@@ -192,9 +195,18 @@ interface SolarPanel {
 ---
 
 ### API - Backend
-- Formulario de autenticación
 
-![Dashboard - API - Backend](docs/madrisd_solaer_backend.png "Dashboard - API - Backend")
+- API Docs
+
+![Dashboard - API Docs - Backend](docs/madrisd_solaer_backend.png "Dashboard - API Docs - Backend")
+
+---
+
+### IoT
+
+- Iot Microprocessor
+
+![Iot - Microprocessor](docs/madrisd_solaer_iot.jpg "Iot - Microprocessor")
 
 ---
 
