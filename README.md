@@ -136,7 +136,6 @@ npm run dev
 |--------|----------|-------------|-----------|
 | GET | `/api/read` | Obtener registros de energía | `EnergyDataStored[]` |
 | POST | `/api/invest` | Crear inversión | Confirmación + tx_link |
-| GET | `/api/status` | Estado del sistema | Status info |
 | POST | `/api/complete` | Completar transacción | Resultado |
 | POST | `/api/store-json` | Guardar datos JSON | Success |
 | GET | `/api/wallet-info` | Info de wallet BSV | Wallet details |

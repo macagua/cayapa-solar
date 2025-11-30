@@ -21,34 +21,15 @@ interface TokensData {
 
 export default function Tokens() {
   const { wallet, identityKey } = useWallet()
-  const [completionTxid, setCompletionTxid] = useState<string | null>(null)
   const [tokensData, setTokensData] = useState<TokensData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
   useEffect(() => {
-    loadCampaignStatus()
-  }, [])
-
-  useEffect(() => {
     if (wallet && identityKey) {
       loadTokens()
     }
-  }, [wallet, identityKey, completionTxid])
-
-  async function loadCampaignStatus() {
-    try {
-      const response = await fetch('/api/status')
-      if (response.ok) {
-        const data = await response.json()
-        if (data.completionTxid) {
-          setCompletionTxid(data.completionTxid)
-        }
-      }
-    } catch (err) {
-      console.error('Error loading campaign status:', err)
-    }
-  }
+  }, [wallet, identityKey])
 
   async function loadTokens() {
     if (!wallet || !identityKey) {
@@ -83,8 +64,6 @@ export default function Tokens() {
           }
 
           const txid = output.outpoint.split('.')[0]
-
-          if (completionTxid && txid !== completionTxid) continue
 
           tokens.push({
             txid,

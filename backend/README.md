@@ -196,9 +196,8 @@ backend/
 │       ├── read.ts            # GET - Obtiene datos de energía almacenados
 │       ├── store-json.ts      # POST - Almacena datos en blockchain
 │       ├── wallet-info.ts     # GET - Información de la wallet
-│       ├── status.ts          # GET - Estado del sistema (legacy crowdfunding)
-│       ├── invest.ts          # POST - Endpoint de inversión (no usado)
-│       └── complete.ts        # POST - Completar campaña (no usado)
+│       ├── invest.ts          # POST - Endpoint de inversión (legacy, no usado)
+│       └── complete.ts        # POST - Completar campaña (legacy, no usado)
 ├── src/
 │   ├── wallet.ts              # Inicialización de wallet BSV
 │   ├── setupWallet.ts         # Script de configuración de wallet
