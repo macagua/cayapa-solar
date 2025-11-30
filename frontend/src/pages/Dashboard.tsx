@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { DashboardStats } from '@types'
+import Breadcrumb from '@components/Breadcrumb'
+import StatsCard from '@components/StatsCard'
 
 const statsData: DashboardStats[] = [
   {
@@ -45,12 +47,12 @@ export default function Dashboard() {
             <h1 className="m-0">Dashboard</h1>
           </div>
           <div className="col-sm-6">
-            <ol className="breadcrumb float-sm-right">
-              <li className="breadcrumb-item">
-                <a href="#">Inicio</a>
-              </li>
-              <li className="breadcrumb-item active">Dashboard</li>
-            </ol>
+            <Breadcrumb
+              items={[
+                { label: 'Inicio', path: '/' },
+                { label: 'Dashboard' },
+              ]}
+            />
           </div>
         </div>
 
@@ -58,21 +60,15 @@ export default function Dashboard() {
         <div className="row mt-4">
           {statsData.map(stat => (
             <div key={stat.id} className="col-lg-3 col-6">
-              <div className={`small-box bg-${stat.color}`}>
-                <div className="inner">
-                  <h3>{stat.value}</h3>
-                  <p>{stat.title}</p>
-                </div>
-                <div className="icon">
-                  <i className={`fas ${stat.icon}`}></i>
-                </div>
-                <Link
-                  to={stat.id === 'total-panels' ? '/placas' : '#'}
-                  className="small-box-footer"
-                >
-                  Más info <i className="fas fa-arrow-circle-right"></i>
-                </Link>
-              </div>
+              <StatsCard
+                title={stat.title}
+                value={stat.value}
+                icon={stat.icon}
+                color={stat.color}
+                trend={stat.trend}
+                link={stat.id === 'total-panels' ? '/placas' : '#'}
+                linkText="Más info"
+              />
             </div>
           ))}
         </div>

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
+import Card from '@components/Card'
+import Breadcrumb from '@components/Breadcrumb'
+import SolarMap from '@components/SolarMap'
 // import { apiService } from '@services/api'
 
 // Fix para los iconos de Leaflet en React
@@ -134,12 +136,12 @@ export default function Placas() {
               <h1 className="m-0">Total Placas Solares</h1>
             </div>
             <div className="col-sm-6">
-              <ol className="breadcrumb float-sm-right">
-                <li className="breadcrumb-item">
-                  <a href="/">Inicio</a>
-                </li>
-                <li className="breadcrumb-item active">Placas</li>
-              </ol>
+              <Breadcrumb
+                items={[
+                  { label: 'Inicio', path: '/' },
+                  { label: 'Placas' },
+                ]}
+              />
             </div>
           </div>
         </div>
@@ -150,54 +152,59 @@ export default function Placas() {
           {/* Parte superior con detalles de la placa seleccionada */}
           <div className="row mb-3">
             <div className="col-lg-12">
-              <div className="card">
-                <div className="card-header">
-                  <h3 className="card-title">Detalles de la Placa Solar Seleccionada</h3>
-                </div>
-                <div className="card-body">
-                  <div className="row">
-                    <div className="col-md-3">
-                      <p>
-                        <strong>Placa Solar ID:</strong> {selectedPanel.id}
-                      </p>
-                    </div>
-                    <div className="col-md-3">
-                      <p>
-                        <strong>Producción de energía (kWh):</strong> {selectedPanel.production}
-                      </p>
-                    </div>
-                    <div className="col-md-3">
-                      <p>
-                        <strong>Estado:</strong> {getStatusBadge(selectedPanel.status)}
-                      </p>
-                    </div>
-                    <div className="col-md-3">
-                      <p>
-                        <strong>Ubicación:</strong> {selectedPanel.location}
-                      </p>
-                    </div>
+              <Card title="Detalles de la Placa Solar Seleccionada">
+                <div className="row">
+                  <div className="col-md-3">
+                    <p>
+                      <strong>Placa Solar ID:</strong> {selectedPanel.id}
+                    </p>
+                  </div>
+                  <div className="col-md-3">
+                    <p>
+                      <strong>Producción de energía (kWh):</strong> {selectedPanel.production}
+                    </p>
+                  </div>
+                  <div className="col-md-3">
+                    <p>
+                      <strong>Estado:</strong> {getStatusBadge(selectedPanel.status)}
+                    </p>
+                  </div>
+                  <div className="col-md-3">
+                    <p>
+                      <strong>Ubicación:</strong> {selectedPanel.location}
+                    </p>
                   </div>
                 </div>
-              </div>
+              </Card>
             </div>
           </div>
 
           {/* Tabla de registros de la placa seleccionada */}
           <div className="row mb-3">
             <div className="col-lg-12">
-              <div className="card">
-                <div className="card-header">
-                  <h3 className="card-title">
+              <Card
+                title={
+                  <>
                     <i className="fas fa-table mr-2"></i>
                     Historial de Registros - {selectedPanel.name}
-                  </h3>
-                  <div className="card-tools">
-                    <span className="badge badge-info">
-                      {selectedPanelData.length} registros
-                    </span>
-                  </div>
-                </div>
-                <div className="card-body p-0">
+                  </>
+                }
+                headerActions={
+                  <span className="badge badge-info">
+                    {selectedPanelData.length} registros
+                  </span>
+                }
+                className=""
+                footer={
+                  selectedPanelData.length > 0 ? (
+                    <small className="text-muted">
+                      <i className="fas fa-info-circle mr-1"></i>
+                      Mostrando {selectedPanelData.length} registro(s) para {selectedPanel.name}
+                    </small>
+                  ) : undefined
+                }
+              >
+                <div className="p-0">
                   {loading ? (
                     <div className="text-center p-4">
                       <div className="spinner-border text-primary" role="status">
@@ -261,15 +268,7 @@ export default function Placas() {
                     </div>
                   )}
                 </div>
-                {selectedPanelData.length > 0 && (
-                  <div className="card-footer">
-                    <small className="text-muted">
-                      <i className="fas fa-info-circle mr-1"></i>
-                      Mostrando {selectedPanelData.length} registro(s) para {selectedPanel.name}
-                    </small>
-                  </div>
-                )}
-              </div>
+              </Card>
             </div>
           </div>
 
@@ -277,14 +276,18 @@ export default function Placas() {
           <div className="row">
             {/* Lista de Placas Solares (izquierda) */}
             <div className="col-md-6">
-              <div className="card">
-                <div className="card-header">
-                  <h3 className="card-title">Lista de Placas Solares</h3>
-                  <div className="card-tools">
-                    <span className="badge badge-primary">{solarPanels.length} placas</span>
-                  </div>
-                </div>
-                <div className="card-body p-0">
+              <Card
+                title="Lista de Placas Solares"
+                headerActions={
+                  <span className="badge badge-primary">{solarPanels.length} placas</span>
+                }
+                footer={
+                  <button className="btn btn-primary btn-sm">
+                    <i className="fas fa-plus mr-1"></i> Agregar Placa
+                  </button>
+                }
+              >
+                <div className="p-0">
                   <ul className="list-group list-group-flush">
                     {solarPanels.map(panel => (
                       <li
@@ -306,67 +309,38 @@ export default function Placas() {
                     ))}
                   </ul>
                 </div>
-                <div className="card-footer">
-                  <button className="btn btn-primary btn-sm">
-                    <i className="fas fa-plus mr-1"></i> Agregar Placa
-                  </button>
-                </div>
-              </div>
+              </Card>
             </div>
 
             {/* Mapa de la Comunidad de Madrid (derecha) */}
             <div className="col-md-6">
-              <div className="card">
-                <div className="card-header">
-                  <h3 className="card-title">Mapa de Ubicación</h3>
-                  <div className="card-tools">
-                    <span className="badge badge-info">
-                      <i className="fas fa-map-marker-alt mr-1"></i>
-                      Madrid, España
-                    </span>
-                  </div>
-                </div>
-                <div className="card-body p-0">
-                  <MapContainer
+              <Card
+                title="Mapa de Ubicación"
+                headerActions={
+                  <span className="badge badge-info">
+                    <i className="fas fa-map-marker-alt mr-1"></i>
+                    Madrid, España
+                  </span>
+                }
+              >
+                <div className="p-0">
+                  <SolarMap
                     center={[40.4168, -3.7038]}
                     zoom={11}
-                    style={{ height: '400px', width: '100%' }}
-                  >
-                    <TileLayer
-                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    {solarPanels.map(panel => (
-                      <Marker
-                        key={panel.id}
-                        position={panel.coordinates}
-                        eventHandlers={{
-                          click: () => setSelectedPanel(panel),
-                        }}
-                      >
-                        <Popup>
-                          <div>
-                            <strong>{panel.name}</strong>
-                            <br />
-                            <small>ID: {panel.id}</small>
-                            <br />
-                            Producción: <strong>{panel.production} kWh</strong>
-                            <br />
-                            Estado: {getStatusBadge(panel.status)}
-                          </div>
-                        </Popup>
-                      </Marker>
-                    ))}
-                  </MapContainer>
+                    height="400px"
+                    markers={solarPanels.map(panel => ({
+                      id: panel.id,
+                      position: panel.coordinates,
+                      title: panel.name,
+                      description: `ID: ${panel.id} | Producción: ${panel.production} kWh | Estado: ${panel.status}`,
+                      onClick: () => setSelectedPanel(panel),
+                    }))}
+                  />
                 </div>
-              </div>
+              </Card>
 
               {/* Estadísticas adicionales */}
-              <div className="card mt-3">
-                <div className="card-header">
-                  <h3 className="card-title">Estadísticas</h3>
-                </div>
-                <div className="card-body">
+              <Card title="Estadísticas" className="mt-3">
                   <div className="row">
                     <div className="col-6">
                       <div className="info-box bg-success">
@@ -410,8 +384,7 @@ export default function Placas() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+              </Card>
             </div>
           </div>
         </div>
