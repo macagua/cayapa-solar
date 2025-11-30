@@ -1,7 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { wallet } from '../../src/wallet'
-import { loadCrowdfundingData } from '../../lib/storage'
-import { setCrowdfundingState } from '../../lib/crowdfunding'
 import { setCorsHeaders } from '../../lib/cors'
 
 /**
@@ -32,10 +30,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   const identityKey = await wallet.getPublicKey({ identityKey: true })
-
-  // Load crowdfunding state for this wallet
-  const loadedState = loadCrowdfundingData(identityKey.publicKey)
-  setCrowdfundingState(loadedState)
 
   res.status(200).json({ identityKey: identityKey.publicKey })
 }

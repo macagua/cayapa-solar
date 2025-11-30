@@ -108,13 +108,13 @@ export default function Sidebar() {
         <img
           src="/logo.png"
           alt="Logo"
-          className="brand-image img-circle elevation-3"
+          className="brand-image elevation-3"
           style={{ opacity: 0.8 }}
           onError={e => {
-            e.currentTarget.src = '/src/assets/img/energy.png'
+            e.currentTarget.src = '/src/assets/img/madrid.png'
           }}
         />
-        <span className="brand-text font-weight-light">Cayapa Solar</span>
+        <span className="brand-text font-weight-light">Madrid solar</span>
       </Link>
 
       {/* Sidebar */}
@@ -123,14 +123,14 @@ export default function Sidebar() {
         <div className="user-panel mt-3 pb-3 mb-3 d-flex">
           <div className="image">
             <img
-              src="/src/assets/img/user5-128x128.jpg"
+              src="/src/assets/img/energy.png"
               className="img-circle elevation-2"
               alt="User"
             />
           </div>
           <div className="info">
             <a href="#" className="d-block">
-              Usuario Admin
+              Cayapa
             </a>
           </div>
         </div>

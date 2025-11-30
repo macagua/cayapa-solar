@@ -246,8 +246,8 @@ frontend/src/
 2. **Test de Login:**
    ```
    URL: http://localhost:3000
-   Email: admin@cayapa.solar
-   Password: cualquiera
+   Email: cayapa@madridsolar.com
+   Password: Cayapa2035
    Resultado esperado: Redirige a dashboard
    ```
 

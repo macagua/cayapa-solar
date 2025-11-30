@@ -148,7 +148,7 @@ export default function Placas() {
                   </div>
                   <div className="col-md-3">
                     <p>
-                      <strong>Token ganados:</strong> 33 🎖️🎖️🎖️
+                      <strong>Token ganados:</strong> 33 MADRILITOS 🎖️🎖️🎖️
                     </p>
                   </div>
                   <div className="col-md-9">
