@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 import Card from '@components/Card'
 import Breadcrumb from '@components/Breadcrumb'
 import SolarMap from '@components/SolarMap'
 import { PANEL_STATUS, ROUTES } from '@utils/constants'
-// import { apiService } from '@services/api'
+import { useMediaQuery, useEnergyData } from '@hooks/index'
 
 // Fix para los iconos de Leaflet en React
 import icon from 'leaflet/dist/images/marker-icon.png'
@@ -19,13 +19,6 @@ const DefaultIcon = L.icon({
 })
 
 L.Marker.prototype.options.icon = DefaultIcon
-
-interface EnergyDataStored {
-  device_id: string
-  energy: number
-  timestamp: number | string
-  tx_link: string
-}
 
 interface SolarPanel {
   id: string
@@ -65,34 +58,8 @@ const solarPanels: SolarPanel[] = [
 
 export default function Placas() {
   const [selectedPanel, setSelectedPanel] = useState<SolarPanel>(solarPanels[0])
-  const [energyData, setEnergyData] = useState<EnergyDataStored[]>([])
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-
-  // Cargar datos de energía desde el backend
-  useEffect(() => {
-    const fetchEnergyData = async () => {
-      setLoading(true)
-      setError(null)
-      try {
-        const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api'
-        console.log('Fetching energy data from:', `${apiBaseUrl}/read`)
-        const response = await fetch(`${apiBaseUrl}/read`)
-        if (!response.ok) {
-          throw new Error('Error al cargar los datos')
-        }
-        const data: EnergyDataStored[] = await response.json()
-        setEnergyData(data)
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Error desconocido')
-        console.error('Error fetching energy data:', err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchEnergyData()
-  }, [])
+  const { energyData, loading, error } = useEnergyData()
+  const isMobile = useMediaQuery('(max-width: 767px)')
 
   // Filtrar datos por el panel seleccionado
   const selectedPanelData = energyData.filter(
@@ -135,10 +102,10 @@ export default function Placas() {
       <div className="content-header">
         <div className="container-fluid">
           <div className="row mb-2">
-            <div className="col-sm-6">
-              <h1 className="m-0">Total Placas Solares</h1>
+            <div className="col-12 col-sm-6">
+              <h1 className="m-0 h4 h1-sm">Total Placas Solares</h1>
             </div>
-            <div className="col-sm-6">
+            <div className="col-12 col-sm-6 d-none d-sm-block">
               <Breadcrumb
                 items={[
                   { label: 'Inicio', path: ROUTES.HOME },
@@ -218,7 +185,7 @@ export default function Placas() {
                   ) : error ? (
                     <div className="alert alert-danger m-3">
                       <i className="fas fa-exclamation-triangle mr-2"></i>
-                      {error}
+                      {error.message}
                     </div>
                   ) : selectedPanelData.length === 0 ? (
                     <div className="text-center p-4 text-muted">
@@ -230,40 +197,48 @@ export default function Placas() {
                       <table className="table table-striped table-hover m-0">
                         <thead>
                           <tr>
-                            <th>Device ID</th>
+                            {!isMobile && <th>Device ID</th>}
                             <th>Energía (kWh)</th>
                             <th>Fecha y Hora</th>
-                            <th>TX Link</th>
+                            {!isMobile && <th>TX Link</th>}
                           </tr>
                         </thead>
                         <tbody>
                           {selectedPanelData.map((record, index) => (
                             <tr key={`${record.device_id}-${record.timestamp}-${index}`}>
-                              <td>
-                                <code>{record.device_id}</code>
-                              </td>
+                              {!isMobile && (
+                                <td>
+                                  <code className="text-xs">{record.device_id}</code>
+                                </td>
+                              )}
                               <td>
                                 <strong>{record.energy}</strong> kWh
                               </td>
-                              <td>
+                              <td className={isMobile ? 'text-sm' : ''}>
                                 <i className="far fa-clock mr-1"></i>
-                                {formatDate(record.timestamp)}
+                                {isMobile
+                                  ? new Date(typeof record.timestamp === 'string' ? parseInt(record.timestamp) : record.timestamp)
+                                      .toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' })
+                                  : formatDate(record.timestamp)
+                                }
                               </td>
-                              <td>
-                                {record.tx_link ? (
-                                  <a
-                                    href={record.tx_link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn btn-sm btn-outline-primary"
-                                  >
-                                    <i className="fas fa-external-link-alt mr-1"></i>
-                                    Ver TX
-                                  </a>
-                                ) : (
-                                  <span className="text-muted">-</span>
-                                )}
-                              </td>
+                              {!isMobile && (
+                                <td>
+                                  {record.tx_link ? (
+                                    <a
+                                      href={record.tx_link}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="btn btn-sm btn-outline-primary"
+                                    >
+                                      <i className="fas fa-external-link-alt mr-1"></i>
+                                      Ver TX
+                                    </a>
+                                  ) : (
+                                    <span className="text-muted">-</span>
+                                  )}
+                                </td>
+                              )}
                             </tr>
                           ))}
                         </tbody>
@@ -278,7 +253,7 @@ export default function Placas() {
           {/* Parte inferior, dividida en dos */}
           <div className="row">
             {/* Lista de Placas Solares (izquierda) */}
-            <div className="col-md-6">
+            <div className={isMobile ? 'col-12 mb-3' : 'col-md-6'}>
               <Card
                 title="Lista de Placas Solares"
                 headerActions={
@@ -305,7 +280,9 @@ export default function Placas() {
                           <i className="fas fa-solar-panel mr-2"></i>
                           {panel.name}
                           <br />
-                          <small className="text-muted">{panel.production} kWh</small>
+                          <small className={selectedPanel.id === panel.id ? 'text-white-50' : 'text-muted'}>
+                            {panel.production} kWh
+                          </small>
                         </div>
                         {getStatusBadge(panel.status)}
                       </li>
@@ -316,7 +293,7 @@ export default function Placas() {
             </div>
 
             {/* Mapa de la Comunidad de Madrid (derecha) */}
-            <div className="col-md-6">
+            <div className={isMobile ? 'col-12' : 'col-md-6'}>
               <Card
                 title="Mapa de Ubicación"
                 headerActions={
@@ -330,7 +307,7 @@ export default function Placas() {
                   <SolarMap
                     center={[40.4168, -3.7038]}
                     zoom={11}
-                    height="400px"
+                    height={isMobile ? '300px' : '400px'}
                     markers={solarPanels.map(panel => ({
                       id: panel.id,
                       position: panel.coordinates,
@@ -345,7 +322,7 @@ export default function Placas() {
               {/* Estadísticas adicionales */}
               <Card title="Estadísticas" className="mt-3">
                   <div className="row">
-                    <div className="col-6">
+                    <div className={isMobile ? 'col-12 mb-2' : 'col-6'}>
                       <div className="info-box bg-success">
                         <span className="info-box-icon">
                           <i className="fas fa-check"></i>
@@ -358,7 +335,7 @@ export default function Placas() {
                         </div>
                       </div>
                     </div>
-                    <div className="col-6">
+                    <div className={isMobile ? 'col-12 mb-2' : 'col-6'}>
                       <div className="info-box bg-warning">
                         <span className="info-box-icon">
                           <i className="fas fa-wrench"></i>

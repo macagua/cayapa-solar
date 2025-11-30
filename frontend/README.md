@@ -23,9 +23,17 @@ frontend/
 ├── src/
 │   ├── assets/          # Recursos estáticos (imágenes, fuentes)
 │   ├── components/      # Componentes reutilizables
-│   │   └── LoadingSpinner.tsx
+│   │   ├── Card.tsx
+│   │   ├── StatsCard.tsx
+│   │   ├── Breadcrumb.tsx
+│   │   ├── LoadingSpinner.tsx
+│   │   ├── SolarMap.tsx
+│   │   └── index.ts
 │   ├── hooks/           # Custom hooks
-│   │   └── useResponsive.ts
+│   │   ├── useAsync.ts
+│   │   ├── useResponsive.ts  # useWindowSize, useMediaQuery
+│   │   ├── useEnergyData.ts  # useEnergyData, useDeviceEnergyData
+│   │   └── index.ts
 │   ├── layouts/         # Componentes de layout
 │   │   ├── MainLayout.tsx
 │   │   ├── Header.tsx
@@ -33,21 +41,28 @@ frontend/
 │   │   └── Footer.tsx
 │   ├── pages/           # Páginas de la aplicación
 │   │   ├── Dashboard.tsx
+│   │   ├── Placas.tsx
 │   │   ├── Login.tsx
 │   │   └── NotFound.tsx
 │   ├── router/          # Configuración de rutas
 │   │   └── index.tsx
 │   ├── services/        # Servicios API
-│   │   └── api.ts
+│   │   ├── api.ts
+│   │   ├── auth.ts
+│   │   ├── energy.ts       # Servicio de datos de energía
+│   │   └── index.ts
 │   ├── store/           # Estado global con Zustand
 │   │   ├── authStore.ts
-│   │   └── uiStore.ts
+│   │   ├── uiStore.ts
+│   │   └── index.ts
 │   ├── styles/          # Estilos globales
 │   │   └── main.scss
 │   ├── types/           # Definiciones de TypeScript
 │   │   └── index.ts
 │   ├── utils/           # Utilidades y helpers
-│   │   └── helpers.ts
+│   │   ├── constants.ts
+│   │   ├── helpers.ts
+│   │   └── index.ts
 │   ├── App.tsx          # Componente principal
 │   ├── main.tsx         # Punto de entrada
 │   └── vite-env.d.ts    # Tipos de Vite

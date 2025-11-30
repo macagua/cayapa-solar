@@ -38,3 +38,10 @@ export interface DashboardStats {
     isPositive: boolean
   }
 }
+
+export interface EnergyDataStored {
+  device_id: string
+  energy: number
+  timestamp: number | string
+  tx_link: string
+}

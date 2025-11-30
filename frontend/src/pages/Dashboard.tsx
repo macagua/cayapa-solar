@@ -2,6 +2,7 @@ import type { DashboardStats } from '../types'
 import Breadcrumb from '@components/Breadcrumb'
 import StatsCard from '@components/StatsCard'
 import { ROUTES } from '@utils/constants'
+import { useWindowSize } from '@hooks/useResponsive'
 
 const statsData: DashboardStats[] = [
   {
@@ -39,14 +40,24 @@ const statsData: DashboardStats[] = [
 ]
 
 export default function Dashboard() {
+  const { width } = useWindowSize()
+
+  // Calcular clases de columna dinámicamente
+  const getColumnClass = () => {
+    if (width >= 1200) return 'col-xl-3 col-lg-4 col-md-6 col-sm-6' // 4 columnas en XL
+    if (width >= 992) return 'col-lg-4 col-md-6 col-sm-6' // 3 columnas en LG
+    if (width >= 768) return 'col-md-6 col-sm-6' // 2 columnas en MD
+    return 'col-12' // 1 columna en mobile
+  }
+
   return (
     <div className="content-header">
       <div className="container-fluid">
         <div className="row mb-2">
-          <div className="col-sm-6">
-            <h1 className="m-0">Dashboard</h1>
+          <div className="col-12 col-sm-6">
+            <h1 className="m-0 h3 h1-sm">Dashboard</h1>
           </div>
-          <div className="col-sm-6">
+          <div className="col-12 col-sm-6 d-none d-sm-block">
             <Breadcrumb
               items={[
                 { label: 'Inicio', path: ROUTES.HOME },
@@ -57,9 +68,9 @@ export default function Dashboard() {
         </div>
 
         {/* Stats Row */}
-        <div className="row mt-4">
+        <div className="row mt-3 mt-md-4">
           {statsData.map(stat => (
-            <div key={stat.id} className="col-lg-3 col-6">
+            <div key={stat.id} className={`${getColumnClass()} mb-3 mb-md-4`}>
               <StatsCard
                 title={stat.title}
                 value={stat.value}

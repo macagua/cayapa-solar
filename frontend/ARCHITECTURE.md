@@ -20,15 +20,17 @@ frontend/
 │   │   └── fonts/
 │   │
 │   ├── 📁 components/             # Componentes reutilizables
-│   │   ├── Card.tsx               # Componente de tarjeta
+│   │   ├── Card.tsx               # Componente de tarjeta genérica
 │   │   ├── StatsCard.tsx          # Tarjeta de estadísticas
 │   │   ├── Breadcrumb.tsx         # Breadcrumb de navegación
 │   │   ├── LoadingSpinner.tsx     # Spinner de carga
+│   │   ├── SolarMap.tsx           # Mapa de paneles solares
 │   │   └── index.ts               # Barrel export
 │   │
 │   ├── 📁 hooks/                  # Custom React Hooks
-│   │   ├── useAsync.ts            # Hook para async operations
-│   │   ├── useResponsive.ts       # Hook para responsive design
+│   │   ├── useAsync.ts            # Hook para operaciones asíncronas genéricas
+│   │   ├── useResponsive.ts       # Hooks responsive (useWindowSize, useMediaQuery)
+│   │   ├── useEnergyData.ts       # Hooks especializados (useEnergyData, useDeviceEnergyData)
 │   │   └── index.ts
 │   │
 │   ├── 📁 layouts/                # Componentes de layout
@@ -39,20 +41,21 @@ frontend/
 │   │
 │   ├── 📁 pages/                  # Páginas de la app
 │   │   ├── Dashboard.tsx          # Dashboard principal
+│   │   ├── Placas.tsx             # Gestión de placas solares
 │   │   ├── Login.tsx              # Página de login
 │   │   └── NotFound.tsx           # Página 404
 │   │
-│   ├── 📁 router/                 # Configuración de routing
-│   │   └── index.tsx              # Router principal
+│   ├── 📁 router/                 # Routing
+│   │   └── index.tsx              # Configuración de rutas
 │   │
-│   ├── 📁 services/               # Servicios API
-│   │   ├── api.ts                 # Cliente HTTP base
+│   ├── 📁 services/               # Servicios externos
+│   │   ├── api.ts                 # Cliente API base
 │   │   ├── auth.ts                # Servicio de autenticación
 │   │   └── index.ts
 │   │
 │   ├── 📁 store/                  # Estado global (Zustand)
 │   │   ├── authStore.ts           # Store de autenticación
-│   │   ├── uiStore.ts             # Store de UI
+│   │   ├── uiStore.ts             # Store de UI (darkMode, sidebar)
 │   │   └── index.ts
 │   │
 │   ├── 📁 styles/                 # Estilos globales
