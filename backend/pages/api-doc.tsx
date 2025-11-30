@@ -40,10 +40,6 @@ export const getStaticProps: GetStaticProps = async () => {
           name: 'Wallet',
           description: 'Endpoints para información de wallet BSV',
         },
-        {
-          name: 'Status',
-          description: 'Endpoints de estado del sistema',
-        },
       ],
     },
   });
