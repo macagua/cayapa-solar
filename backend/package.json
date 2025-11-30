@@ -1,7 +1,7 @@
 {
-  "name": "bsv-crowdfunding-demo",
+  "name": "cayapa-solar-backend",
   "version": "1.0.0",
-  "description": "Minimal BSV crowdfunding demo with PushDrop tokens",
+  "description": "Backend API para monitoreo de energía solar con BSV Blockchain",
   "type": "module",
   "scripts": {
     "dev": "next dev -p 3001",
