@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { existsSync, readFileSync } from 'fs'
 import { join } from 'path'
+import { setCorsHeaders } from '../../lib/cors'
 
 const DATA_FILE = join(process.cwd(), 'solar-data.json')
 
@@ -47,6 +48,10 @@ export function loadEnergyData(): EnergyDataStored[] {
  *                     type: string
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Configurar CORS
+  if (setCorsHeaders(req, res)) {
+    return // Respuesta preflight ya enviada
+  }
 
-  res.status(200).json(loadEnergyData() )
+  res.status(200).json(loadEnergyData())
 }

@@ -1,0 +1,32 @@
+[
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.524,
+    "timestamp": 725,
+    "tx_link": "https://whatsonchain.com/tx/fake_eo307lendpgkcapnovaaz"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.978,
+    "timestamp": 720,
+    "tx_link": "https://whatsonchain.com/tx/fake_uunxxissmss700v7ij72q"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.788,
+    "timestamp": 714,
+    "tx_link": "https://whatsonchain.com/tx/fake_yimv6hb9om46qpoz0gnwx"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.941,
+    "timestamp": 709,
+    "tx_link": "https://whatsonchain.com/tx/fake_b35ewo7kjwkc90gp2ve4sv"
+  },
+  {
+    "device_id": "cayapa-001",
+    "energy": -5.656,
+    "timestamp": 704,
+    "tx_link": "https://whatsonchain.com/tx/fake_cp82p3t59sdcgo3edrpj"
+  }
+]
