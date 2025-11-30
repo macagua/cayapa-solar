@@ -8,9 +8,8 @@ Sistema de gestión y monitoreo de paneles solares con integración blockchain B
 
 ```
 cayapa-solar/
-├── frontend/          # Panel administrativo React + TypeScript + AdminLTE
-├── backend/           # API Next.js + BSV Blockchain integration
-├── bnk/              # Biblioteca de componentes AdminLTE
+├── frontend/         # Panel administrativo React + TypeScript + AdminLTE
+├── backend/          # API Next.js + BSV Blockchain integration
 ├── microprocessor/   # Código Arduino para placas IoT
 └── start-dev.sh      # Script de inicio rápido (Linux/Mac)
 ```
