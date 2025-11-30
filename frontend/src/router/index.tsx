@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useAuthStore } from '@store/authStore'
 import MainLayout from '@layouts/MainLayout'
 import LoadingSpinner from '@components/LoadingSpinner'
+import { ROUTES } from '@utils/constants'
 
 // Lazy loading de páginas para code splitting
 const Dashboard = lazy(() => import('@pages/Dashboard'))
@@ -19,7 +20,7 @@ function ProtectedRoute({ children }: ProtectedRouteProps) {
   const { isAuthenticated } = useAuthStore()
 
   if (!isAuthenticated) {
-    return <Navigate to="/login" replace />
+    return <Navigate to={ROUTES.LOGIN} replace />
   }
 
   return <>{children}</>
@@ -30,7 +31,7 @@ function PublicRoute({ children }: ProtectedRouteProps) {
   const { isAuthenticated } = useAuthStore()
 
   if (isAuthenticated) {
-    return <Navigate to="/" replace />
+    return <Navigate to={ROUTES.HOME} replace />
   }
 
   return <>{children}</>
@@ -43,7 +44,7 @@ export default function AppRouter() {
         <Routes>
           {/* Rutas públicas */}
           <Route
-            path="/login"
+            path={ROUTES.LOGIN}
             element={
               <PublicRoute>
                 <Login />
@@ -53,7 +54,7 @@ export default function AppRouter() {
 
           {/* Rutas protegidas */}
           <Route
-            path="/"
+            path={ROUTES.HOME}
             element={
               <ProtectedRoute>
                 <MainLayout>
@@ -64,7 +65,7 @@ export default function AppRouter() {
           />
 
           <Route
-            path="/placas"
+            path={ROUTES.PLACAS}
             element={
               <ProtectedRoute>
                 <MainLayout>

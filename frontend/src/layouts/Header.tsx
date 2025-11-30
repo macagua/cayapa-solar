@@ -1,6 +1,7 @@
 import { useUIStore } from '@store/uiStore'
 import { useAuthStore } from '@store/authStore'
 import { Link } from 'react-router-dom'
+import { ROUTES } from '@utils/constants'
 
 export default function Header() {
   const { toggleSidebar, darkMode, toggleDarkMode } = useUIStore()
@@ -22,7 +23,7 @@ export default function Header() {
           </button>
         </li>
         <li className="nav-item d-none d-sm-inline-block">
-          <Link to="/" className="nav-link">
+          <Link to={ROUTES.HOME} className="nav-link">
             Inicio
           </Link>
         </li>

@@ -4,6 +4,7 @@ import L from 'leaflet'
 import Card from '@components/Card'
 import Breadcrumb from '@components/Breadcrumb'
 import SolarMap from '@components/SolarMap'
+import { PANEL_STATUS, ROUTES } from '@utils/constants'
 // import { apiService } from '@services/api'
 
 // Fix para los iconos de Leaflet en React
@@ -30,7 +31,7 @@ interface SolarPanel {
   id: string
   name: string
   production: number
-  status: 'active' | 'inactive' | 'maintenance'
+  status: keyof typeof PANEL_STATUS
   location: string
   coordinates: [number, number]
 }
@@ -40,7 +41,7 @@ const solarPanels: SolarPanel[] = [
     id: '12345',
     name: 'Placa Solar 1',
     production: 12.5,
-    status: 'active',
+    status: 'ACTIVE',
     location: 'Madrid, España',
     coordinates: [40.4168, -3.7038],
   },
@@ -48,7 +49,7 @@ const solarPanels: SolarPanel[] = [
     id: '12346',
     name: 'Placa Solar 2',
     production: 15.3,
-    status: 'active',
+    status: 'ACTIVE',
     location: 'Madrid, España',
     coordinates: [40.4200, -3.7100],
   },
@@ -56,7 +57,7 @@ const solarPanels: SolarPanel[] = [
     id: '12347',
     name: 'Placa Solar 3',
     production: 10.8,
-    status: 'maintenance',
+    status: 'MAINTENANCE',
     location: 'Madrid, España',
     coordinates: [40.4100, -3.6900],
   },
@@ -111,14 +112,16 @@ export default function Placas() {
 
   const getStatusBadge = (status: string) => {
     const badges = {
-      active: 'badge-success',
-      inactive: 'badge-danger',
-      maintenance: 'badge-warning',
+      ACTIVE: 'badge-success',
+      INACTIVE: 'badge-danger',
+      MAINTENANCE: 'badge-warning',
+      ERROR: 'badge-danger',
     }
     const labels = {
-      active: 'Activa',
-      inactive: 'Inactiva',
-      maintenance: 'Mantenimiento',
+      ACTIVE: 'Activa',
+      INACTIVE: 'Inactiva',
+      MAINTENANCE: 'Mantenimiento',
+      ERROR: 'Error',
     }
     return (
       <span className={`badge ${badges[status as keyof typeof badges]}`}>
@@ -138,7 +141,7 @@ export default function Placas() {
             <div className="col-sm-6">
               <Breadcrumb
                 items={[
-                  { label: 'Inicio', path: '/' },
+                  { label: 'Inicio', path: ROUTES.HOME },
                   { label: 'Placas' },
                 ]}
               />
@@ -350,7 +353,7 @@ export default function Placas() {
                         <div className="info-box-content">
                           <span className="info-box-text">Activas</span>
                           <span className="info-box-number">
-                            {solarPanels.filter(p => p.status === 'active').length}
+                            {solarPanels.filter(p => p.status === 'ACTIVE').length}
                           </span>
                         </div>
                       </div>
@@ -363,7 +366,7 @@ export default function Placas() {
                         <div className="info-box-content">
                           <span className="info-box-text">Mantenimiento</span>
                           <span className="info-box-number">
-                            {solarPanels.filter(p => p.status === 'maintenance').length}
+                            {solarPanels.filter(p => p.status === 'MAINTENANCE').length}
                           </span>
                         </div>
                       </div>

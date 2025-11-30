@@ -1,19 +1,20 @@
 import { Link, useLocation } from 'react-router-dom'
 import type { NavigationItem } from '../types'
 import { cn } from '@utils/helpers'
+import { ROUTES } from '@utils/constants'
 
 const navigationItems: NavigationItem[] = [
   {
     id: 'dashboard',
     label: 'Dashboard',
     icon: 'fa-tachometer-alt',
-    path: '/',
+    path: ROUTES.HOME,
   },
   {
     id: 'total-placas',
     label: 'Total Placas',
     icon: 'fa-solar-panel',
-    path: '/placas',
+    path: ROUTES.PLACAS,
   },
 //   {
 //     id: 'solar-panels',
@@ -103,7 +104,7 @@ export default function Sidebar() {
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
       {/* Brand Logo */}
-      <Link to="/" className="brand-link">
+      <Link to={ROUTES.HOME} className="brand-link">
         <img
           src="/logo.png"
           alt="Logo"

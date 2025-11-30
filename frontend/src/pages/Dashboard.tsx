@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
-import type { DashboardStats } from '@types'
+import type { DashboardStats } from '../types'
 import Breadcrumb from '@components/Breadcrumb'
 import StatsCard from '@components/StatsCard'
+import { ROUTES } from '@utils/constants'
 
 const statsData: DashboardStats[] = [
   {
@@ -49,7 +49,7 @@ export default function Dashboard() {
           <div className="col-sm-6">
             <Breadcrumb
               items={[
-                { label: 'Inicio', path: '/' },
+                { label: 'Inicio', path: ROUTES.HOME },
                 { label: 'Dashboard' },
               ]}
             />

@@ -1,9 +1,11 @@
+import { USER_ROLES } from '@utils/constants'
+
 export interface User {
   id: string
   name: string
   email: string
   avatar?: string
-  role: 'admin' | 'user' | 'manager'
+  role: keyof typeof USER_ROLES
 }
 
 export interface AuthState {

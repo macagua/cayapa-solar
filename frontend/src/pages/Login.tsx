@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '@store/authStore'
+import { APP_NAME, ROUTES } from '@utils/constants'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -24,7 +25,7 @@ export default function Login() {
         role: 'admin',
       })
 
-      navigate('/')
+      navigate(ROUTES.HOME)
     } catch (error) {
       console.error('Login failed:', error)
     } finally {
@@ -36,7 +37,7 @@ export default function Login() {
     <div className="hold-transition login-page">
       <div className="login-box">
         <div className="login-logo">
-          <b>Cayapa</b> Solar
+          <b>{APP_NAME.split(' ')[0]}</b> {APP_NAME.split(' ')[1]}
         </div>
 
         <div className="card">
