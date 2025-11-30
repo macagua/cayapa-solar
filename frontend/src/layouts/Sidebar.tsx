@@ -110,7 +110,7 @@ export default function Sidebar() {
           className="brand-image img-circle elevation-3"
           style={{ opacity: 0.8 }}
           onError={e => {
-            e.currentTarget.src = 'https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png'
+            e.currentTarget.src = '/src/assets/img/energy.png'
           }}
         />
         <span className="brand-text font-weight-light">Cayapa Solar</span>
@@ -122,7 +122,7 @@ export default function Sidebar() {
         <div className="user-panel mt-3 pb-3 mb-3 d-flex">
           <div className="image">
             <img
-              src="https://placehold.co/40"
+              src="/src/assets/img/user5-128x128.jpg"
               className="img-circle elevation-2"
               alt="User"
             />

@@ -58,7 +58,7 @@ export default function Header() {
         <li className="nav-item dropdown">
           <a className="nav-link" data-toggle="dropdown" href="#">
             <img
-              src={user?.avatar || 'https://placehold.co/40'}
+              src={'/src/assets/img/user5-128x128.jpg'}
               className="img-circle elevation-2"
               alt="User"
               style={{ width: '30px', height: '30px' }}
