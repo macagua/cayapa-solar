@@ -19,6 +19,52 @@ export function saveEnergyData(state: EnergyDataStored): void {
 }
 
 /**
+ * @swagger
+ * /api/store-json:
+ *   post:
+ *     summary: Store energy data on BSV blockchain
+ *     tags: [Energy Data]
+ *     description: Almacena datos de energía solar en la blockchain BSV usando transacciones OP_RETURN
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               device_id:
+ *                 type: string
+ *                 description: ID del dispositivo ESP32
+ *                 example: "cayapa-001"
+ *               energy:
+ *                 type: number
+ *                 description: Energía generada en kWh
+ *                 example: 5.23
+ *               timestamp:
+ *                 type: integer
+ *                 description: Timestamp Unix en segundos
+ *                 example: 1234567
+ *     responses:
+ *       200:
+ *         description: Datos almacenados exitosamente en blockchain
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 txid:
+ *                   type: string
+ *                   description: ID de transacción en blockchain
+ *                 tx_link:
+ *                   type: string
+ *                   description: Link a WhatsOnChain para ver la transacción
+ *       400:
+ *         description: Datos inválidos
+ *       500:
+ *         description: Error del servidor
+ */
+
+/**
  * Crea un script OP_RETURN con los datos proporcionados
  * OP_RETURN permite almacenar datos en la blockchain de forma inmutable
  */
