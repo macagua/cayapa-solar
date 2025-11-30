@@ -21,6 +21,31 @@ export function loadEnergyData(): EnergyDataStored[] {
 
 }
 
+/**
+ * @swagger
+ * /api/read:
+ *   get:
+ *     summary: Get all energy data records
+ *     tags: [Energy Data]
+ *     responses:
+ *       200:
+ *         description: Array of energy measurements with blockchain links
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   device_id:
+ *                     type: string
+ *                   energy:
+ *                     type: number
+ *                   timestamp:
+ *                     type: integer
+ *                   tx_link:
+ *                     type: string
+ */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   res.status(200).json(loadEnergyData() )
