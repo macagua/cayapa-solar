@@ -17,6 +17,7 @@ const queryClient = new QueryClient({
 
 function App() {
   const darkMode = useUIStore(state => state.darkMode)
+  const sidebarCollapsed = useUIStore(state => state.sidebarCollapsed)
 
   // Aplicar dark mode al body cuando cambie el estado
   useEffect(() => {
@@ -26,6 +27,18 @@ function App() {
       document.body.classList.remove('dark-mode')
     }
   }, [darkMode])
+
+  // Aplicar clase sidebar-collapse al body cuando el sidebar esté colapsado
+  useEffect(() => {
+    // Agregar clases base de AdminLTE
+    document.body.classList.add('hold-transition', 'sidebar-mini', 'layout-fixed')
+
+    if (sidebarCollapsed) {
+      document.body.classList.add('sidebar-collapse')
+    } else {
+      document.body.classList.remove('sidebar-collapse')
+    }
+  }, [sidebarCollapsed])
 
   return (
     <QueryClientProvider client={queryClient}>

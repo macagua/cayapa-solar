@@ -10,11 +10,13 @@ export default function Header() {
     <nav className="main-header navbar navbar-expand navbar-white navbar-light">
       {/* Left navbar links */}
       <ul className="navbar-nav">
-        <li className="nav-item">
+        <li className="nav-item d-none d-md-inline-block">
           <button
             className="nav-link"
             onClick={toggleSidebar}
             aria-label="Toggle sidebar"
+            data-widget="pushmenu"
+            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
           >
             <i className="fas fa-bars"></i>
           </button>

@@ -258,6 +258,23 @@ a, button {
   .sidebar-mini.sidebar-collapse .content-wrapper {
     margin-left: 0 !important;
   }
+
+  .sidebar-mini.sidebar-collapse .main-sidebar {
+    margin-left: -250px;
+  }
+
+  body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .content-wrapper {
+    margin-left: 250px;
+  }
+}
+
+// Sidebar transitions
+.main-sidebar {
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+.content-wrapper {
+  transition: margin-left 0.3s ease-in-out;
 }
 
 // Loading spinner personalizado
