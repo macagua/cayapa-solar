@@ -38,7 +38,7 @@ interface SolarPanel {
 
 const solarPanels: SolarPanel[] = [
   {
-    id: '12345',
+    id: 'sensor-001',
     name: 'Placa Solar 1',
     production: 12.5,
     status: 'ACTIVE',
