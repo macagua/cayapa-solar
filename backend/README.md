@@ -1261,6 +1261,8 @@ Proyecto desarrollado para **Hackathon 2025 - M Merge**
 - [Manuel Jesús Rojas Villanueva](https://www.linkedin.com/in/manuelrojasvillanueva/), [@texaco](https://github.com/texaco)
 - [Leonardo J. Caballero G.](https://www.linkedin.com/in/leonardojcaballerog/), [@macagua](https://github.com/macagua)
 
+<img src="../docs/mmerge_web3_hackathon_2025.jpeg" alt="MMERGE Web3 Hackathon 2025" width="800" height="450">
+
 ---
 
 ## 📄 Licencia
