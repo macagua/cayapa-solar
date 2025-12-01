@@ -415,12 +415,6 @@ Proyecto desarrollado para **Hackathon 2025 - M Merge**
 
 ---
 
-## 📄 Licencia
-
-Ver archivo [LICENSE](./LICENSE.md)
-
----
-
 ## 🔗 Enlaces Útiles
 
 - [BSV Blockchain](https://bitcoinsv.com)
@@ -438,6 +432,12 @@ Ver archivo [LICENSE](./LICENSE.md)
 Para reportar problemas o sugerencias, consulta los archivos:
 - `frontend/TESTING.md` - Guía de pruebas
 - `frontend/IMPLEMENTATION_SUMMARY.md` - Detalles técnicos
+
+---
+
+## 📄 Licencia
+
+Ver archivo [LICENSE](./LICENSE.md)
 
 ---
 
