@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="main-footer">
       <div className="float-right d-none d-sm-inline">
-        <b>Versión</b> {APP_VERSION}
+        {APP_NAME} - <b>Versión</b> {APP_VERSION}
       </div>
       <strong>
         Copyright &copy; {currentYear}{' '}
