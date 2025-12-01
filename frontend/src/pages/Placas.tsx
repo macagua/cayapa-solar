@@ -4,7 +4,7 @@ import L from 'leaflet'
 import Card from '@components/Card'
 import Breadcrumb from '@components/Breadcrumb'
 import SolarMap from '@components/SolarMap'
-import { PANEL_STATUS, ROUTES } from '@utils/constants'
+import { DATETIME_FORMAT, PANEL_STATUS, ROUTES } from '@utils/constants'
 import { formatDateTime } from '@utils/helpers'
 import { useMediaQuery, useEnergyData } from '@hooks/index'
 
@@ -230,7 +230,7 @@ export default function Placas() {
                               {!isMobile && (
                                 <td>
                                   <i className="far fa-clock mr-1"></i>
-                                  {formatDateTime(record.timestamp, true)}
+                                  {formatDateTime(record.timestamp, DATETIME_FORMAT)}
                                 </td>
                               )}
                               <td>
