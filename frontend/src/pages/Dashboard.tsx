@@ -204,7 +204,7 @@ export default function Dashboard() {
                         <span className="badge badge-success float-right">Nuevo</span>
                       </a>
                       <span className="product-description">
-                        Usuario: Juan Pérez - $5,000
+                        Usuario: Juan Pérez - {formatCurrency(5000, 'EUR')}
                       </span>
                     </div>
                   </li>
