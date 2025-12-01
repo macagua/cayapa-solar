@@ -45,7 +45,7 @@ cayapa-solar/
 
 #### Formulario de autenticación - Login
 
-<img src="docs/madrid_solar_frontend_login.png" alt="Frontend - Formulario de autenticación" width="539" height="354">
+<img src="docs/madrid_solar_frontend_login.png" alt="Frontend - Formulario de autenticación" width="469" height="420">
 
 ---
 

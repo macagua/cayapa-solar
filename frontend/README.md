@@ -20,13 +20,13 @@ Panel de administración moderno construido con React, TypeScript, Vite y AdminL
 
 ## 🎨 Capturas de Pantalla
 
-### Dashboard
+### Formulario de autenticación - Login
 
-#### Formulario de autenticación - Login
-
-<img src="../docs/madrid_solar_frontend_login.png" alt="Frontend - Formulario de autenticación" width="539" height="354">
+<img src="../docs/madrid_solar_frontend_login.png" alt="Frontend - Formulario de autenticación" width="469" height="420">
 
 ---
+
+### Dashboard
 
 #### Vista principal con estadísticas
 

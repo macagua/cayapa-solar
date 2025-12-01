@@ -80,7 +80,7 @@ export default function Login() {
               <div className="row">
                 <div className="col-8">
                   <div className="icheck-primary">
-                    <input type="checkbox" id="remember" />
+                    <input type="checkbox" id="remember" />&nbsp;
                     <label htmlFor="remember">Recordarme</label>
                   </div>
                 </div>
