@@ -403,15 +403,21 @@ WALLET_PRIVATE_KEY=your_key_here
 
 ---
 
-## 👥 Equipo
+## 👥 Equipo Cayapa Solar
 
 Proyecto desarrollado para **Hackathon 2025 - M Merge**
+
+- [Alejandro Sanchez](https://www.linkedin.com/in/alejandrocarracedo/)
+- Álvaro Rubén Hurtado Maldonado @alvarohurtadobo
+- Victor Bague @VictorBagueUAX
+- Leonardo J. Caballero G. @macagua
+- Manolo Texaco @texaco
 
 ---
 
 ## 📄 Licencia
 
-Ver archivo [LICENSE](./LICENSE)
+Ver archivo [LICENSE](./LICENSE.md)
 
 ---
 
