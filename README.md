@@ -11,6 +11,7 @@ cayapa-solar/
 ├── frontend/         # Panel administrativo React + TypeScript + AdminLTE
 ├── backend/          # API Next.js + BSV Blockchain integration
 ├── microprocessor/   # Código Arduino para placas IoT
+├── mobile/           # Código mobile para iPhone
 └── start-dev.sh      # Script de inicio rápido (Linux/Mac)
 ```
 
@@ -54,6 +55,15 @@ npm run dev
 
 ## 🏗️ Stack Tecnológico
 
+### IoT
+- **Arduino** - Código para microcontroladores de placas.
+
+### Backend
+- **Next.js** - Framework React full-stack.
+- **BSV Blockchain** - Bitcoin SV para transacciones.
+- **TypeScript** - Tipado en backend.
+- **JSON Storage** - Almacenamiento temporal de datos.
+
 ### Frontend
 - **React 18.3** - Biblioteca UI con hooks
 - **TypeScript 5.5** - Tipado estático
@@ -66,18 +76,18 @@ npm run dev
 - **React Leaflet 4.2** - Mapas interactivos
 - **SCSS** - Preprocesador CSS
 
-### Backend
-- **Next.js** - Framework React full-stack
-- **BSV Blockchain** - Bitcoin SV para transacciones
-- **TypeScript** - Tipado en backend
-- **JSON Storage** - Almacenamiento temporal de datos
-
-### IoT
-- **Arduino** - Código para microcontroladores de placas
+### Mobile
+- **Flutter** - Código para una aplicacion movil de iPhone con Flutter.
 
 ---
 
 ## 📖 Documentación Detallada
+
+### Microprocessor
+- [README Microprocessor](./microprocessor/README.md) - codigo de IoT.
+
+### Backend
+- [README Backend](./backend/README.md) - API y endpoints.
 
 ### Frontend
 - [README Frontend](./frontend/README.md) - Instalación y configuración
@@ -86,8 +96,8 @@ npm run dev
 - [Inicio Rápido](./frontend/QUICKSTART.md) - Guía rápida
 - [Arquitectura](./frontend/ARCHITECTURE.md) - Estructura del código
 
-### Backend
-- [README Backend](./backend/README.md) - API y endpoints
+### Mobile
+- [README Mobile](./mobile/README.md) - aplicacion movil de iPhone con Flutter.
 
 ---
 
