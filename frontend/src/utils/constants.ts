@@ -7,13 +7,13 @@ export const APP_VERSION = '1.0.0'
 export const API_TIMEOUT = 10000 // 10 segundos
 
 // Paginación
-export const DEFAULT_PAGE_SIZE = 10
-export const PAGE_SIZE_OPTIONS = [10, 25, 50, 100]
+// export const DEFAULT_PAGE_SIZE = 10
+// export const PAGE_SIZE_OPTIONS = [10, 25, 50, 100]
 
 // Formatos de fecha
 export const DATE_FORMAT = 'dd/MM/yyyy'
 export const DATETIME_FORMAT = 'dd/MM/yyyy HH:mm'
-export const TIME_FORMAT = 'HH:mm'
+// export const TIME_FORMAT = 'HH:mm'
 
 // Rutas
 export const ROUTES = {
