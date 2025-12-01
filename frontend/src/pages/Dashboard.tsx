@@ -5,6 +5,7 @@ import { ROUTES } from '@utils/constants'
 import { useWindowSize } from '@hooks/useResponsive'
 import { useEffect, useRef } from 'react'
 import Chart from 'chart.js/auto'
+import { formatCurrency } from '@utils/index'
 
 const statsData: DashboardStats[] = [
   {
@@ -18,7 +19,7 @@ const statsData: DashboardStats[] = [
   {
     id: 'active-investments',
     title: 'Inversiones Activas',
-    value: '$50,000',
+    value: formatCurrency(50000, 'EUR'),
     icon: 'fa-coins',
     color: 'success',
     trend: { value: 8, isPositive: true },
