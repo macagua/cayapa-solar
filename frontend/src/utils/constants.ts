@@ -17,16 +17,19 @@ export const TIME_FORMAT = 'HH:mm'
 
 // Rutas
 export const ROUTES = {
+  // Rutas activas
   HOME: '/',
   LOGIN: '/login',
-  DASHBOARD: '/dashboard',
   PLACAS: '/placas',
-  PANELS: '/panels',
-  PANELS_MAP: '/panels/map',
-  PANELS_ANALYTICS: '/panels/analytics',
-  INVESTMENTS: '/investments',
-  USERS: '/users',
-  SETTINGS: '/settings',
+
+  // Rutas futuras (roadmap Q1 2026)
+  // DASHBOARD: '/dashboard',
+  // PANELS: '/panels',
+  // PANELS_MAP: '/panels/map',
+  // PANELS_ANALYTICS: '/panels/analytics',
+  // INVESTMENTS: '/investments',
+  // USERS: '/users',
+  // SETTINGS: '/settings',
 } as const
 
 // Roles de usuario
