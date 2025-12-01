@@ -1,11 +1,12 @@
 import type { ClassValue } from 'clsx'
 import clsx from 'clsx'
+import { DATE_FORMAT } from './constants'
 
 export function cn(...inputs: ClassValue[]) {
   return clsx(inputs)
 }
 
-export function formatDate(date: Date | string, format = 'dd/MM/yyyy'): string {
+export function formatDate(date: Date | string, format = DATE_FORMAT): string {
   const d = typeof date === 'string' ? new Date(date) : date
   const day = String(d.getDate()).padStart(2, '0')
   const month = String(d.getMonth() + 1).padStart(2, '0')
