@@ -2,7 +2,42 @@
 
 Panel de administración moderno construido con React, TypeScript, Vite y AdminLTE siguiendo las mejores prácticas de desarrollo frontend 2025.
 
-## 🚀 Características
+## 🌟 Funcionalidades Principales
+
+### 1. Dashboard
+- 📊 Estadísticas en tiempo real
+- 📈 4 widgets principales:
+  - Total Placas Solares
+  - Energía Total Generada
+  - Inversiones Activas
+  - Usuarios Registrados
+
+### 2. Total Placas (/placas)
+- 🗺️ Mapa interactivo de Madrid con React Leaflet
+- 📍 3 placas solares con marcadores
+- 📋 Información detallada de cada placa:
+  - ID del dispositivo
+  - Ubicación
+  - Capacidad (kW)
+  - Estado (activa/inactiva)
+- 📊 **Tabla de registros de energía:**
+  - Device ID
+  - Energía producida (kWh)
+  - Fecha y hora
+  - Enlace a transacción blockchain
+
+### 3. Autenticación
+- 🔐 Login simulado (desarrollo)
+- 👤 Usuario: cualquier email válido
+- 🔑 Password: cualquier contraseña
+- 💾 Persistencia en localStorage
+
+### 4. Integración Blockchain
+- ⛓️ Registro de transacciones en BSV
+- 🔗 Enlaces directos a blockchain explorer
+- 📝 Almacenamiento inmutable de datos
+
+### 🚀 Características
 
 - ⚡️ **Vite** - Build tool ultrarrápido para desarrollo moderno
 - ⚛️ **React 18** - Última versión con mejoras de rendimiento

@@ -244,15 +244,41 @@ backend/
 └── README.md                  # Esta documentación
 ```
 
-### Endpoints Activos
+### 🔌 Endpoints Activos
 
-| Método | Endpoint | Descripción | Uso |
-|--------|----------|-------------|-----|
-| `GET` | `/api/read` | Obtiene datos de energía | Consulta de datos históricos |
-| `POST` | `/api/store-json` | Almacena datos en blockchain | ESP32 → Backend |
-| `GET` | `/api/wallet-info` | Info de wallet BSV | Diagnóstico de sistema |
-| `GET` | `/api/sensor-status` | Estado y beneficios del sensor | Datos de usuario y tokens |
-| `GET` | `/api-doc` | Documentación Swagger | Interfaz interactiva API |
+| Método | Endpoint | Descripción | Uso | Respuesta |
+|--------|----------|-------------|-----|-----------|
+| `GET` | `/api/read` | Obtiene datos de energía | Consulta de datos históricos | `EnergyDataStored[]` |
+| `POST` | `/api/store-json` | Almacena datos en blockchain | ESP32 → Backend | Éxito |
+| `GET` | `/api/wallet-info` | Info de wallet BSV | Diagnóstico de sistema | Detalles de la cartera |
+| `GET` | `/api/sensor-status` | Estado y beneficios del sensor | Datos de usuario y tokens | Detalles de la placa |
+| `GET` | `/api-doc` | Documentación Swagger | Interfaz interactiva API | Documentación de la API con Swagger UI |
+
+---
+
+## 📊 Modelos de Datos
+
+### EnergyDataStored
+```typescript
+interface EnergyDataStored {
+  device_id: string      // ID de la placa solar
+  energy: number         // Energía en kWh
+  timestamp: number      // Unix timestamp en ms
+  tx_link: string        // URL a transacción blockchain
+}
+```
+
+### SolarPanel
+```typescript
+interface SolarPanel {
+  id: string            // Device ID
+  name: string          // Nombre descriptivo
+  location: string      // Ubicación física
+  capacity: number      // Capacidad en kW
+  status: 'active' | 'inactive'
+  coordinates: [number, number]  // [lat, lng]
+}
+```
 
 ---
 
