@@ -16,6 +16,8 @@ Panel de administración moderno construido con React, TypeScript, Vite y AdminL
 - ♿️ **Accesibilidad** - Cumplimiento de estándares WCAG
 - 🌙 **Dark Mode** - Soporte para modo oscuro
 
+---
+
 ## 📁 Estructura del Proyecto
 
 ```
@@ -75,6 +77,22 @@ frontend/
 └── vite.config.ts       # Configuración Vite
 ```
 
+### Path Aliases Configurados
+
+```typescript
+@components -> src/components
+@pages      -> src/pages
+@layouts    -> src/layouts
+@hooks      -> src/hooks
+@services   -> src/services
+@store      -> src/store
+@types      -> src/types
+@utils      -> src/utils
+@assets     -> src/assets
+```
+
+---
+
 ## 🛠️ Instalación
 
 ### Prerrequisitos
@@ -123,6 +141,8 @@ npm run dev
 ```
 
 La aplicación estará disponible en `http://localhost:3000`
+
+---
 
 ## 📜 Scripts Disponibles
 
@@ -1303,6 +1323,8 @@ import { myService } from '@services'
 const data = await myService.getData()
 ```
 
+---
+
 ## 📚 Tecnologías y Librerías
 
 ### Core Framework
@@ -1410,17 +1432,35 @@ const data = await myService.getData()
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
 
-## 📝 Licencia
+---
 
-Este proyecto está bajo la Licencia MIT.
+## 📞 Soporte
 
-## 👥 Equipo
-
-Desarrollado por el equipo de Cayapa Solar
+Para reportar problemas o sugerencias, consulta los archivos:
+- `frontend/TESTING.md` - Guía de pruebas
+- `frontend/IMPLEMENTATION_SUMMARY.md` - Detalles técnicos
 
 ## 🐛 Reportar Issues
 
 Si encuentras algún bug o tienes sugerencias, por favor abre un issue en el repositorio.
+
+---
+
+## 👥 Equipo Cayapa Solar
+
+Proyecto desarrollado para **Hackathon 2025 - M Merge**
+
+- [Alejandro Sanchez](https://www.linkedin.com/in/alejandrocarracedo/)
+- [Álvaro Rubén Hurtado Maldonado](https://www.linkedin.com/in/alvarohurtadobo/), [@alvarohurtadobo](https://github.com/alvarohurtadobo)
+- [Victor Bague](https://www.linkedin.com/in/victorbague/), [@VictorBagueUAX](https://github.com/VictorBagueUAX)
+- [Manuel Jesús Rojas Villanueva](https://www.linkedin.com/in/manuelrojasvillanueva/), [@texaco](https://github.com/texaco)
+- [Leonardo J. Caballero G.](https://www.linkedin.com/in/leonardojcaballerog/), [@macagua](https://github.com/macagua)
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia [MIT](./LICENSE.md).
 
 ---
 

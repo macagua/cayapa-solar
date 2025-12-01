@@ -228,60 +228,6 @@ interface SolarPanel {
 
 ---
 
-## 🛠️ Desarrollo
-
-### Estructura de Carpetas Frontend
-
-```
-frontend/src/
-├── components/        # Componentes reutilizables
-│   ├── Card.tsx
-│   ├── StatsCard.tsx
-│   ├── Breadcrumb.tsx
-│   ├── LoadingSpinner.tsx
-│   └── SolarMap.tsx
-├── pages/            # Páginas principales
-│   ├── Dashboard.tsx
-│   ├── Placas.tsx
-│   ├── Login.tsx
-│   └── NotFound.tsx
-├── layouts/          # Layouts compartidos
-│   ├── MainLayout.tsx
-│   ├── Header.tsx
-│   ├── Sidebar.tsx
-│   └── Footer.tsx
-├── router/           # Configuración de rutas
-│   └── index.tsx
-├── services/         # Servicios y API
-│   ├── api.ts
-│   └── auth.ts
-├── store/            # Estado global (Zustand)
-│   ├── authStore.ts
-│   └── uiStore.ts
-├── types/            # Definiciones TypeScript
-│   └── index.ts
-├── utils/            # Utilidades
-│   └── helpers.ts
-└── styles/           # Estilos SCSS
-    └── main.scss
-```
-
-### Path Aliases Configurados
-
-```typescript
-@components -> src/components
-@pages      -> src/pages
-@layouts    -> src/layouts
-@hooks      -> src/hooks
-@services   -> src/services
-@store      -> src/store
-@types      -> src/types
-@utils      -> src/utils
-@assets     -> src/assets
-```
-
----
-
 ## 🧪 Testing
 
 ### Prueba Manual Completa
@@ -403,18 +349,6 @@ WALLET_PRIVATE_KEY=your_key_here
 
 ---
 
-## 👥 Equipo Cayapa Solar
-
-Proyecto desarrollado para **Hackathon 2025 - M Merge**
-
-- [Alejandro Sanchez](https://www.linkedin.com/in/alejandrocarracedo/)
-- [Álvaro Rubén Hurtado Maldonado](https://www.linkedin.com/in/alvarohurtadobo/), [@alvarohurtadobo](https://github.com/alvarohurtadobo)
-- [Victor Bague](https://www.linkedin.com/in/victorbague/), [@VictorBagueUAX](https://github.com/VictorBagueUAX)
-- [Manuel Jesús Rojas Villanueva](https://www.linkedin.com/in/manuelrojasvillanueva/), [@texaco](https://github.com/texaco)
-- [Leonardo J. Caballero G.](https://www.linkedin.com/in/leonardojcaballerog/), [@macagua](https://github.com/macagua)
-
----
-
 ## 🔗 Enlaces Útiles
 
 - [BSV Blockchain](https://bitcoinsv.com)
@@ -427,17 +361,21 @@ Proyecto desarrollado para **Hackathon 2025 - M Merge**
 
 ---
 
-## 📞 Soporte
+## 👥 Equipo Cayapa Solar
 
-Para reportar problemas o sugerencias, consulta los archivos:
-- `frontend/TESTING.md` - Guía de pruebas
-- `frontend/IMPLEMENTATION_SUMMARY.md` - Detalles técnicos
+Proyecto desarrollado para **Hackathon 2025 - M Merge**
+
+- [Alejandro Sanchez](https://www.linkedin.com/in/alejandrocarracedo/)
+- [Álvaro Rubén Hurtado Maldonado](https://www.linkedin.com/in/alvarohurtadobo/), [@alvarohurtadobo](https://github.com/alvarohurtadobo)
+- [Victor Bague](https://www.linkedin.com/in/victorbague/), [@VictorBagueUAX](https://github.com/VictorBagueUAX)
+- [Manuel Jesús Rojas Villanueva](https://www.linkedin.com/in/manuelrojasvillanueva/), [@texaco](https://github.com/texaco)
+- [Leonardo J. Caballero G.](https://www.linkedin.com/in/leonardojcaballerog/), [@macagua](https://github.com/macagua)
 
 ---
 
 ## 📄 Licencia
 
-Ver archivo [LICENSE](./LICENSE.md)
+Este proyecto está bajo la licencia [MIT](./LICENSE.md).
 
 ---
 

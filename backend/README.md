@@ -91,6 +91,8 @@ curl http://localhost:3001/api/wallet-info
 - [next-swagger-doc](https://www.npmjs.com/package/next-swagger-doc) - Generación automática de OpenAPI spec
 - [TypeScript](https://www.typescriptlang.org/) - Type-safe development
 
+---
+
 ## 📋 Prerequisites
 
 - Node.js v18 or higher
@@ -196,6 +198,8 @@ http://localhost:3001/api-doc
 ```
 
 Esta interfaz Swagger permite probar todos los endpoints directamente desde el navegador.
+
+---
 
 ## 📂 Project Structure
 
@@ -1228,3 +1232,21 @@ setInterval(checkWalletBalance, 60 * 60 * 1000)
 ---
 
 **Nota:** Este proyecto está diseñado para demostración y educación. Para uso en producción, implementa las medidas de seguridad mencionadas, añade pruebas exhaustivas y considera usar una base de datos en lugar de archivos JSON.
+
+---
+
+## 👥 Equipo Cayapa Solar
+
+Proyecto desarrollado para **Hackathon 2025 - M Merge**
+
+- [Alejandro Sanchez](https://www.linkedin.com/in/alejandrocarracedo/)
+- [Álvaro Rubén Hurtado Maldonado](https://www.linkedin.com/in/alvarohurtadobo/), [@alvarohurtadobo](https://github.com/alvarohurtadobo)
+- [Victor Bague](https://www.linkedin.com/in/victorbague/), [@VictorBagueUAX](https://github.com/VictorBagueUAX)
+- [Manuel Jesús Rojas Villanueva](https://www.linkedin.com/in/manuelrojasvillanueva/), [@texaco](https://github.com/texaco)
+- [Leonardo J. Caballero G.](https://www.linkedin.com/in/leonardojcaballerog/), [@macagua](https://github.com/macagua)
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia [MIT](./LICENSE.md).

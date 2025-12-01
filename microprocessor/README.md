@@ -11,6 +11,8 @@ El firmware `cayapa.ino` permite al ESP32:
 - Indicar rangos de energía mediante LEDs
 - Enviar datos al servidor backend vía WiFi cada 5 segundos
 
+---
+
 ## 🔧 Hardware Requerido
 
 - **Microcontrolador**: ESP32 DevKit
@@ -32,6 +34,8 @@ El firmware `cayapa.ino` permite al ESP32:
 | LCD VCC | 5V o 3.3V | Alimentación |
 | LCD GND | GND | Tierra |
 
+---
+
 ## 📦 Librerías Necesarias
 
 Instala las siguientes librerías desde el Administrador de Librerías de Arduino IDE:
@@ -42,6 +46,8 @@ Instala las siguientes librerías desde el Administrador de Librerías de Arduin
 - LiquidCrystal_I2C (by Frank de Brabander)
 - ArduinoJson (by Benoit Blanchon) - versión 6.x
 ```
+
+---
 
 ## ⚙️ Configuración
 
@@ -78,6 +84,8 @@ LiquidCrystal_I2C lcd(0x3F, 16, 2);  // Cambia 0x27 por 0x3F si es necesario
 **Detectar dirección I2C:**
 Usa el sketch `I2C Scanner` disponible en: Archivo > Ejemplos > Wire > i2c_scanner
 
+---
+
 ## 🚀 Instalación y Uso
 
 ### 1. Preparar Arduino IDE
@@ -111,6 +119,8 @@ Abre el Monitor Serial (Ctrl+Shift+M) a 115200 baudios para ver:
 - Lecturas del sensor
 - Respuestas del servidor
 - Mensajes de error
+
+---
 
 ## 📊 Funcionamiento
 
@@ -155,6 +165,8 @@ El ESP32 envía datos JSON al servidor cada 5 segundos:
 **Endpoint**: `POST /api/store-json`  
 **Content-Type**: `application/json`
 
+---
+
 ## 🐛 Solución de Problemas
 
 ### WiFi no conecta
@@ -193,6 +205,8 @@ Error en POST: -1 - Error de conexión
 - Asegura buenas conexiones sin cables largos
 - Calibra el sensor según especificaciones del fabricante
 
+---
+
 ## 📡 Integración con Backend
 
 Este firmware se integra con el backend Next.js del proyecto:
@@ -201,6 +215,8 @@ Este firmware se integra con el backend Next.js del proyecto:
 - **Formato de datos**: JSON con device_id, energy, timestamp
 - **Almacenamiento**: Los datos se guardan en `backend/solar-data.json`
 - **Lectura**: Frontend consume datos desde `/api/read`
+
+---
 
 ## 🔄 Flujo de Datos
 
@@ -224,6 +240,8 @@ Sensor → ADC ESP32 → Procesamiento → LCD/LEDs
 - **Timeout HTTP**: Configurado por defecto en HTTPClient
 - **Reconexión WiFi**: Automática si se pierde la conexión
 
+---
+
 ## 🔐 Seguridad
 
 **⚠️ IMPORTANTE**: Este código es para desarrollo/prototipo. Para producción:
@@ -234,9 +252,13 @@ Sensor → ADC ESP32 → Procesamiento → LCD/LEDs
 - Implementa rate limiting en el backend
 - Considera usar MQTT para comunicación más eficiente
 
+---
+
 ## 📄 Licencia
 
 Este código es parte del proyecto Cayapa Solar. Consulta el archivo LICENSE en la raíz del proyecto.
+
+---
 
 ## 🤝 Contribuciones
 
@@ -252,3 +274,21 @@ Para reportar bugs o sugerir mejoras al firmware:
 - [Arduino-ESP32 GitHub](https://github.com/espressif/arduino-esp32)
 - [LiquidCrystal_I2C Library](https://github.com/johnrickman/LiquidCrystal_I2C)
 - [ArduinoJson Documentation](https://arduinojson.org/)
+
+---
+
+## 👥 Equipo Cayapa Solar
+
+Proyecto desarrollado para **Hackathon 2025 - M Merge**
+
+- [Alejandro Sanchez](https://www.linkedin.com/in/alejandrocarracedo/)
+- [Álvaro Rubén Hurtado Maldonado](https://www.linkedin.com/in/alvarohurtadobo/), [@alvarohurtadobo](https://github.com/alvarohurtadobo)
+- [Victor Bague](https://www.linkedin.com/in/victorbague/), [@VictorBagueUAX](https://github.com/VictorBagueUAX)
+- [Manuel Jesús Rojas Villanueva](https://www.linkedin.com/in/manuelrojasvillanueva/), [@texaco](https://github.com/texaco)
+- [Leonardo J. Caballero G.](https://www.linkedin.com/in/leonardojcaballerog/), [@macagua](https://github.com/macagua)
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia [MIT](./LICENSE.md).
