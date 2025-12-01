@@ -1,7 +1,7 @@
 import type { DashboardStats } from '../types'
 import Breadcrumb from '@components/Breadcrumb'
 import StatsCard from '@components/StatsCard'
-import { ROUTES } from '@utils/constants'
+import { ROUTES, THEME_COLORS } from '@utils/constants'
 import { useWindowSize } from '@hooks/useResponsive'
 import { useEffect, useRef } from 'react'
 import Chart from 'chart.js/auto'
@@ -79,13 +79,13 @@ export default function Dashboard() {
           {
             label: 'Energía Generada (kWh)',
             data: energyData,
-            borderColor: '#ffc107',
+            borderColor: THEME_COLORS.WARNING,
             backgroundColor: 'rgba(255, 193, 7, 0.1)',
             borderWidth: 3,
             fill: true,
             tension: 0.4,
             pointRadius: 5,
-            pointBackgroundColor: '#ffc107',
+            pointBackgroundColor: THEME_COLORS.WARNING,
             pointBorderColor: '#fff',
             pointBorderWidth: 2,
             pointHoverRadius: 7,
