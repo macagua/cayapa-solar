@@ -18,6 +18,23 @@ export function formatDate(date: Date | string, format = 'dd/MM/yyyy'): string {
     .replace('yy', String(year).slice(-2))
 }
 
+export function formatDateTime(timestamp: number | string, includeTime = false): string {
+  const date = new Date(typeof timestamp === 'string' ? parseInt(timestamp) : timestamp)
+
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }
+
+  if (includeTime) {
+    options.hour = '2-digit'
+    options.minute = '2-digit'
+  }
+
+  return date.toLocaleString('es-ES', options)
+}
+
 export function formatCurrency(amount: number, currency = 'USD'): string {
   return new Intl.NumberFormat('es-ES', {
     style: 'currency',
