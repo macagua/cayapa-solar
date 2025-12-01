@@ -604,7 +604,7 @@ Barra de navegación superior con botones responsive.
 ```tsx
 {!isMobile && (
   <li className="nav-item dropdown">
-    <img src="/src/assets/img/energy.png" />
+    <img src="/src/assets/img/madrd.png" />
     <div className="dropdown-menu">
       <a>Perfil</a>
       <a>Configuración</a>
