@@ -1,6 +1,6 @@
 import type { ClassValue } from 'clsx'
 import clsx from 'clsx'
-import { DATE_FORMAT } from './constants'
+import { DATE_FORMAT, DATETIME_FORMAT } from './constants'
 
 export function cn(...inputs: ClassValue[]) {
   return clsx(inputs)
@@ -19,21 +19,22 @@ export function formatDate(date: Date | string, format = DATE_FORMAT): string {
     .replace('yy', String(year).slice(-2))
 }
 
-export function formatDateTime(timestamp: number | string, includeTime = false): string {
+export function formatDateTime(timestamp: number | string, format = DATETIME_FORMAT): string {
   const date = new Date(typeof timestamp === 'string' ? parseInt(timestamp) : timestamp)
 
-  const options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }
+  const day = String(date.getDate()).padStart(2, '0')
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const year = date.getFullYear()
+  const hours = String(date.getHours()).padStart(2, '0')
+  const minutes = String(date.getMinutes()).padStart(2, '0')
 
-  if (includeTime) {
-    options.hour = '2-digit'
-    options.minute = '2-digit'
-  }
-
-  return date.toLocaleString('es-ES', options)
+  return format
+    .replace('dd', day)
+    .replace('MM', month)
+    .replace('yyyy', String(year))
+    .replace('yy', String(year).slice(-2))
+    .replace('HH', hours)
+    .replace('mm', minutes)
 }
 
 export function formatCurrency(amount: number, currency = 'USD'): string {
