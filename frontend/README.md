@@ -1,4 +1,4 @@
-# Cayapa Solar - Panel de Administración
+# Madrid Solar - Panel de Administración
 
 Panel de administración moderno construido con React, TypeScript, Vite y AdminLTE siguiendo las mejores prácticas de desarrollo frontend 2025.
 
@@ -133,7 +133,7 @@ frontend/
 
 - Node.js >= 18.0.0
 - npm >= 9.0.0
-- **Backend de Cayapa Solar** ejecutándose en `http://localhost:3001`
+- **Backend de Madrid Solar** ejecutándose en `http://localhost:3001`
 
 ### Pasos
 
@@ -150,7 +150,7 @@ Crea un archivo `.env` en la raíz del proyecto:
 
 ```env
 VITE_API_BASE_URL=http://localhost:3001/api
-VITE_APP_TITLE=Cayapa Solar Admin
+VITE_APP_TITLE=Madrid Solar Admin
 VITE_BACKEND_URL=http://localhost:3001
 ```
 

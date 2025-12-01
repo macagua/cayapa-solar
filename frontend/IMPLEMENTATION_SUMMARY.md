@@ -102,7 +102,7 @@ const formatDate = (timestamp: number | string): string => {
 
 ```env
 VITE_API_BASE_URL=http://localhost:3001/api
-VITE_APP_TITLE=Cayapa Solar Admin
+VITE_APP_TITLE=Madrid Solar Admin
 VITE_BACKEND_URL=http://localhost:3001
 ```
 

@@ -1,4 +1,4 @@
-# Contributing to Cayapa Solar Admin Panel
+# Contributing to Madrid Solar Admin Panel
 
 ¡Gracias por tu interés en contribuir! Este documento proporciona pautas para contribuir al proyecto.
 
@@ -125,4 +125,4 @@ Al contribuir, aceptas que tus contribuciones serán licenciadas bajo la misma l
 
 ## 🙏 Agradecimientos
 
-¡Gracias por contribuir a Cayapa Solar!
+¡Gracias por contribuir a Madrid Solar!
