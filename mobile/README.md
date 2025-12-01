@@ -11,6 +11,16 @@ Aplicación móvil multiplataforma construida con Flutter para la gamificación 
 - 🌐 **Integración API REST** - Conexión con backend Next.js
 - 🎮 **Gamificación** - Sistema de recompensas y bonificaciones
 
+---
+
+## 🎨 Capturas de Pantalla
+
+### Mobile
+
+-  Apple - Mobile
+
+![Apple - Mobile](../docs/madrisd_solaer_apple_mobile.jpg "Apple - Mobile")
+
 ## 📁 Estructura del Proyecto
 
 ```

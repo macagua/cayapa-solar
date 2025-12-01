@@ -13,6 +13,16 @@ El firmware `cayapa.ino` permite al ESP32:
 
 ---
 
+## 🎨 Capturas de Pantalla
+
+### IoT
+
+- Iot Microprocessor
+
+![Iot - Microprocessor](../docs/madrisd_solaer_iot.jpg "Iot - Microprocessor")
+
+---
+
 ## 🔧 Hardware Requerido
 
 - **Microcontrolador**: ESP32 DevKit

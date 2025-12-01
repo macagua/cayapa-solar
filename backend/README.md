@@ -2,11 +2,23 @@
 
 Backend API para el sistema de monitoreo de energía solar con tecnología BSV Blockchain.
 
+## 🎨 Capturas de Pantalla
+
+### API - Backend
+
+- API Docs
+
+![Dashboard - API Docs - Backend](../docs/madrisd_solaer_backend.png "Dashboard - API Docs - Backend")
+
+---
+
 ## 🌐 Documentación de la API
 
 Al iniciar el servidor, accede a:
 - **Raíz**: `http://localhost:3001/` - Redirecciona automáticamente a la documentación
 - **Documentación Swagger**: `http://localhost:3001/api-doc` - Interfaz interactiva de la API
+
+---
 
 ## 📡 Endpoints Principales
 
@@ -64,6 +76,8 @@ Obtiene la clave pública de identidad de la wallet del backend.
 curl http://localhost:3001/api/wallet-info
 ```
 
+---
+
 ## ✨ Features
 
 - 🌞 **Monitoreo Solar** - Almacenamiento de datos de energía solar en tiempo real
@@ -72,6 +86,8 @@ curl http://localhost:3001/api/wallet-info
 - 🔐 **OP_RETURN** - Almacenamiento eficiente de datos en transacciones BSV
 - ⚡ **API REST** - Endpoints documentados con Swagger/OpenAPI
 - 📊 **Real-time Data** - Acceso instantáneo a métricas de energía
+
+---
 
 ## 🏗️ Architecture
 
@@ -239,6 +255,8 @@ backend/
 | `GET` | `/api/wallet-info` | Info de wallet BSV | Diagnóstico de sistema |
 | `GET` | `/api/sensor-status` | Estado y beneficios del sensor | Datos de usuario y tokens |
 | `GET` | `/api-doc` | Documentación Swagger | Interfaz interactiva API |
+
+---
 
 ## 📦 Código Fuente Detallado
 

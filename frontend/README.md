@@ -18,6 +18,32 @@ Panel de administración moderno construido con React, TypeScript, Vite y AdminL
 
 ---
 
+## 🎨 Capturas de Pantalla
+
+### Dashboard
+
+- Vista principal con estadísticas
+
+![Dashboard - Vista principal con estadísticas](../docs/madrisd_solaer_frontend.png "Dashboard - Vista principal con estadísticas")
+
+### Total Placas
+
+- Mapa interactivo con marcadores
+- Tabla de datos de energía
+- Panel de información de placa seleccionada
+
+![Dashboard - Placas](../docs/madrisd_solaer_frontend_placas.png "Dashboard - Placas")
+
+---
+
+### Login
+
+- Formulario de autenticación
+
+![Dashboard - Formulario de autenticación](../docs/madrisd_solaer_frontend_login.png "Dashboard - Formulario de autenticación")
+
+---
+
 ## 📁 Estructura del Proyecto
 
 ```
