@@ -4,11 +4,9 @@ Backend API para el sistema de monitoreo de energía solar con tecnología BSV B
 
 ## 🎨 Capturas de Pantalla
 
-### API - Backend
+### Backend API Docs
 
-- API Docs
-
-![Dashboard - API Docs - Backend](../docs/madrisd_solaer_backend.png "Dashboard - API Docs - Backend")
+<img src="../docs/madrid_solar_backend.png" alt="Backend - API Docs" width="800" height="548">
 
 ---
 

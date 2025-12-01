@@ -15,11 +15,9 @@ Aplicación móvil multiplataforma construida con Flutter para la gamificación 
 
 ## 🎨 Capturas de Pantalla
 
-### Mobile
+### Mobile - iPhone
 
--  Apple - Mobile
-
-![Apple - Mobile](../docs/madrisd_solaer_apple_mobile.jpg "Apple - Mobile")
+<img src="../docs/madrid_solar_mobile_iphone.jpg" alt="Mobile - iPhone" width="400" height="783">
 
 ## 📁 Estructura del Proyecto
 

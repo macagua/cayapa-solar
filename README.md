@@ -1,6 +1,16 @@
-# 🌞 Cayapa Solar - Hackathon 2025
+# 🌞 Cayapa Solar - MMERGE Web3 Hackathon 2025
 
-Sistema de gestión y monitoreo de paneles solares con integración blockchain BSV. Panel administrativo para visualizar producción de energía, gestión de inversiones y registro de transacciones en blockchain.
+Sistema de gestión y monitoreo de paneles solares con integración blockchain BSV.
+
+## Características
+
+- Dispositivo IoT que reporta directamente en la blockchain BSV.
+
+- Backend con API para interoperar los componentes de software.
+
+- Panel administrativo para visualizar producción de energía, gestión de inversiones y registro de transacciones en blockchain.
+
+- Aplicacion movil para el usuario final.
 
 ---
 
@@ -14,6 +24,58 @@ cayapa-solar/
 ├── mobile/           # Código mobile para iPhone
 └── start-dev.sh      # Script de inicio rápido (Linux/Mac)
 ```
+
+---
+
+## 🎨 Capturas de Pantalla
+
+### Iot Microprocessor
+
+<img src="docs/madrid_solar_iot.jpg" alt="Iot - Microprocessor" width="500" height="667">
+
+---
+
+### Backend API Docs
+
+<img src="docs/madrid_solar_backend.png" alt="Backend - API Docs" width="800" height="548">
+
+---
+
+### Frontend
+
+#### Formulario de autenticación - Login
+
+<img src="docs/madrid_solar_frontend_login.png" alt="Frontend - Formulario de autenticación" width="539" height="354">
+
+---
+
+#### Vista principal con estadísticas
+
+<img src="docs/madrid_solar_frontend_dashboard.png" alt="Frontend - Vista principal con estadísticas" width="800" height="487">
+
+---
+
+#### Placas - Mapa interactivo con marcadores
+
+<img src="docs/madrid_solar_frontend_placas_listado.png" alt="Frontend - Listdo de Placas - Mapa interactivo con marcadores" width="800" height="560">
+
+---
+
+#### Placas - Panel de información de placa seleccionada
+
+<img src="docs/madrid_solar_frontend_placas.png" alt="Frontend - Listdo de Placas - Panel de información de placa seleccionada" width="800" height="255">
+
+---
+
+#### Placas - Tabla de datos de energía
+
+<img src="docs/madrid_solar_frontend_placas_historial.png" alt="Frontend - Listdo de Placas - Tabla de datos de energía" width="800" height="609">
+
+---
+
+### Mobile - iPhone
+
+<img src="docs/madrid_solar_mobile_iphone.jpg" alt="Mobile - iPhone" width="400" height="783">
 
 ---
 
@@ -176,56 +238,6 @@ interface SolarPanel {
 
 ---
 
-## 🎨 Capturas de Pantalla
-
-### IoT
-
-- Iot Microprocessor
-
-![Iot - Microprocessor](docs/madrisd_solaer_iot.jpg "Iot - Microprocessor")
-
----
-
-### API - Backend
-
-- API Docs
-
-![Dashboard - API Docs - Backend](docs/madrisd_solaer_backend.png "Dashboard - API Docs - Backend")
-
----
-
-### Dashboard
-
-- Vista principal con estadísticas
-
-![Dashboard - Vista principal con estadísticas](docs/madrisd_solaer_frontend.png "Dashboard - Vista principal con estadísticas")
-
-### Total Placas
-
-- Mapa interactivo con marcadores
-- Tabla de datos de energía
-- Panel de información de placa seleccionada
-
-![Dashboard - Placas](docs/madrisd_solaer_frontend_placas.png "Dashboard - Placas")
-
----
-
-### Login
-
-- Formulario de autenticación
-
-![Dashboard - Formulario de autenticación](docs/madrisd_solaer_frontend_login.png "Dashboard - Formulario de autenticación")
-
----
-
-### Mobile
-
--  Apple - Mobile
-
-![Apple - Mobile](docs/madrisd_solaer_apple_mobile.jpg "Apple - Mobile")
-
----
-
 ## 🧪 Testing
 
 ### Prueba Manual Completa
@@ -361,13 +373,15 @@ WALLET_PRIVATE_KEY=your_key_here
 
 ## 👥 Equipo Cayapa Solar
 
-Proyecto desarrollado para **Hackathon 2025 - M Merge**
+Proyecto desarrollado para **[MMERGE Web3 Hackathon 2025](https://www.linkedin.com/company/mmerge)**:
 
 - [Alejandro Sanchez](https://www.linkedin.com/in/alejandrocarracedo/)
 - [Álvaro Rubén Hurtado Maldonado](https://www.linkedin.com/in/alvarohurtadobo/), [@alvarohurtadobo](https://github.com/alvarohurtadobo)
 - [Victor Bague](https://www.linkedin.com/in/victorbague/), [@VictorBagueUAX](https://github.com/VictorBagueUAX)
 - [Manuel Jesús Rojas Villanueva](https://www.linkedin.com/in/manuelrojasvillanueva/), [@texaco](https://github.com/texaco)
 - [Leonardo J. Caballero G.](https://www.linkedin.com/in/leonardojcaballerog/), [@macagua](https://github.com/macagua)
+
+<img src="docs/mmerge_web3_hackathon_2025.jpeg" alt="MMERGE Web3 Hackathon 2025" width="800" height="450">
 
 ---
 

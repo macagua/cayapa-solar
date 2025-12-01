@@ -22,25 +22,33 @@ Panel de administración moderno construido con React, TypeScript, Vite y AdminL
 
 ### Dashboard
 
-- Vista principal con estadísticas
+#### Formulario de autenticación - Login
 
-![Dashboard - Vista principal con estadísticas](../docs/madrisd_solaer_frontend.png "Dashboard - Vista principal con estadísticas")
-
-### Total Placas
-
-- Mapa interactivo con marcadores
-- Tabla de datos de energía
-- Panel de información de placa seleccionada
-
-![Dashboard - Placas](../docs/madrisd_solaer_frontend_placas.png "Dashboard - Placas")
+<img src="../docs/madrid_solar_frontend_login.png" alt="Frontend - Formulario de autenticación" width="539" height="354">
 
 ---
 
-### Login
+#### Vista principal con estadísticas
 
-- Formulario de autenticación
+<img src="../docs/madrid_solar_frontend_dashboard.png" alt="Frontend - Vista principal con estadísticas" width="800" height="487">
 
-![Dashboard - Formulario de autenticación](../docs/madrisd_solaer_frontend_login.png "Dashboard - Formulario de autenticación")
+---
+
+#### Placas - Mapa interactivo con marcadores
+
+<img src="../docs/madrid_solar_frontend_placas_listado.png" alt="Frontend - Listdo de Placas - Mapa interactivo con marcadores" width="800" height="560">
+
+---
+
+#### Placas - Panel de información de placa seleccionada
+
+<img src="../docs/madrid_solar_frontend_placas.png" alt="Frontend - Listdo de Placas - Panel de información de placa seleccionada" width="800" height="255">
+
+---
+
+#### Placas - Tabla de datos de energía
+
+<img src="../docs/madrid_solar_frontend_placas_historial.png" alt="Frontend - Listdo de Placas - Tabla de datos de energía" width="800" height="609">
 
 ---
 
