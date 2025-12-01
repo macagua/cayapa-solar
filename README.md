@@ -1,4 +1,4 @@
-# 🌞 Cayapa Solar - MMERGE Web3 Hackathon 2025
+# Madrid Solar 🌞 - MMERGE Web3 Hackathon 2025
 
 Sistema de gestión y monitoreo de paneles solares con integración blockchain BSV.
 
@@ -371,7 +371,7 @@ WALLET_PRIVATE_KEY=your_key_here
 
 ---
 
-## 👥 Equipo Cayapa Solar
+## 👥 Equipo Cayapa
 
 Proyecto desarrollado para **[MMERGE Web3 Hackathon 2025](https://www.linkedin.com/company/mmerge)**:
 

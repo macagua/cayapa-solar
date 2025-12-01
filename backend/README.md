@@ -1,4 +1,4 @@
-# Cayapa Solar API - Backend
+# Madrid Solar - API Rest
 
 Backend API para el sistema de monitoreo de energía solar con tecnología BSV Blockchain.
 
@@ -1251,9 +1251,9 @@ setInterval(checkWalletBalance, 60 * 60 * 1000)
 
 ---
 
-## 👥 Equipo Cayapa Solar
+## 👥 Equipo Cayapa
 
-Proyecto desarrollado para **Hackathon 2025 - M Merge**
+Proyecto desarrollado para **[MMERGE Web3 Hackathon 2025](https://www.linkedin.com/company/mmerge)**:
 
 - [Alejandro Sanchez](https://www.linkedin.com/in/alejandrocarracedo/)
 - [Álvaro Rubén Hurtado Maldonado](https://www.linkedin.com/in/alvarohurtadobo/), [@alvarohurtadobo](https://github.com/alvarohurtadobo)

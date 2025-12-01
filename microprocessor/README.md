@@ -1,4 +1,4 @@
-# Microprocessor - ESP32 Solar Panel Monitor
+# Madrid Solar - Microprocessor - ESP32 Solar Panel Monitor
 
 Este directorio contiene el firmware para el microcontrolador ESP32 que monitorea y reporta datos de energía solar del proyecto Cayapa Solar.
 
@@ -262,12 +262,6 @@ Sensor → ADC ESP32 → Procesamiento → LCD/LEDs
 
 ---
 
-## 📄 Licencia
-
-Este código es parte del proyecto Cayapa Solar. Consulta el archivo LICENSE en la raíz del proyecto.
-
----
-
 ## 🤝 Contribuciones
 
 Para reportar bugs o sugerir mejoras al firmware:
@@ -285,9 +279,9 @@ Para reportar bugs o sugerir mejoras al firmware:
 
 ---
 
-## 👥 Equipo Cayapa Solar
+## 👥 Equipo Cayapa
 
-Proyecto desarrollado para **Hackathon 2025 - M Merge**
+Proyecto desarrollado para **[MMERGE Web3 Hackathon 2025](https://www.linkedin.com/company/mmerge)**:
 
 - [Alejandro Sanchez](https://www.linkedin.com/in/alejandrocarracedo/)
 - [Álvaro Rubén Hurtado Maldonado](https://www.linkedin.com/in/alvarohurtadobo/), [@alvarohurtadobo](https://github.com/alvarohurtadobo)

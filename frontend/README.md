@@ -1480,7 +1480,7 @@ Si encuentras algún bug o tienes sugerencias, por favor abre un issue en el rep
 
 ---
 
-## 👥 Equipo Cayapa Solar
+## 👥 Equipo Cayapa
 
 Proyecto desarrollado para **Hackathon 2025 - M Merge**
 
