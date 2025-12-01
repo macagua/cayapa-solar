@@ -89,8 +89,3 @@ export default function AppRouter() {
     </BrowserRouter>
   )
 }
-
-interface AuthStore {
-  isAuthenticated: boolean;
-  // existing properties
-}

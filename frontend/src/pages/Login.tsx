@@ -22,7 +22,7 @@ export default function Login() {
         id: '1',
         name: 'Usuario Admin',
         email,
-        role: 'admin',
+        role: 'ADMIN',
       })
 
       navigate(ROUTES.HOME)

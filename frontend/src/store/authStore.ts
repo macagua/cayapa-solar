@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
-import type { User, AuthState } from '@types'
+import type { User, AuthState } from '../types'
 
 interface AuthStore extends AuthState {
   login: (user: User) => void
