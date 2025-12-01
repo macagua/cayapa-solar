@@ -78,12 +78,12 @@ export default function Header() {
               />
             </a>
             <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <a href="#" className="dropdown-item">
+              {/* <a href="#" className="dropdown-item">
                 <i className="fas fa-user mr-2"></i> Perfil
-              </a>
-              <a href="#" className="dropdown-item">
+              </a> */}
+              {/* <a href="#" className="dropdown-item">
                 <i className="fas fa-cog mr-2"></i> Configuración
-              </a>
+              </a> */}
               <div className="dropdown-divider"></div>
               <button
                 onClick={handleLogout}
