@@ -408,10 +408,10 @@ WALLET_PRIVATE_KEY=your_key_here
 Proyecto desarrollado para **Hackathon 2025 - M Merge**
 
 - [Alejandro Sanchez](https://www.linkedin.com/in/alejandrocarracedo/)
-- Álvaro Rubén Hurtado Maldonado @alvarohurtadobo
-- Victor Bague @VictorBagueUAX
-- Leonardo J. Caballero G. @macagua
-- Manolo Texaco @texaco
+- [Álvaro Rubén Hurtado Maldonado](https://www.linkedin.com/in/alvarohurtadobo/), [@alvarohurtadobo](https://github.com/alvarohurtadobo)
+- [Victor Bague](https://www.linkedin.com/in/victorbague/), [@VictorBagueUAX](https://github.com/VictorBagueUAX)
+- [Manuel Jesús Rojas Villanueva](https://www.linkedin.com/in/manuelrojasvillanueva/), [@texaco](https://github.com/texaco)
+- [Leonardo J. Caballero G.](https://www.linkedin.com/in/leonardojcaballerog/), [@macagua](https://github.com/macagua)
 
 ---
 
