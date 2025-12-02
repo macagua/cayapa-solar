@@ -38,7 +38,7 @@ Obtiene todos los registros de energía solar almacenados.
 ```
 
 #### `POST /api/store-json`
-Almacena datos de energía en la blockchain BSV.
+Almacena datos de energía en la `Blockchain` BSV.
 
 **Request:**
 ```json
@@ -79,7 +79,7 @@ curl http://localhost:3001/api/wallet-info
 ## ✨ Features
 
 - 🌞 **Monitoreo Solar** - Almacenamiento de datos de energía solar en tiempo real
-- ⛓️ **BSV Blockchain** - Datos inmutables almacenados en la blockchain
+- ⛓️ **BSV Blockchain** - Datos inmutables almacenados en la `Blockchain`
 - 📡 **IoT Integration** - Recepción de datos desde dispositivos ESP32
 - 🔐 **OP_RETURN** - Almacenamiento eficiente de datos en transacciones BSV
 - ⚡ **API REST** - Endpoints documentados con Swagger/OpenAPI
@@ -225,7 +225,7 @@ backend/
 │   ├── _app.tsx               # Next.js app wrapper
 │   └── api/
 │       ├── read.ts            # GET - Obtiene datos de energía almacenados
-│       ├── store-json.ts      # POST - Almacena datos en blockchain BSV
+│       ├── store-json.ts      # POST - Almacena datos en Blockchain BSV
 │       ├── wallet-info.ts     # GET - Información de la wallet BSV
 │       └── sensor-status.ts   # GET - Estado del sensor y beneficios
 ├── src/
@@ -249,7 +249,7 @@ backend/
 | Método | Endpoint | Descripción | Uso | Respuesta |
 |--------|----------|-------------|-----|-----------|
 | `GET` | `/api/read` | Obtiene datos de energía | Consulta de datos históricos | `EnergyDataStored[]` |
-| `POST` | `/api/store-json` | Almacena datos en blockchain | ESP32 → Backend | Éxito |
+| `POST` | `/api/store-json` | Almacena datos en `Blockchain` | ESP32 → Backend | Éxito |
 | `GET` | `/api/wallet-info` | Info de wallet BSV | Diagnóstico de sistema | Detalles de la cartera |
 | `GET` | `/api/sensor-status` | Estado y beneficios del sensor | Datos de usuario y tokens | Detalles de la placa |
 | `GET` | `/api-doc` | Documentación Swagger | Interfaz interactiva API | Documentación de la API con Swagger UI |
@@ -336,7 +336,7 @@ interface EnergyDataStored extends EnergyData {
 }
 ```
 
-**Uso:** Tipado fuerte para datos de sensores y almacenamiento blockchain.
+**Uso:** Tipado fuerte para datos de sensores y almacenamiento `Blockchain`.
 
 ---
 
@@ -445,7 +445,7 @@ Obtiene todos los registros de energía solar almacenados localmente.
 ---
 
 #### `POST /api/store-json` - Store on Blockchain
-Almacena datos de energía en la blockchain BSV usando transacciones OP_RETURN.
+Almacena datos de energía en la `Blockchain` BSV usando transacciones OP_RETURN.
 
 **Archivo:** `/pages/api/store-json.ts`
 
@@ -464,7 +464,7 @@ Almacena datos de energía en la blockchain BSV usando transacciones OP_RETURN.
 3. **Transacción BSV:**
    - Crea output con satoshis mínimos (1 sat)
    - Añade script OP_RETURN con datos
-   - Firma y transmite a blockchain
+   - Firma y transmite a `Blockchain`
    - Retorna TXID y enlace WhatsOnChain
 
 4. **Almacenamiento local:**
@@ -671,7 +671,7 @@ export function loadEnergyData(): EnergyDataStored[] {
 3. **Data Validation** - Valida formato y tipos de datos
 4. **OP_RETURN Script** - Codifica datos en script Bitcoin
 5. **BSV Transaction** - Crea, firma y transmite transacción
-6. **Blockchain Storage** - Datos inmutables en blockchain BSV
+6. **Blockchain Storage** - Datos inmutables en `Blockchain` BSV
 7. **Local Cache** - Datos se guardan en `solar-data.json` para consultas rápidas
 8. **TX Link** - Se retorna enlace a WhatsOnChain para verificación
 
@@ -765,7 +765,7 @@ XX                    // Length
 **Blockchain Immutability:**
 - Datos no pueden ser modificados después de almacenarse
 - Verificación pública vía WhatsOnChain
-- Timestamping inmutable en blockchain
+- Timestamping inmutable en `Blockchain`
 
 ## ⚙️ Configuration
 
@@ -954,7 +954,7 @@ Accede a `http://localhost:3001/api-doc` para probar los endpoints de forma inte
 
 ✅ **Cache Local:**
 - Archivo `solar-data.json` para consultas instantáneas
-- Evita queries a blockchain en cada lectura
+- Evita queries a `Blockchain` en cada lectura
 - Prepend de nuevos datos (más recientes primero)
 
 ✅ **Respuestas Inmediatas:**
@@ -1060,7 +1060,7 @@ function addToBatch(data: EnergyData) {
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/) - Guía de TypeScript
 
 ### Herramientas
-- [WhatsOnChain Explorer](https://whatsonchain.com/) - Explorador de blockchain BSV
+- [WhatsOnChain Explorer](https://whatsonchain.com/) - Explorador de `Blockchain` BSV
 - [Postman](https://www.postman.com/) - Cliente de prueba de APIs REST
 - [Insomnia](https://insomnia.rest/) - Alternativa a Postman
 
@@ -1267,9 +1267,9 @@ setInterval(checkWalletBalance, 60 * 60 * 1000)
 
 **Si datos corruptos:**
 1. Restaurar desde último backup
-2. Verificar integridad de blockchain (datos inmutables)
-3. Comparar backup vs blockchain
-4. Reconstruir solar-data.json desde blockchain
+2. Verificar integridad de `Blockchain` (datos inmutables)
+3. Comparar backup vs `Blockchain`
+4. Reconstruir solar-data.json desde `Blockchain`
 
 ---
 
@@ -1294,3 +1294,7 @@ Proyecto desarrollado para **[MMERGE Web3 Hackathon 2025](https://www.linkedin.c
 ## 📄 Licencia
 
 Este proyecto está bajo la licencia [MIT](./LICENSE.md).
+
+---
+
+**¡Desarrollemos el futuro de la energía solar con `Blockchain`! ☀️⛓️**

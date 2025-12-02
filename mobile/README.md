@@ -38,11 +38,11 @@ mobile/
 
 ## 🛠️ Instalación
 
-### Prerrequisitos
+### Requisitos previos
 
 - **Flutter SDK** >= 3.9.2
 - **Dart SDK** incluido con Flutter
-- **Backend de Cayapa Solar** ejecutándose en `http://localhost:3001`
+- **Backend de Madrid Solar** ejecutándose en `http://localhost:3001`
 
 ### Pasos de instalación
 
@@ -607,7 +607,7 @@ Widget _buildDrawer() {
 - 👤 **Perfil**: Información de usuario
 - ℹ️ **Acerca de**: Información de la app
 - 🔔 **Notificaciones**: Alertas y avisos
-- 🌐 **Web 3.0**: Integración blockchain
+- 🌐 **Web 3.0**: Integración `Blockchain`
 - 🚪 **Salir**: Cerrar sesión
 
 **Estado:** Todas las opciones cierran el drawer sin funcionalidad adicional.
@@ -757,7 +757,7 @@ flutter test
 - [ ] Deducciones fiscales
 - [ ] Cálculo de huella de carbono
 - [ ] Historial de consumo
-- [ ] Transacciones blockchain
+- [ ] Transacciones `Blockchain`
 - [ ] Navegación del drawer
 - [ ] Perfil de usuario
 - [ ] Notificaciones
@@ -943,3 +943,7 @@ Proyecto desarrollado para **[MMERGE Web3 Hackathon 2025](https://www.linkedin.c
 ## 📄 Licencia
 
 Este proyecto está bajo la licencia [MIT](./LICENSE.md).
+
+---
+
+**¡Desarrollemos el futuro de la energía solar con `Blockchain`! ☀️⛓️**

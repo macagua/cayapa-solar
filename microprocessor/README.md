@@ -296,3 +296,7 @@ Proyecto desarrollado para **[MMERGE Web3 Hackathon 2025](https://www.linkedin.c
 ## 📄 Licencia
 
 Este proyecto está bajo la licencia [MIT](./LICENSE.md).
+
+---
+
+**¡Desarrollemos el futuro de la energía solar con `Blockchain`! ☀️⛓️**

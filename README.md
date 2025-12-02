@@ -1,29 +1,28 @@
 # Madrid Solar 🌞 - MMERGE Web3 Hackathon 2025
 
-Sistema de gestión y monitoreo de paneles solares con integración blockchain BSV.
+Madrid Solar, es un MVP que ofrece una solución real para mejorar la gestión de las energías renovables mediante tecnología `Blockchain`.
 
-## Características
+En especifico, es un sistema de gestión y monitoreo de energías renovables con integración `Blockchain` BSV.
 
-- Dispositivo IoT que reporta directamente en la blockchain BSV.
+## Características funcionales
 
-- Backend con API para interoperar los componentes de software.
+- Registrar y verificar datos energéticos en una `Blockchain` basada en BSV, garantizando transparencia y trazabilidad.
 
-- Panel administrativo para visualizar producción de energía, gestión de inversiones y registro de transacciones en blockchain.
+- Integrar microprocesadores para capturar datos directamente desde los dispositivos energéticos.
 
-- Aplicacion movil para el usuario final.
+- Mecanismo de gamificación, mediante la creación de un token energético que permita medir, intercambiar o certificar la energía producida.
 
----
+- Ayuda al ayuntamiento de Madrid en la gestión de la certificación de energía producida por las empresas o ciudadanos.
 
-## 📁 Estructura del Proyecto
+## Componentes tecnológicos
 
-```
-cayapa-solar/
-├── frontend/         # Panel administrativo React + TypeScript + AdminLTE
-├── backend/          # API Next.js + BSV Blockchain integration
-├── microprocessor/   # Código Arduino para placas IoT
-├── mobile/           # Código mobile para iPhone
-└── start-dev.sh      # Script de inicio rápido (Linux/Mac)
-```
+- Integrar un microprocesador como dispositivo IoT para capturar datos directamente desde los dispositivos energéticos.
+
+- Backend con API para interoperar entre el dispositivo Iot, `Blockchain` BSV, panel administrativo y aplicación móvil.
+
+- Panel administrativo para visualizar producción de energía, gestión de inversiones y registro de transacciones en `Blockchain`.
+
+- Aplicación móvil para el usuario final.
 
 ---
 
@@ -57,25 +56,38 @@ cayapa-solar/
 
 #### Placas - Mapa interactivo con marcadores
 
-<img src="docs/madrid_solar_frontend_placas_listado.png" alt="Frontend - Listdo de Placas - Mapa interactivo con marcadores" width="800" height="560">
+<img src="docs/madrid_solar_frontend_placas_listado.png" alt="Frontend - Listado de Placas - Mapa interactivo con marcadores" width="800" height="560">
 
 ---
 
 #### Placas - Panel de información de placa seleccionada
 
-<img src="docs/madrid_solar_frontend_placas.png" alt="Frontend - Listdo de Placas - Panel de información de placa seleccionada" width="800" height="255">
+<img src="docs/madrid_solar_frontend_placas.png" alt="Frontend - Listado de Placas - Panel de información de placa seleccionada" width="800" height="255">
 
 ---
 
 #### Placas - Tabla de datos de energía
 
-<img src="docs/madrid_solar_frontend_placas_historial.png" alt="Frontend - Listdo de Placas - Tabla de datos de energía" width="800" height="609">
+<img src="docs/madrid_solar_frontend_placas_historial.png" alt="Frontend - Listado de Placas - Tabla de datos de energía" width="800" height="609">
 
 ---
 
 ### Mobile - iPhone
 
 <img src="docs/madrid_solar_mobile_iphone.jpg" alt="Mobile - iPhone" width="400" height="783">
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+cayapa-solar/
+├── frontend/         # Panel administrativo React + TypeScript + AdminLTE
+├── backend/          # API Next.js + BSV Blockchain integration
+├── microprocessor/   # Código Arduino para placas IoT
+├── mobile/           # Código mobile para iPhone
+└── start-dev.sh      # Script de inicio rápido (Linux/Mac)
+```
 
 ---
 
@@ -139,7 +151,7 @@ npm run dev
 - **SCSS** - Preprocesador CSS
 
 ### Mobile
-- **Flutter** - Código para una aplicacion movil de iPhone con Flutter.
+- **Flutter** - Código para una aplicación móvil de iPhone con Flutter.
 
 ---
 
@@ -159,7 +171,7 @@ npm run dev
 - [Arquitectura](./frontend/ARCHITECTURE.md) - Estructura del código
 
 ### Mobile
-- [README Mobile](./mobile/README.md) - aplicacion movil de iPhone con Flutter.
+- [README Mobile](./mobile/README.md) - aplicación móvil de iPhone con Flutter.
 
 ---
 
@@ -180,17 +192,19 @@ npm run dev
 3. **Test de Dashboard:**
    ```
    URL: http://localhost:3000/
+
    Verificar: 4 stat cards visibles
    ```
 
 4. **Test de Placas:**
    ```
    URL: http://localhost:3000/placas
+
    Verificar:
    - Mapa cargado con 3 marcadores
-   - Click en marcador muestra info
+   - Clic en marcador muestra info
    - Tabla carga datos del backend
-   - Filtrado por device_id funciona
+   - Filtrado por id de dispositivo
    ```
 
 5. **Test de API:**
@@ -246,7 +260,7 @@ El archivo `backend/solar-data.json` contiene:
 - 8 registros de energía
 - 3 placas diferentes (12345, 12346, 12347)
 - Timestamps de diciembre 2024
-- Enlaces a blockchain explorer
+- Enlaces a `Blockchain` explorer
 
 ---
 
@@ -316,4 +330,4 @@ Este proyecto está bajo la licencia [MIT](./LICENSE.md).
 
 ---
 
-**¡Desarrollemos el futuro de la energía solar con blockchain! ☀️⛓️**
+**¡Desarrollemos el futuro de la energía solar con `Blockchain`! ☀️⛓️**

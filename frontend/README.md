@@ -24,7 +24,7 @@ Panel de administración moderno construido con React, TypeScript, Vite y AdminL
   - Device ID
   - Energía producida (kWh)
   - Fecha y hora
-  - Enlace a transacción blockchain
+  - Enlace a transacción `Blockchain`
 
 ### 3. Autenticación
 - 🔐 Login simulado (desarrollo)
@@ -34,7 +34,7 @@ Panel de administración moderno construido con React, TypeScript, Vite y AdminL
 
 ### 4. Integración Blockchain
 - ⛓️ Registro de transacciones en BSV
-- 🔗 Enlaces directos a blockchain explorer
+- 🔗 Enlaces directos a `Blockchain` explorer
 - 📝 Almacenamiento inmutable de datos
 
 ### 🚀 Características
@@ -1535,4 +1535,4 @@ Este proyecto está bajo la licencia [MIT](./LICENSE.md).
 
 ---
 
-**Construido con ❤️ usando las mejores prácticas de desarrollo frontend 2025**
+**¡Desarrollemos el futuro de la energía solar con `Blockchain`! ☀️⛓️**
