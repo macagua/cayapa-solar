@@ -1,6 +1,80 @@
-# 🌞 Cayapa Solar - Hackathon 2025
+# Madrid Solar 🌞 - MMERGE Web3 Hackathon 2025
 
-Sistema de gestión y monitoreo de paneles solares con integración blockchain BSV. Panel administrativo para visualizar producción de energía, gestión de inversiones y registro de transacciones en blockchain.
+Madrid Solar, es un MVP que ofrece una solución real para mejorar la gestión de las energías renovables mediante tecnología `Blockchain`.
+
+En especifico, es un sistema de gestión y monitoreo de energías renovables con integración `Blockchain` BSV.
+
+## Características funcionales
+
+- Registrar y verificar datos energéticos en una `Blockchain` basada en BSV, garantizando transparencia y trazabilidad.
+
+- Integrar microprocesadores para capturar datos directamente desde los dispositivos energéticos.
+
+- Mecanismo de gamificación, mediante la creación de un token energético que permita medir, intercambiar o certificar la energía producida.
+
+- Ayuda al ayuntamiento de Madrid en la gestión de la certificación de energía producida por las empresas o ciudadanos.
+
+## Componentes tecnológicos
+
+- Integrar un microprocesador como dispositivo IoT para capturar datos directamente desde los dispositivos energéticos.
+
+- Backend con API para interoperar entre el dispositivo Iot, `Blockchain` BSV, panel administrativo y aplicación móvil.
+
+- Panel administrativo para visualizar producción de energía, gestión de inversiones y registro de transacciones en `Blockchain`.
+
+- Aplicación móvil para el usuario final.
+
+---
+
+## 🎨 Capturas de Pantalla
+
+### Iot Microprocessor
+
+<img src="docs/madrid_solar_iot.jpg" alt="Iot - Microprocessor" width="500" height="667">
+
+---
+
+### Backend API Docs
+
+<img src="docs/madrid_solar_backend.png" alt="Backend - API Docs" width="800" height="548">
+
+---
+
+### Frontend
+
+#### Formulario de autenticación - Login
+
+<img src="docs/madrid_solar_frontend_login.png" alt="Frontend - Formulario de autenticación" width="469" height="420">
+
+---
+
+#### Vista principal con estadísticas
+
+<img src="docs/madrid_solar_frontend_dashboard.png" alt="Frontend - Vista principal con estadísticas" width="800" height="487">
+
+---
+
+#### Placas - Mapa interactivo con marcadores
+
+<img src="docs/madrid_solar_frontend_placas_listado.png" alt="Frontend - Listado de Placas - Mapa interactivo con marcadores" width="800" height="560">
+
+---
+
+#### Placas - Panel de información de placa seleccionada
+
+<img src="docs/madrid_solar_frontend_placas.png" alt="Frontend - Listado de Placas - Panel de información de placa seleccionada" width="800" height="255">
+
+---
+
+#### Placas - Tabla de datos de energía
+
+<img src="docs/madrid_solar_frontend_placas_historial.png" alt="Frontend - Listado de Placas - Tabla de datos de energía" width="800" height="609">
+
+---
+
+### Mobile - iPhone
+
+<img src="docs/madrid_solar_mobile_iphone.jpg" alt="Mobile - iPhone" width="400" height="783">
 
 ---
 
@@ -11,6 +85,7 @@ cayapa-solar/
 ├── frontend/         # Panel administrativo React + TypeScript + AdminLTE
 ├── backend/          # API Next.js + BSV Blockchain integration
 ├── microprocessor/   # Código Arduino para placas IoT
+├── mobile/           # Código mobile para iPhone
 └── start-dev.sh      # Script de inicio rápido (Linux/Mac)
 ```
 
@@ -54,6 +129,15 @@ npm run dev
 
 ## 🏗️ Stack Tecnológico
 
+### IoT
+- **Arduino** - Código para microcontroladores de placas.
+
+### Backend
+- **Next.js** - Framework React full-stack.
+- **BSV Blockchain** - Bitcoin SV para transacciones.
+- **TypeScript** - Tipado en backend.
+- **JSON Storage** - Almacenamiento temporal de datos.
+
 ### Frontend
 - **React 18.3** - Biblioteca UI con hooks
 - **TypeScript 5.5** - Tipado estático
@@ -66,18 +150,18 @@ npm run dev
 - **React Leaflet 4.2** - Mapas interactivos
 - **SCSS** - Preprocesador CSS
 
-### Backend
-- **Next.js** - Framework React full-stack
-- **BSV Blockchain** - Bitcoin SV para transacciones
-- **TypeScript** - Tipado en backend
-- **JSON Storage** - Almacenamiento temporal de datos
-
-### IoT
-- **Arduino** - Código para microcontroladores de placas
+### Mobile
+- **Flutter** - Código para una aplicación móvil de iPhone con Flutter.
 
 ---
 
 ## 📖 Documentación Detallada
+
+### Microprocessor
+- [README Microprocessor](./microprocessor/README.md) - codigo de IoT.
+
+### Backend
+- [README Backend](./backend/README.md) - API y endpoints.
 
 ### Frontend
 - [README Frontend](./frontend/README.md) - Instalación y configuración
@@ -86,181 +170,8 @@ npm run dev
 - [Inicio Rápido](./frontend/QUICKSTART.md) - Guía rápida
 - [Arquitectura](./frontend/ARCHITECTURE.md) - Estructura del código
 
-### Backend
-- [README Backend](./backend/README.md) - API y endpoints
-
----
-
-## 🌟 Funcionalidades Principales
-
-### 1. Dashboard
-- 📊 Estadísticas en tiempo real
-- 📈 4 widgets principales:
-  - Total Placas Solares
-  - Energía Total Generada
-  - Inversiones Activas
-  - Usuarios Registrados
-
-### 2. Total Placas (/placas)
-- 🗺️ Mapa interactivo de Madrid con React Leaflet
-- 📍 3 placas solares con marcadores
-- 📋 Información detallada de cada placa:
-  - ID del dispositivo
-  - Ubicación
-  - Capacidad (kW)
-  - Estado (activa/inactiva)
-- 📊 **Tabla de registros de energía:**
-  - Device ID
-  - Energía producida (kWh)
-  - Fecha y hora
-  - Enlace a transacción blockchain
-
-### 3. Autenticación
-- 🔐 Login simulado (desarrollo)
-- 👤 Usuario: cualquier email válido
-- 🔑 Password: cualquier contraseña
-- 💾 Persistencia en localStorage
-
-### 4. Integración Blockchain
-- ⛓️ Registro de transacciones en BSV
-- 🔗 Enlaces directos a blockchain explorer
-- 📝 Almacenamiento inmutable de datos
-
----
-
-## 🔌 API Endpoints
-
-### Backend (http://localhost:3001)
-
-| Método | Endpoint | Descripción | Respuesta |
-|--------|----------|-------------|-----------|
-| GET | `/api/read` | Obtener registros de energía | `EnergyDataStored[]` |
-| POST | `/api/store-json` | Guardar datos JSON | Success |
-| GET | `/api/wallet-info` | Info de wallet BSV | Wallet details |
-
----
-
-## 📊 Modelos de Datos
-
-### EnergyDataStored
-```typescript
-interface EnergyDataStored {
-  device_id: string      // ID de la placa solar
-  energy: number         // Energía en kWh
-  timestamp: number      // Unix timestamp en ms
-  tx_link: string        // URL a transacción blockchain
-}
-```
-
-### SolarPanel
-```typescript
-interface SolarPanel {
-  id: string            // Device ID
-  name: string          // Nombre descriptivo
-  location: string      // Ubicación física
-  capacity: number      // Capacidad en kW
-  status: 'active' | 'inactive'
-  coordinates: [number, number]  // [lat, lng]
-}
-```
-
----
-
-## 🎨 Capturas de Pantalla
-
-### Dashboard
-
-- Vista principal con estadísticas
-
-![Dashboard - Vista principal con estadísticas](docs/madrisd_solaer_frontend.png "Dashboard - Vista principal con estadísticas")
-
-### Total Placas
-
-- Mapa interactivo con marcadores
-- Tabla de datos de energía
-- Panel de información de placa seleccionada
-
----
-
-![Dashboard - Placas](docs/madrisd_solaer_frontend_placas.png "Dashboard - Placas")
-
----
-
-### Login
-
-- Formulario de autenticación
-
-![Dashboard - Formulario de autenticación](docs/madrisd_solaer_frontend_login.png "Dashboard - Formulario de autenticación")
-
----
-
-### API - Backend
-
-- API Docs
-
-![Dashboard - API Docs - Backend](docs/madrisd_solaer_backend.png "Dashboard - API Docs - Backend")
-
----
-
-### IoT
-
-- Iot Microprocessor
-
-![Iot - Microprocessor](docs/madrisd_solaer_iot.jpg "Iot - Microprocessor")
-
----
-
-## 🛠️ Desarrollo
-
-### Estructura de Carpetas Frontend
-
-```
-frontend/src/
-├── components/        # Componentes reutilizables
-│   ├── Card.tsx
-│   ├── StatsCard.tsx
-│   ├── Breadcrumb.tsx
-│   ├── LoadingSpinner.tsx
-│   └── SolarMap.tsx
-├── pages/            # Páginas principales
-│   ├── Dashboard.tsx
-│   ├── Placas.tsx
-│   ├── Login.tsx
-│   └── NotFound.tsx
-├── layouts/          # Layouts compartidos
-│   ├── MainLayout.tsx
-│   ├── Header.tsx
-│   ├── Sidebar.tsx
-│   └── Footer.tsx
-├── router/           # Configuración de rutas
-│   └── index.tsx
-├── services/         # Servicios y API
-│   ├── api.ts
-│   └── auth.ts
-├── store/            # Estado global (Zustand)
-│   ├── authStore.ts
-│   └── uiStore.ts
-├── types/            # Definiciones TypeScript
-│   └── index.ts
-├── utils/            # Utilidades
-│   └── helpers.ts
-└── styles/           # Estilos SCSS
-    └── main.scss
-```
-
-### Path Aliases Configurados
-
-```typescript
-@components -> src/components
-@pages      -> src/pages
-@layouts    -> src/layouts
-@hooks      -> src/hooks
-@services   -> src/services
-@store      -> src/store
-@types      -> src/types
-@utils      -> src/utils
-@assets     -> src/assets
-```
+### Mobile
+- [README Mobile](./mobile/README.md) - aplicación móvil de iPhone con Flutter.
 
 ---
 
@@ -281,17 +192,19 @@ frontend/src/
 3. **Test de Dashboard:**
    ```
    URL: http://localhost:3000/
+
    Verificar: 4 stat cards visibles
    ```
 
 4. **Test de Placas:**
    ```
    URL: http://localhost:3000/placas
+
    Verificar:
    - Mapa cargado con 3 marcadores
-   - Click en marcador muestra info
+   - Clic en marcador muestra info
    - Tabla carga datos del backend
-   - Filtrado por device_id funciona
+   - Filtrado por id de dispositivo
    ```
 
 5. **Test de API:**
@@ -347,7 +260,7 @@ El archivo `backend/solar-data.json` contiene:
 - 8 registros de energía
 - 3 placas diferentes (12345, 12346, 12347)
 - Timestamps de diciembre 2024
-- Enlaces a blockchain explorer
+- Enlaces a `Blockchain` explorer
 
 ---
 
@@ -385,34 +298,36 @@ WALLET_PRIVATE_KEY=your_key_here
 
 ---
 
-## 👥 Equipo
+## 🔗 Enlaces Útiles
 
-Proyecto desarrollado para **Hackathon 2025 - M Merge**
+- [BSV Blockchain](https://bitcoinsv.com)
+- [ESP32-DevKitC](https://www.espressif.com/en/products/devkits/esp32-devkitc)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [AdminLTE Documentation](https://adminlte.io/docs)
+- [React Documentation](https://react.dev)
+- [React Leaflet](https://react-leaflet.js.org)
+- [Flutter Documentation](https://docs.flutter.dev/)
+
+---
+
+## 👥 Equipo Cayapa
+
+Proyecto desarrollado para **[MMERGE Web3 Hackathon 2025](https://www.linkedin.com/company/mmerge)**:
+
+- [Alejandro Sanchez](https://www.linkedin.com/in/alejandrocarracedo/)
+- [Álvaro Rubén Hurtado Maldonado](https://www.linkedin.com/in/alvarohurtadobo/), [@alvarohurtadobo](https://github.com/alvarohurtadobo)
+- [Victor Bague](https://www.linkedin.com/in/victorbague/), [@VictorBagueUAX](https://github.com/VictorBagueUAX)
+- [Manuel Jesús Rojas Villanueva](https://www.linkedin.com/in/manuelrojasvillanueva/), [@texaco](https://github.com/texaco)
+- [Leonardo J. Caballero G.](https://www.linkedin.com/in/leonardojcaballerog/), [@macagua](https://github.com/macagua)
+
+<img src="docs/mmerge_web3_hackathon_2025.jpeg" alt="MMERGE Web3 Hackathon 2025" width="800" height="450">
 
 ---
 
 ## 📄 Licencia
 
-Ver archivo [LICENSE](./LICENSE)
+Este proyecto está bajo la licencia [MIT](./LICENSE.md).
 
 ---
 
-## 🔗 Enlaces Útiles
-
-- [React Documentation](https://react.dev)
-- [Next.js Documentation](https://nextjs.org/docs)
-- [AdminLTE Documentation](https://adminlte.io/docs)
-- [React Leaflet](https://react-leaflet.js.org)
-- [BSV Blockchain](https://bitcoinsv.com)
-
----
-
-## 📞 Soporte
-
-Para reportar problemas o sugerencias, consulta los archivos:
-- `frontend/TESTING.md` - Guía de pruebas
-- `frontend/IMPLEMENTATION_SUMMARY.md` - Detalles técnicos
-
----
-
-**¡Desarrollemos el futuro de la energía solar con blockchain! ☀️⛓️**
+**¡Desarrollemos el futuro de la energía solar con `Blockchain`! ☀️⛓️**

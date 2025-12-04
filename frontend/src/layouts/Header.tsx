@@ -1,13 +1,19 @@
 import { useUIStore } from '@store/uiStore'
 import { useAuthStore } from '@store/authStore'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ROUTES } from '@utils/constants'
 import { useMediaQuery } from '@hooks/useResponsive'
 
 export default function Header() {
   const { toggleSidebar, darkMode, toggleDarkMode } = useUIStore()
   const { logout } = useAuthStore()
+  const navigate = useNavigate()
   const isMobile = useMediaQuery('(max-width: 767px)')
+
+  const handleLogout = () => {
+    logout()
+    navigate(ROUTES.LOGIN)
+  }
 
   return (
     <nav className="main-header navbar navbar-expand navbar-white navbar-light">
@@ -72,15 +78,15 @@ export default function Header() {
               />
             </a>
             <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <a href="#" className="dropdown-item">
+              {/* <a href="#" className="dropdown-item">
                 <i className="fas fa-user mr-2"></i> Perfil
-              </a>
-              <a href="#" className="dropdown-item">
+              </a> */}
+              {/* <a href="#" className="dropdown-item">
                 <i className="fas fa-cog mr-2"></i> Configuración
-              </a>
+              </a> */}
               <div className="dropdown-divider"></div>
               <button
-                onClick={logout}
+                onClick={handleLogout}
                 className="dropdown-item"
                 style={{ background: 'none', border: 'none', cursor: 'pointer', width: '100%', textAlign: 'left' }}
               >
@@ -95,7 +101,7 @@ export default function Header() {
           <li className="nav-item">
             <button
               className="nav-link"
-              onClick={logout}
+              onClick={handleLogout}
               aria-label="Cerrar sesión"
               style={{ background: 'none', border: 'none', cursor: 'pointer' }}
             >

@@ -14,7 +14,7 @@ export function loadEnergyData(): EnergyDataStored[] {
       return stored
 
     } catch (error) {
-      console.error('Error loading crowdfunding data:', error)
+      console.error('Error loading cayapa data:', error)
     }
   }
   return []

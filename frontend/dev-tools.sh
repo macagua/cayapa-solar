@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script de desarrollo para Cayapa Solar Admin Panel
+# Script de desarrollo para Madrid Solar Admin Panel
 # Este script proporciona comandos útiles para el desarrollo
 
 # Colores para output
@@ -30,7 +30,7 @@ print_error() {
 # Banner
 echo -e "${BLUE}"
 echo "╔═══════════════════════════════════════╗"
-echo "║   Cayapa Solar - Dev Tools            ║"
+echo "║   Madrid Solar - Dev Tools            ║"
 echo "╚═══════════════════════════════════════╝"
 echo -e "${NC}"
 

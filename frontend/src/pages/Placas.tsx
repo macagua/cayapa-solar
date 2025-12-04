@@ -4,7 +4,8 @@ import L from 'leaflet'
 import Card from '@components/Card'
 import Breadcrumb from '@components/Breadcrumb'
 import SolarMap from '@components/SolarMap'
-import { PANEL_STATUS, ROUTES } from '@utils/constants'
+import { DATETIME_FORMAT, PANEL_STATUS, ROUTES } from '@utils/constants'
+import { formatDateTime } from '@utils/helpers'
 import { useMediaQuery, useEnergyData } from '@hooks/index'
 
 // Fix para los iconos de Leaflet en React
@@ -66,16 +67,16 @@ export default function Placas() {
     record => record.device_id === selectedPanel.id
   )
 
-  const formatDate = (timestamp: number | string) => {
-    const date = new Date(typeof timestamp === 'string' ? parseInt(timestamp) : timestamp)
-    return date.toLocaleString('es-ES', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-    })
-  }
+  // const formatDate = (timestamp: number | string) => {
+  //   const date = new Date(typeof timestamp === 'string' ? parseInt(timestamp) : timestamp)
+  //   return date.toLocaleString('es-ES', {
+  //     year: 'numeric',
+  //     month: '2-digit',
+  //     day: '2-digit',
+  //     hour: '2-digit',
+  //     minute: '2-digit',
+  //   })
+  // }
 
   const getStatusBadge = (status: string) => {
     const badges = {
@@ -229,7 +230,7 @@ export default function Placas() {
                               {!isMobile && (
                                 <td>
                                   <i className="far fa-clock mr-1"></i>
-                                  {formatDate(record.timestamp)}
+                                  {formatDateTime(record.timestamp, DATETIME_FORMAT)}
                                 </td>
                               )}
                               <td>

@@ -1,10 +1,11 @@
 import type { DashboardStats } from '../types'
 import Breadcrumb from '@components/Breadcrumb'
 import StatsCard from '@components/StatsCard'
-import { ROUTES } from '@utils/constants'
+import { ROUTES, THEME_COLORS } from '@utils/constants'
 import { useWindowSize } from '@hooks/useResponsive'
 import { useEffect, useRef } from 'react'
 import Chart from 'chart.js/auto'
+import { formatCurrency } from '@utils/index'
 
 const statsData: DashboardStats[] = [
   {
@@ -18,7 +19,7 @@ const statsData: DashboardStats[] = [
   {
     id: 'active-investments',
     title: 'Inversiones Activas',
-    value: '$50,000',
+    value: formatCurrency(50000, 'EUR'),
     icon: 'fa-coins',
     color: 'success',
     trend: { value: 8, isPositive: true },
@@ -78,13 +79,13 @@ export default function Dashboard() {
           {
             label: 'Energía Generada (kWh)',
             data: energyData,
-            borderColor: '#ffc107',
+            borderColor: THEME_COLORS.WARNING,
             backgroundColor: 'rgba(255, 193, 7, 0.1)',
             borderWidth: 3,
             fill: true,
             tension: 0.4,
             pointRadius: 5,
-            pointBackgroundColor: '#ffc107',
+            pointBackgroundColor: THEME_COLORS.WARNING,
             pointBorderColor: '#fff',
             pointBorderWidth: 2,
             pointHoverRadius: 7,
@@ -203,7 +204,7 @@ export default function Dashboard() {
                         <span className="badge badge-success float-right">Nuevo</span>
                       </a>
                       <span className="product-description">
-                        Usuario: Juan Pérez - $5,000
+                        Usuario: Juan Pérez - {formatCurrency(5000, 'EUR')}
                       </span>
                     </div>
                   </li>

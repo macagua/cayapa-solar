@@ -2,7 +2,7 @@
 
 ## 🎯 Visión General
 
-Cayapa Solar Admin Panel es una aplicación web moderna construida con React, TypeScript y Vite, siguiendo las mejores prácticas de desarrollo frontend 2025.
+Madrid Solar Admin Panel es una aplicación web moderna construida con React, TypeScript y Vite, siguiendo las mejores prácticas de desarrollo frontend 2025.
 
 ## 🏗️ Estructura de Carpetas
 

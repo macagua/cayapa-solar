@@ -1,5 +1,5 @@
 services:
-  crowdfunding-workshop-prod:
+  cayapa-workshop-prod:
     build: .
     ports:
       - "3000:3000"

@@ -1,32 +1,35 @@
 // Constantes de la aplicación
 
-export const APP_NAME = 'Cayapa Solar'
+export const APP_NAME = 'Madrid Solar'
 export const APP_VERSION = '1.0.0'
 
 // API Configuration
 export const API_TIMEOUT = 10000 // 10 segundos
 
 // Paginación
-export const DEFAULT_PAGE_SIZE = 10
-export const PAGE_SIZE_OPTIONS = [10, 25, 50, 100]
+// export const DEFAULT_PAGE_SIZE = 10
+// export const PAGE_SIZE_OPTIONS = [10, 25, 50, 100]
 
 // Formatos de fecha
 export const DATE_FORMAT = 'dd/MM/yyyy'
 export const DATETIME_FORMAT = 'dd/MM/yyyy HH:mm'
-export const TIME_FORMAT = 'HH:mm'
+// export const TIME_FORMAT = 'HH:mm'
 
 // Rutas
 export const ROUTES = {
+  // Rutas activas
   HOME: '/',
   LOGIN: '/login',
-  DASHBOARD: '/dashboard',
   PLACAS: '/placas',
-  PANELS: '/panels',
-  PANELS_MAP: '/panels/map',
-  PANELS_ANALYTICS: '/panels/analytics',
-  INVESTMENTS: '/investments',
-  USERS: '/users',
-  SETTINGS: '/settings',
+
+  // Rutas futuras (roadmap Q1 2026)
+  // DASHBOARD: '/dashboard',
+  // PANELS: '/panels',
+  // PANELS_MAP: '/panels/map',
+  // PANELS_ANALYTICS: '/panels/analytics',
+  // INVESTMENTS: '/investments',
+  // USERS: '/users',
+  // SETTINGS: '/settings',
 } as const
 
 // Roles de usuario

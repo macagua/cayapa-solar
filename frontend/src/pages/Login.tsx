@@ -22,7 +22,7 @@ export default function Login() {
         id: '1',
         name: 'Usuario Admin',
         email,
-        role: 'admin',
+        role: 'ADMIN',
       })
 
       navigate(ROUTES.HOME)
@@ -80,7 +80,7 @@ export default function Login() {
               <div className="row">
                 <div className="col-8">
                   <div className="icheck-primary">
-                    <input type="checkbox" id="remember" />
+                    <input type="checkbox" id="remember" />&nbsp;
                     <label htmlFor="remember">Recordarme</label>
                   </div>
                 </div>

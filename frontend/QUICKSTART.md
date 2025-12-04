@@ -1,4 +1,4 @@
-# 🚀 Inicio Rápido - Cayapa Solar Admin Panel
+# 🚀 Inicio Rápido - Madrid Solar Admin Panel
 
 ## Instalación en 3 pasos
 

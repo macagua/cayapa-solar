@@ -1,5 +1,5 @@
 services:
-  crowdfunding-workshop-dev:
+  cayapa-workshop-dev:
     build:
       context: .
       dockerfile: Dockerfile.dev
