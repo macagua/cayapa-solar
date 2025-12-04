@@ -7,7 +7,7 @@ import { EnergyData, EnergyDataStored } from '@/src/types'
 import { setCorsHeaders } from '../../lib/cors'
 
 const DATA_FILE = join(process.cwd(), 'solar-data.json')
-const real_work = true // Si es false, evita llamadas a blockchain y genera txid fake para pruebas
+const real_work = false // Si es false, evita llamadas a blockchain y genera txid fake para pruebas
 
 let global_state : EnergyDataStored[] = []
 
@@ -220,62 +220,86 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const jsonString = JSON.stringify(normalizedData)
     const jsonBytes = Utils.toArray(jsonString, 'utf8')
 
+    // Función auxiliar para generar txid fake
+    const generateFakeTxid = (): string => {
+      const random = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+      return `fake_${random}`
+    }
+
     let txid: string
+    let blockchainSuccess = false
 
     if (real_work) {
-      // Crear un script OP_RETURN con los datos
-      const opReturnScriptHex = createOpReturnScript(jsonBytes)
+      try {
+        // Crear un script OP_RETURN con los datos
+        const opReturnScriptHex = createOpReturnScript(jsonBytes)
 
-      // Crear la transacción usando wallet.createAction
-      const result = await wallet.createAction({
-        description: `Store energy data on BSV blockchain - Device: ${normalizedData.device_id}`,
-        outputs: [
-          {
-            lockingScript: opReturnScriptHex,
-            satoshis: 1, // OP_RETURN outputs no requieren satoshis
-            outputDescription: `Energy data: ${normalizedData.device_id} - ${normalizedData.energy} kWh`
+        // Crear la transacción usando wallet.createAction
+        const result = await wallet.createAction({
+          description: `Store energy data on BSV blockchain - Device: ${normalizedData.device_id}`,
+          outputs: [
+            {
+              lockingScript: opReturnScriptHex,
+              satoshis: 1, // OP_RETURN outputs no requieren satoshis
+              outputDescription: `Energy data: ${normalizedData.device_id} - ${normalizedData.energy} kWh`
+            }
+          ],
+          options: {
+            randomizeOutputs: false,
+            acceptDelayedBroadcast: false,
           }
-        ],
-        options: {
-          randomizeOutputs: false,
-          acceptDelayedBroadcast: false,
+        })
+
+        if (!result.txid) {
+          throw new Error('Transaction creation failed: No TXID returned')
         }
-      })
 
-      if (!result.txid) {
-        throw new Error('Transaction creation failed: No TXID returned')
+        txid = result.txid
+        blockchainSuccess = true
+      } catch (error: any) {
+        // Si falla la creación de la transacción, usar txid fake pero guardar igual
+        console.error('Error creating blockchain transaction, using fake txid:', error)
+        txid = generateFakeTxid()
+        blockchainSuccess = false
       }
-
-      txid = result.txid
     } else {
       // Modo de prueba: generar txid fake sin llamar a blockchain
-      const random = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
-      txid = `fake_${random}`
+      txid = generateFakeTxid()
       console.log('Modo de prueba activado: txid fake generado sin llamar a blockchain')
     }
 
-    console.log('Energy data stored on blockchain:', {
+    console.log('Energy data stored:', {
       txid: txid,
       device_id: normalizedData.device_id,
       energy: normalizedData.energy,
       timestamp: normalizedData.timestamp,
       dataSize: jsonBytes.length,
       explorerUrl: `https://whatsonchain.com/tx/${txid}`,
-      real_work: real_work
+      real_work: real_work,
+      blockchainSuccess: blockchainSuccess
     })
 
     saveEnergyData({...normalizedData, tx_link: `https://whatsonchain.com/tx/${txid}`})
+
+    // Determinar el mensaje según el resultado
+    let message: string
+    if (!real_work) {
+      message = 'Energy data processed in test mode (no blockchain call)'
+    } else if (blockchainSuccess) {
+      message = 'Energy data successfully stored on BSV blockchain'
+    } else {
+      message = 'Energy data saved locally (blockchain transaction failed, using fake txid)'
+    }
 
     // Devolver el TXID de la transacción
     res.status(200).json({
       success: true,
       txid: txid,
-      message: real_work 
-        ? 'Energy data successfully stored on BSV blockchain'
-        : 'Energy data processed in test mode (no blockchain call)',
+      message: message,
       data: normalizedData,
       dataSize: jsonBytes.length,
-      explorerUrl: `https://whatsonchain.com/tx/${txid}`
+      explorerUrl: `https://whatsonchain.com/tx/${txid}`,
+      blockchainSuccess: blockchainSuccess
     })
   } catch (error: any) {
     console.error('Store JSON error:', error)

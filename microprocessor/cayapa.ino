@@ -4,8 +4,8 @@
 #include <ArduinoJson.h>
 
 // Configuración WiFi
-const char* ssid = "Alvaronet";  // Cambia por tu SSID
-const char* password = "canutomagico";  // Cambia por tu contraseña
+const char* ssid = "SSID_NAME";  // Cambia por tu SSID
+const char* password = "PASSWORD";  // Cambia por tu contraseña
 
 // Configuración del servidor
 // IMPORTANTE: Reemplaza "192.168.1.XXX" con la IP real de tu servidor en la red local
