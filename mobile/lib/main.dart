@@ -39,7 +39,7 @@ class _GamificationDashboardState extends State<GamificationDashboard> {
   String? _errorMessage;
 
   // Modelo para los datos del endpoint
-  final String apiUrl = 'http://10.191.102.142:3001/api/read';
+  final String apiUrl = 'http://xx.xx.xx.xx:3001/api/read';
 
   @override
   void initState() {
@@ -167,14 +167,14 @@ class _GamificationDashboardState extends State<GamificationDashboard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Alvaro Hurtado',
+                  'Alvaro',
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'a.hurtado.bo@gmail.com',
+                  'alvaro@mail.com',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: Theme.of(context).colorScheme.onPrimaryContainer,
                       ),
@@ -428,7 +428,7 @@ class _GamificationDashboardState extends State<GamificationDashboard> {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  'Alvaro Hurtado',
+                  'Alvaro',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).colorScheme.onPrimaryContainer,

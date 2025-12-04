@@ -10,7 +10,7 @@ const char* password = "PASSWORD";  // Cambia por tu contraseña
 // Configuración del servidor
 // IMPORTANTE: Reemplaza "192.168.1.XXX" con la IP real de tu servidor en la red local
 // Puedes encontrar la IP ejecutando: ipconfig (Windows) o ifconfig (Linux/Mac)
-const char* serverURL = "http://10.191.102.142:3000/api/store-json";
+const char* serverURL = "http://xx.xx.xx.xx:3000/api/store-json";
 
 // Configuración de pines
 #define ADC_PIN 36  // ADC0 (GPIO0 en ESP32)
