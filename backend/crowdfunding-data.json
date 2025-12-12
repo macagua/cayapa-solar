@@ -1,0 +1,15 @@
+{
+  "walletIdentity": "02982ad42c2834c6ef5d24f642abc2c07851bfb564650e710d858a3b60cbfb0a93",
+  "crowdfunding": {
+    "goal": 100,
+    "raised": 2000,
+    "investors": [
+      {
+        "identityKey": "03ac6790e0d85e014991b637d52be59d8b3a0a22d7e38a56e52ddcce6bf2607c86",
+        "amount": 2000,
+        "timestamp": 1764448944830
+      }
+    ],
+    "isComplete": false
+  }
+}
